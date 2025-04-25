@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service | Execute Technologies</title>
+    <meta name="description" content="Read Execute Technologies' terms of service governing your use of our website and services. These terms outline your rights and responsibilities when using our platform.">
+    <!-- Preconnect to Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Load our fonts - Montserrat and Open Sans -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Reset and Base Styles */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        /* Color Variables - from Brand Guidelines */
+        :root {
+            --execute-green: #377A4D; /* Primary brand color */
+            --action-green: #38D252; /* Secondary accent color */
+            --deep-slate: #2D3436; /* Primary text color */
+            --cloud-white: #F7F9FA; /* Backgrounds */
+            --innovation-blue: #147EFB; /* Secondary accent */
+            --alert-amber: #FFBF00; /* Notifications */
+            --success-green: #28A745; /* Confirmations */
+            --deep-slate-85: rgba(45, 52, 54, 0.85); /* Body text */
+            --deep-slate-70: rgba(45, 52, 54, 0.7); /* Caption text */
+        }
+        
+        html {
+            font-size: 16px; /* Base font size */
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 400;
+            line-height: 1.5;
+            color: var(--deep-slate-85);
+            background-color: var(--cloud-white);
+            overflow-x: hidden;
+        }
+        
+        /* Typography - from Brand Guidelines */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--execute-green);
+            margin-bottom: 1rem;
+        }
+        
+        h1 { /* Page Titles */
+            font-size: 2rem; /* 32px */
+            line-height: 2.5rem; /* 40px */
+            font-weight: 700; /* Bold */
+        }
+        
+        h2 { /* Section Headers */
+            font-size: 1.5rem; /* 24px */
+            line-height: 2rem; /* 32px */
+            font-weight: 600; /* Semibold */
+        }
+        
+        h3 { /* Subsections */
+            font-size: 1.25rem; /* 20px */
+            line-height: 1.75rem; /* 28px */
+            font-weight: 500; /* Medium */
+            color: var(--deep-slate);
+        }
+        
+        h4 { /* Component Headers */
+            font-size: 1.125rem; /* 18px */
+            line-height: 1.625rem; /* 26px */
+            font-weight: 500; /* Medium */
+            color: var(--deep-slate);
+        }
+        
+        p { /* Body Copy */
+            font-size: 1rem; /* 16px */
+            line-height: 1.5rem; /* 24px */
+            margin-bottom: 1rem;
+        }
+        
+        small { /* Small Copy/Captions */
+            font-size: 0.875rem; /* 14px */
+            line-height: 1.25rem; /* 20px */
+            font-weight: 300; /* Light */
+            color: var(--deep-slate-70);
+        }
+        
+        a {
+            color: var(--execute-green);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        a:hover {
+            color: var(--action-green);
+        }
+        
+        /* Container */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary {
+            background-color: var(--execute-green);
+            color: var(--cloud-white);
+            border: 2px solid var(--execute-green);
+        }
+        
+        .btn-primary:hover {
+            background-color: transparent;
+            color: var(--execute-green);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--execute-green);
+            border: 2px solid var(--execute-green);
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--execute-green);
+            color: var(--cloud-white);
+        }
+        
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: var(--cloud-white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo svg {
+            height: 40px;
+            width: auto;
+        }
+        
+        .logo-placeholder {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-slash {
+            color: var(--action-green);
+            font-weight: bold;
+            font-size: 1.5rem;
+            margin-right: 0.25rem;
+        }
+        
+        .logo-text {
+            color: var(--execute-green);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.25rem;
+            letter-spacing: 1px;
+        }
+        
+        .nav-toggle {
+            display: block;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--execute-green);
+            cursor: pointer;
+        }
+        
+        @media (min-width: 768px) {
+            .nav-toggle {
+                display: none;
+            }
+        }
+        
+        nav {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background-color: var(--cloud-white);
+            padding: 1rem;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            transform: translateY(-100%);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        nav.active {
+            transform: translateY(0);
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        @media (min-width: 768px) {
+            nav {
+                position: static;
+                width: auto;
+                background-color: transparent;
+                padding: 0;
+                box-shadow: none;
+                transform: none;
+                opacity: 1;
+                visibility: visible;
+                transition: none;
+            }
+        }
+        
+        .nav-list {
+            list-style: none;
+            display: block;
+        }
+        
+        @media (min-width: 768px) {
+            .nav-list {
+                display: flex;
+                align-items: center;
+            }
+        }
+        
+        .nav-item {
+            margin-bottom: 0.5rem;
+        }
+        
+        @media (min-width: 768px) {
+            .nav-item {
+                margin-bottom: 0;
+                margin-left: 1.5rem;
+            }
+        }
+        
+        .nav-link {
+            color: var(--deep-slate);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            color: var(--execute-green);
+        }
+        
+        .nav-cta {
+            margin-top: 1rem;
+        }
+        
+        @media (min-width: 768px) {
+            .nav-cta {
+                margin-top: 0;
+                margin-left: 1.5rem;
+            }
+        }
+        
+        /* Page Header */
+        .page-header {
+            padding: 8rem 0 4rem;
+            background-color: var(--execute-green);
+            color: var(--cloud-white);
+        }
+        
+        .page-header h1, .page-header p {
+            color: var(--cloud-white);
+        }
+        
+        .page-header p {
+            max-width: 800px;
+            margin-bottom: 2rem;
+        }
+        
+        /* Terms Content */
+        .terms-content {
+            padding: 4rem 0;
+        }
+        
+        .terms-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .terms-section {
+            margin-bottom: 3rem;
+        }
+        
+        .terms-section h2 {
+            margin-bottom: 1.5rem;
+        }
+        
+        .terms-section p {
+            margin-bottom: 1.5rem;
+        }
+        
+        .terms-section ul, .terms-section ol {
+            margin-bottom: 1.5rem;
+            padding-left: 1.5rem;
+        }
+        
+        .terms-section li {
+            margin-bottom: 0.75rem;
+        }
+        
+        .terms-last-updated {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #e0e0e0;
+            font-style: italic;
+            color: var(--deep-slate-70);
+        }
+        
+        /* Table of Contents */
+        .table-of-contents {
+            background-color: #f5f7f9;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .table-of-contents h3 {
+            margin-bottom: 1rem;
+        }
+        
+        .toc-list {
+            list-style: none;
+        }
+        
+        .toc-list li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .toc-link {
+            color: var(--deep-slate);
+            transition: color 0.3s ease;
+        }
+        
+        .toc-link:hover {
+            color: var(--execute-green);
+        }
+        
+        /* Contact Section */
+        .contact-section {
+            background-color: #f5f7f9;
+            padding: 3rem 0;
+            margin-top: 3rem;
+        }
+        
+        .contact-info {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--deep-slate);
+            color: var(--cloud-white);
+            padding: 4rem 0 2rem;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        @media (min-width: 768px) {
+            .footer-grid {
+                grid-template-columns: 2fr 1fr 1fr 1fr;
+            }
+        }
+        
+        .footer-logo {
+            color: var(--cloud-white);
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+        
+        .footer-about {
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-heading {
+            color: var(--cloud-white);
+            margin-bottom: 1.5rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 1.125rem;
+            position: relative;
+        }
+        
+        .footer-heading::after {
+            content: "";
+            position: absolute;
+            bottom: -0.5rem;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--action-green);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-link {
+            margin-bottom: 0.75rem;
+        }
+        
+        .footer-link a {
+            color: rgba(255, 255, 255, 0.7);
+            transition: color 0.3s ease;
+        }
+        
+        .footer-link a:hover {
+            color: var(--action-green);
+        }
+        
+        .footer-contact p {
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .footer-contact-icon {
+            margin-right: 0.75rem;
+            color: var(--action-green);
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 1.5rem;
+            text-align: center;
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        .footer-legal {
+            margin-top: 1rem;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .footer-legal a {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.875rem;
+        }
+        
+        .footer-legal a:hover {
+            color: var(--action-green);
+        }
+        
+        /* Accessibility enhancements */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+        
+        /* Focus styles for keyboard navigation */
+        a:focus, button:focus {
+            outline: 2px solid var(--action-green);
+            outline-offset: 2px;
+        }
+        
+        /* Skip link for keyboard users */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--execute-green);
+            color: white;
+            padding: 8px;
+            z-index: 100;
+            transition: top 0.3s ease;
+        }
+        
+        .skip-link:focus {
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Skip Link for Accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <!-- Header / Navigation -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <!-- Logo Placeholder -->
+                <a href="index.html" class="logo-placeholder" aria-label="Execute Technologies Home">
+                    <span class="logo-slash">/</span>
+                    <span class="logo-text">EXECUTE</span>
+                </a>
+                
+                <!-- Mobile Menu Toggle Button -->
+                <button class="nav-toggle" aria-label="Toggle navigation menu">
+                    ☰
+                </button>
+                
+                <!-- Navigation -->
+                <nav>
+                    <ul class="nav-list">
+                        <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                        <li class="nav-item"><a href="about-us.html" class="nav-link">About</a></li>
+                        <li class="nav-item"><a href="services-overview.html" class="nav-link">Services</a></li>
+                        <li class="nav-item"><a href="industry-solutions.html" class="nav-link">Solutions</a></li>
+                        <li class="nav-item"><a href="case-study.html" class="nav-link">Case Studies</a></li>
+                        <li class="nav-item"><a href="resources-blog.html" class="nav-link">Resources</a></li>
+                        <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+                        <li class="nav-cta"><a href="#" class="btn btn-primary">Get Started</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Main Content Start -->
+    <main id="main-content">
+        <!-- Page Header -->
+        <section class="page-header">
+            <div class="container">
+                <h1>Terms of Service</h1>
+                <p>Please read these terms of service carefully before using our website or services. These terms govern your use of our website and services and outline your rights and responsibilities.</p>
+            </div>
+        </section>
+        
+        <!-- Terms of Service Content -->
+        <section class="terms-content">
+            <div class="terms-container">
+                <!-- Table of Contents -->
+                <div class="table-of-contents">
+                    <h3>Contents</h3>
+                    <ul class="toc-list">
+                        <li><a href="#introduction" class="toc-link">1. Introduction</a></li>
+                        <li><a href="#definitions" class="toc-link">2. Definitions</a></li>
+                        <li><a href="#services" class="toc-link">3. Services</a></li>
+                        <li><a href="#account-registration" class="toc-link">4. Account Registration</a></li>
+                        <li><a href="#user-conduct" class="toc-link">5. User Conduct</a></li>
+                        <li><a href="#intellectual-property" class="toc-link">6. Intellectual Property</a></li>
+                        <li><a href="#confidentiality" class="toc-link">7. Confidentiality</a></li>
+                        <li><a href="#payment-terms" class="toc-link">8. Payment Terms</a></li>
+                        <li><a href="#term-and-termination" class="toc-link">9. Term and Termination</a></li>
+                        <li><a href="#warranties" class="toc-link">10. Warranties and Disclaimers</a></li>
+                        <li><a href="#limitation-of-liability" class="toc-link">11. Limitation of Liability</a></li>
+                        <li><a href="#indemnification" class="toc-link">12. Indemnification</a></li>
+                        <li><a href="#modifications" class="toc-link">13. Modifications to Terms</a></li>
+                        <li><a href="#governing-law" class="toc-link">14. Governing Law</a></li>
+                        <li><a href="#dispute-resolution" class="toc-link">15. Dispute Resolution</a></li>
+                        <li><a href="#miscellaneous" class="toc-link">16. Miscellaneous</a></li>
+                        <li><a href="#contact-us" class="toc-link">17. Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Introduction Section -->
+                <div id="introduction" class="terms-section">
+                    <h2>1. Introduction</h2>
+                    <p>Welcome to Execute Technologies. These Terms of Service ("Terms") govern your use of our website located at www.execute.co.za ("Website") and the services offered by Execute Technologies ("Services").</p>
+                    <p>By accessing our Website or using our Services, you agree to be bound by these Terms and our Privacy Policy. If you disagree with any part of these Terms, then you do not have permission to access the Website or use our Services.</p>
+                    <p>Please read these Terms carefully before accessing or using our Website or Services. If you are entering into these Terms on behalf of a company or other legal entity, you represent that you have the authority to bind such entity to these Terms.</p>
+                </div>
+                
+                <!-- Definitions Section -->
+                <div id="definitions" class="terms-section">
+                    <h2>2. Definitions</h2>
+                    <p>Throughout these Terms, the following definitions apply:</p>
+                    <ul>
+                        <li><strong>"Execute Technologies,"</strong> "we," "us," or "our" refers to Execute Technologies, a company registered in South Africa.</li>
+                        <li><strong>"Website"</strong> refers to www.execute.co.za and all related subdomains.</li>
+                        <li><strong>"Services"</strong> refers to any services provided by Execute Technologies, including but not limited to custom software development, cloud solutions, and digital transformation services.</li>
+                        <li><strong>"User,"</strong> "you," or "your" refers to any individual or entity using our Website or Services.</li>
+                        <li><strong>"Content"</strong> refers to all text, information, graphics, images, designs, software, and other materials within the Website or Services.</li>
+                        <li><strong>"Agreement"</strong> refers to the contractual relationship formed between Execute Technologies and the User through acceptance of these Terms.</li>
+                    </ul>
+                </div>
+                
+                <!-- Services Section -->
+                <div id="services" class="terms-section">
+                    <h2>3. Services</h2>
+                    <p>Execute Technologies provides digital transformation services, including custom software development, cloud solutions, and strategic consulting. Specific services may be subject to additional terms and conditions, which will be provided at the time of engagement.</p>
+                    
+                    <h3>3.1 Service Delivery</h3>
+                    <p>We will use reasonable efforts to provide the Services in accordance with the specifications agreed upon in a separate Statement of Work or Service Agreement. We reserve the right to make changes to our Services at any time to comply with applicable laws or to improve functionality.</p>
+                    
+                    <h3>3.2 Third-Party Services</h3>
+                    <p>Our Services may integrate with or depend on third-party services, applications, or platforms. We are not responsible for any issues, losses, or damages arising from these third-party services. Your use of any third-party services may be subject to separate terms and conditions provided by those third parties.</p>
+                    
+                    <h3>3.3 Service Availability</h3>
+                    <p>While we strive to provide uninterrupted Services, we do not guarantee that the Services will be available at all times or error-free. We reserve the right to temporarily suspend access to the Services for maintenance, updates, or other operational reasons.</p>
+                </div>
+                
+                <!-- Account Registration Section -->
+                <div id="account-registration" class="terms-section">
+                    <h2>4. Account Registration</h2>
+                    <p>Some of our Services may require you to create an account or provide certain information. When you register for an account or provide information, you agree to the following:</p>
+                    
+                    <h3>4.1 Accurate Information</h3>
+                    <p>You will provide accurate, current, and complete information during the registration process and keep this information updated.</p>
+                    
+                    <h3>4.2 Account Security</h3>
+                    <p>You are responsible for maintaining the confidentiality of your account credentials and for all activities that occur under your account. You agree to immediately notify us of any unauthorized use of your account or any other breach of security.</p>
+                    
+                    <h3>4.3 One Account Per User</h3>
+                    <p>Each User is limited to one account unless explicitly permitted otherwise in writing. Accounts cannot be shared, transferred, or sold to other parties.</p>
+                </div>
+                
+                <!-- User Conduct Section -->
+                <div id="user-conduct" class="terms-section">
+                    <h2>5. User Conduct</h2>
+                    <p>When using our Website or Services, you agree not to:</p>
+                    <ul>
+                        <li>Violate any applicable laws, regulations, or third-party rights</li>
+                        <li>Use the Services for any illegal or unauthorized purpose</li>
+                        <li>Attempt to gain unauthorized access to any portion of the Website or Services</li>
+                        <li>Interfere with or disrupt the integrity or performance of the Website or Services</li>
+                        <li>Attempt to reverse engineer, decompile, or disassemble any software used in the Website or Services</li>
+                        <li>Upload or transmit viruses, malware, or other malicious code</li>
+                        <li>Harass, abuse, or harm another person or entity</li>
+                        <li>Collect or store personal data about other users without their consent</li>
+                        <li>Impersonate any person or entity</li>
+                        <li>Use automated means, including bots, spiders, or scrapers, to access or use the Website or Services without our prior written permission</li>
+                    </ul>
+                    <p>We reserve the right to terminate your access to the Website or Services for any violation of these conduct requirements.</p>
+                </div>
+                
+                <!-- Intellectual Property Section -->
+                <div id="intellectual-property" class="terms-section">
+                    <h2>6. Intellectual Property</h2>
+                    
+                    <h3>6.1 Our Intellectual Property</h3>
+                    <p>The Website, Services, and all Content (including but not limited to software, designs, text, graphics, images, videos, information, logos, button icons, and the selection and arrangement thereof) are the exclusive property of Execute Technologies or our licensors and are protected by copyright, trademark, and other intellectual property laws.</p>
+                    <p>You are granted a limited, non-exclusive, non-transferable, and revocable license to access and use the Website and Services for their intended purposes in accordance with these Terms. No license or right is granted to use any trademark or other intellectual property featured on the Website without our prior written consent.</p>
+                    
+                    <h3>6.2 Your Content</h3>
+                    <p>You retain ownership of any content you provide to us in connection with the Services ("Client Content"). By providing Client Content, you grant us a worldwide, non-exclusive, royalty-free license to use, reproduce, modify, and display such Client Content solely for the purpose of providing the Services to you.</p>
+                    <p>You represent and warrant that you have all necessary rights to the Client Content and that the Client Content does not infringe the intellectual property rights or other rights of any third party.</p>
+                    
+                    <h3>6.3 Deliverables</h3>
+                    <p>Ownership of deliverables created as part of the Services will be determined by the specific terms of the applicable Statement of Work or Service Agreement. Unless otherwise specified in such agreements, Execute Technologies retains ownership of all pre-existing intellectual property and any general knowledge, skills, or methodologies developed or used in the course of providing the Services.</p>
+                </div>
+                
+                <!-- Confidentiality Section -->
+                <div id="confidentiality" class="terms-section">
+                    <h2>7. Confidentiality</h2>
+                    <p>During the provision of Services, either party may disclose confidential information to the other party. Each party agrees to:</p>
+                    <ul>
+                        <li>Maintain the confidentiality of all confidential information received from the other party</li>
+                        <li>Use such confidential information only for the purpose of performing obligations under these Terms or any specific service agreement</li>
+                        <li>Not disclose such confidential information to any third party without the prior written consent of the disclosing party</li>
+                    </ul>
+                    <p>These confidentiality obligations do not apply to information that: (a) is or becomes publicly available through no fault of the receiving party; (b) was known to the receiving party prior to disclosure; (c) is independently developed by the receiving party without use of the confidential information; or (d) is required to be disclosed by law or legal process.</p>
+                </div>
+                
+                <!-- Payment Terms Section -->
+                <div id="payment-terms" class="terms-section">
+                    <h2>8. Payment Terms</h2>
+                    
+                    <h3>8.1 Fees and Payment</h3>
+                    <p>Fees for our Services will be as set forth in a separate proposal, Statement of Work, or Service Agreement. Unless otherwise specified, all fees are quoted in South African Rand (ZAR) and are exclusive of any applicable taxes.</p>
+                    <p>Payment terms, including the method of payment and billing frequency, will be specified in the applicable agreement. You agree to pay all applicable fees on time and in accordance with the specified payment terms.</p>
+                    
+                    <h3>8.2 Late Payments</h3>
+                    <p>We reserve the right to charge interest on late payments at a rate of 1.5% per month or the maximum rate permitted by law, whichever is lower. You will be responsible for all reasonable expenses incurred by us in collecting unpaid amounts.</p>
+                    
+                    <h3>8.3 Tax Responsibility</h3>
+                    <p>You are responsible for paying all taxes associated with your use of the Services, excluding taxes based on Execute Technologies' net income.</p>
+                </div>
+                
+                <!-- Term and Termination Section -->
+                <div id="term-and-termination" class="terms-section">
+                    <h2>9. Term and Termination</h2>
+                    
+                    <h3>9.1 Term</h3>
+                    <p>These Terms shall remain in effect as long as you use the Website or Services, or as specified in any separate Service Agreement.</p>
+                    
+                    <h3>9.2 Termination by User</h3>
+                    <p>You may stop using the Website at any time. Termination of Services will be governed by the terms specified in the applicable Service Agreement.</p>
+                    
+                    <h3>9.3 Termination by Execute Technologies</h3>
+                    <p>We reserve the right to suspend or terminate your access to the Website or Services at any time, with or without cause, and with or without notice. Causes for termination may include, but are not limited to:</p>
+                    <ul>
+                        <li>Violation of these Terms</li>
+                        <li>Failure to pay for Services</li>
+                        <li>Fraudulent, abusive, or illegal activity</li>
+                        <li>Actions that may cause liability to other users or third parties</li>
+                    </ul>
+                    
+                    <h3>9.4 Effect of Termination</h3>
+                    <p>Upon termination:</p>
+                    <ul>
+                        <li>Your right to access and use the Website and Services will immediately cease</li>
+                        <li>Any outstanding payment obligations will become immediately due</li>
+                        <li>Any licenses granted to you under these Terms will terminate</li>
+                    </ul>
+                    <p>Provisions that by their nature should survive termination shall survive, including but not limited to ownership provisions, warranty disclaimers, indemnity, and limitations of liability.</p>
+                </div>
+                
+                <!-- Warranties Section -->
+                <div id="warranties" class="terms-section">
+                    <h2>10. Warranties and Disclaimers</h2>
+                    
+                    <h3>10.1 Service Warranty</h3>
+                    <p>Execute Technologies warrants that the Services will be performed in a professional and workmanlike manner in accordance with generally accepted industry standards. Your exclusive remedy for any breach of this warranty shall be the re-performance of the deficient Services.</p>
+                    
+                    <h3>10.2 Website Disclaimer</h3>
+                    <p>The Website and all Content are provided on an "as is" and "as available" basis. Execute Technologies disclaims all warranties of any kind, whether express or implied, including but not limited to the implied warranties of merchantability, fitness for a particular purpose, and non-infringement.</p>
+                    <p>We do not warrant that the Website will be uninterrupted, timely, secure, or error-free, that defects will be corrected, or that the Website or servers that make it available are free of viruses or other harmful components.</p>
+                    
+                    <h3>10.3 Information Accuracy</h3>
+                    <p>We make reasonable efforts to ensure the accuracy of information presented on our Website. However, we do not guarantee the accuracy, completeness, or usefulness of any information or Content on the Website.</p>
+                </div>
+                
+                <!-- Limitation of Liability Section -->
+                <div id="limitation-of-liability" class="terms-section">
+                    <h2>11. Limitation of Liability</h2>
+                    <p>To the fullest extent permitted by applicable law, in no event shall Execute Technologies, its directors, employees, partners, agents, suppliers, or affiliates be liable for any indirect, incidental, special, consequential, or punitive damages, including without limitation, loss of profits, data, use, goodwill, or other intangible losses, resulting from:</p>
+                    <ul>
+                        <li>Your access to or use of or inability to access or use the Website or Services</li>
+                        <li>Any conduct or content of any third party on the Website or Services</li>
+                        <li>Any content obtained from the Website or Services</li>
+                        <li>Unauthorized access, use, or alteration of your transmissions or content</li>
+                    </ul>
+                    <p>In no event shall our total liability to you for all claims related to the Website or Services exceed the amount paid by you to Execute Technologies for the Services, if any, during the twelve (12) months preceding the event giving rise to the liability.</p>
+                    <p>The limitations of liability set forth above are fundamental elements of the basis of the bargain between Execute Technologies and you.</p>
+                </div>
+                
+                <!-- Indemnification Section -->
+                <div id="indemnification" class="terms-section">
+                    <h2>12. Indemnification</h2>
+                    <p>You agree to defend, indemnify, and hold harmless Execute Technologies, its officers, directors, employees, and agents, from and against any claims, liabilities, damages, judgments, awards, losses, costs, expenses, or fees (including reasonable attorneys' fees) arising out of or relating to:</p>
+                    <ul>
+                        <li>Your violation of these Terms</li>
+                        <li>Your use of the Website or Services</li>
+                        <li>Your Client Content</li>
+                        <li>Your violation of any rights of a third party</li>
+                    </ul>
+                </div>
+                
+                <!-- Modifications Section -->
+                <div id="modifications" class="terms-section">
+                    <h2>13. Modifications to Terms</h2>
+                    <p>We reserve the right to modify or replace these Terms at any time at our sole discretion. If a revision is material, we will provide at least 30 days' notice prior to any new terms taking effect. What constitutes a material change will be determined at our sole discretion.</p>
+                    <p>By continuing to access or use our Website or Services after those revisions become effective, you agree to be bound by the revised terms. If you do not agree to the new terms, you are no longer authorized to use the Website or Services.</p>
+                </div>
+                
+                <!-- Governing Law Section -->
+                <div id="governing-law" class="terms-section">
+                    <h2>14. Governing Law</h2>
+                    <p>These Terms shall be governed by and construed in accordance with the laws of South Africa, without regard to its conflict of law provisions.</p>
+                    <p>Your use of the Website and Services may also be subject to other local, state, national, or international laws.</p>
+                </div>
+                
+                <!-- Dispute Resolution Section -->
+                <div id="dispute-resolution" class="terms-section">
+                    <h2>15. Dispute Resolution</h2>
+                    <p>Any dispute arising from or relating to the subject matter of these Terms shall be finally settled by arbitration in Limpopo, South Africa, using the English language in accordance with the Arbitration Rules and Procedures of the Arbitration Foundation of Southern Africa (AFSA) then in effect.</p>
+                    <p>The prevailing party in any action or proceeding to enforce these Terms shall be entitled to costs and attorneys' fees.</p>
+                    <p>Any cause of action related to the Website or Services must be commenced within one (1) year after the cause of action arises. Otherwise, such cause of action is permanently barred.</p>
+                </div>
+                
+                <!-- Miscellaneous Section -->
+                <div id="miscellaneous" class="terms-section">
+                    <h2>16. Miscellaneous</h2>
+                    
+                    <h3>16.1 Entire Agreement</h3>
+                    <p>These Terms, along with any other agreements related to specific Services, constitute the entire agreement between you and Execute Technologies regarding your use of the Website and Services, superseding any prior agreements between you and Execute Technologies.</p>
+                    
+                    <h3>16.2 Waiver</h3>
+                    <p>The failure of Execute Technologies to enforce any right or provision of these Terms will not be considered a waiver of those rights. If any provision of these Terms is held to be invalid or unenforceable by a court, the remaining provisions of these Terms will remain in effect.</p>
+                    
+                    <h3>16.3 Assignment</h3>
+                    <p>You may not assign or transfer these Terms, by operation of law or otherwise, without the prior written consent of Execute Technologies. Any attempt to assign or transfer these Terms without such consent will be null and void.</p>
+                    <p>Execute Technologies may freely assign or transfer these Terms without restriction. Subject to the foregoing, these Terms will bind and inure to the benefit of the parties, their successors, and permitted assigns.</p>
+                    
+                    <h3>16.4 Relationship of Parties</h3>
+                    <p>Nothing in these Terms shall be construed as creating a partnership, joint venture, agency, or employment relationship between you and Execute Technologies.</p>
+                    
+                    <h3>16.5 Force Majeure</h3>
+                    <p>Execute Technologies shall not be liable for any delay or failure to perform resulting from causes outside its reasonable control, including but not limited to acts of God, war, terrorism, riots, embargoes, acts of civil or military authorities, fire, floods, accidents, strikes, epidemics, pandemics, or shortages of transportation facilities, fuel, energy, labor, or materials.</p>
+                </div>
+                
+                <!-- Contact Us Section -->
+                <div id="contact-us" class="terms-section">
+                    <h2>17. Contact Us</h2>
+                    <p>If you have any questions about these Terms, please contact us:</p>
+                    <ul>
+                        <li>By email: execute.co@outlook.com</li>
+                        <li>By phone: +27 69 739 3750</li>
+                        <li>By mail: University Road, Turflop Mankweng, Limpopo South Africa</li>
+                    </ul>
+                </div>
+                
+                <!-- Last Updated -->
+                <div class="terms-last-updated">
+                    <p>Last Updated: April 25, 2025</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Contact Section -->
+        <section class="contact-section">
+            <div class="contact-info">
+                <h2>Questions About Our Terms?</h2>
+                <p>If you have any questions or concerns about our Terms of Service, please don't hesitate to contact our legal team. We're here to help ensure you understand your rights and responsibilities when using our website and services.</p>
+                <p><a href="contact.html" class="btn btn-primary">Contact Us</a></p>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Company Info -->
+                <div>
+                    <a href="/" class="footer-logo">
+                        <span class="logo-slash">/</span>
+                        <span class="logo-text">EXECUTE</span>
+                    </a>
+                    <p class="footer-about">Accelerating digital transformation across Africa and beyond by delivering innovative, scalable, and sustainable technology solutions.</p>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li class="footer-link"><a href="about-us.html">About Us</a></li>
+                        <li class="footer-link"><a href="services-overview.html">Services</a></li>
+                        <li class="footer-link"><a href="case-study.html">Case Studies</a></li>
+                        <li class="footer-link"><a href="resources-blog.html">Resources</a></li>
+                        <li class="footer-link"><a href="careers.html">Careers</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Services Links -->
+                <div>
+                    <h4 class="footer-heading">Our Services</h4>
+                    <ul class="footer-links">
+                        <li class="footer-link"><a href="software-development.html">Custom Software</a></li>
+                        <li class="footer-link"><a href="cloud-solutions.html">Cloud Solutions</a></li>
+                        <li class="footer-link"><a href="digital-transformation.html">Digital Transformation</a></li>
+                        <li class="footer-link"><a href="#">API Development</a></li>
+                        <li class="footer-link"><a href="#">Mobile Solutions</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact Information -->
+                <div>
+                    <h4 class="footer-heading">Contact Us</h4>
+                    <div class="footer-contact">
+                        <p>
+                            <span class="footer-contact-icon">📍</span>
+                            University Road, Turflop Mankweng, Limpopo South Africa
+                        </p>
+                        <p>
+                            <span class="footer-contact-icon">📞</span>
+                            +27 69 739 3750
+                        </p>
+                        <p>
+                            <span class="footer-contact-icon">✉️</span>
+                            execute.co@outlook.com
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Execute Technologies. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="privacy-policy.html">Privacy Policy</a>
+                    <a href="terms-of-service.html">Terms of Service</a>
+                    <a href="#">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Simple JavaScript for Mobile Menu Toggle -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navToggle = document.querySelector('.nav-toggle');
+            const nav = document.querySelector('nav');
+            
+            navToggle.addEventListener('click', function() {
+                nav.classList.toggle('active');
+                navToggle.setAttribute('aria-expanded', 
+                    nav.classList.contains('active') ? 'true' : 'false');
+            });
+        });
+    </script>
+</body>
+</html>
