@@ -1,0 +1,1129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources & Blog | Execute Technologies</title>
+    <meta name="description" content="Stay ahead of Africa's evolving technology landscape with insights from Execute Technologies experts on cloud implementation, digital transformation, and technology trends.">
+    <!-- Preconnect to Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Load our fonts - Montserrat and Open Sans -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Reset and Base Styles */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        /* Color Variables - from Brand Guidelines */
+        :root {
+            --execute-green: #377A4D; /* Primary brand color */
+            --action-green: #38D252; /* Secondary accent color */
+            --deep-slate: #2D3436; /* Primary text color */
+            --cloud-white: #F7F9FA; /* Backgrounds */
+            --innovation-blue: #147EFB; /* Secondary accent */
+            --alert-amber: #FFBF00; /* Notifications */
+            --success-green: #28A745; /* Confirmations */
+            --deep-slate-85: rgba(45, 52, 54, 0.85); /* Body text */
+            --deep-slate-70: rgba(45, 52, 54, 0.7); /* Caption text */
+        }
+        
+        html {
+            font-size: 16px; /* Base font size */
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 400;
+            line-height: 1.5;
+            color: var(--deep-slate-85);
+            background-color: var(--cloud-white);
+            overflow-x: hidden;
+        }
+        
+        /* Typography - from Brand Guidelines */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--execute-green);
+            margin-bottom: 1rem;
+        }
+        
+        h1 { /* Page Titles */
+            font-size: 2rem; /* 32px */
+            line-height: 2.5rem; /* 40px */
+            font-weight: 700; /* Bold */
+        }
+        
+        h2 { /* Section Headers */
+            font-size: 1.5rem; /* 24px */
+            line-height: 2rem; /* 32px */
+            font-weight: 600; /* Semibold */
+        }
+        
+        h3 { /* Subsections */
+            font-size: 1.25rem; /* 20px */
+            line-height: 1.75rem; /* 28px */
+            font-weight: 500; /* Medium */
+            color: var(--deep-slate);
+        }
+        
+        h4 { /* Component Headers */
+            font-size: 1.125rem; /* 18px */
+            line-height: 1.625rem; /* 26px */
+            font-weight: 500; /* Medium */
+            color: var(--deep-slate);
+        }
+        
+        p { /* Body Copy */
+            font-size: 1rem; /* 16px */
+            line-height: 1.5rem; /* 24px */
+            margin-bottom: 1rem;
+        }
+        
+        small { /* Small Copy/Captions */
+            font-size: 0.875rem; /* 14px */
+            line-height: 1.25rem; /* 20px */
+            font-weight: 300; /* Light */
+            color: var(--deep-slate-70);
+        }
+        
+        a {
+            color: var(--execute-green);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        a:hover {
+            color: var(--action-green);
+        }
+        
+        /* Container */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary {
+            background-color: var(--execute-green);
+            color: var(--cloud-white);
+            border: 2px solid var(--execute-green);
+        }
+        
+        .btn-primary:hover {
+            background-color: transparent;
+            color: var(--execute-green);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--execute-green);
+            border: 2px solid var(--execute-green);
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--execute-green);
+            color: var(--cloud-white);
+        }
+        
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: var(--cloud-white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo svg {
+            height: 40px;
+            width: auto;
+        }
+        
+        .logo-placeholder {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-slash {
+            color: var(--action-green);
+            font-weight: bold;
+            font-size: 1.5rem;
+            margin-right: 0.25rem;
+        }
+        
+        .logo-text {
+            color: var(--execute-green);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.25rem;
+            letter-spacing: 1px;
+        }
+        
+        .nav-toggle {
+            display: block;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--execute-green);
+            cursor: pointer;
+        }
+        
+        @media (min-width: 768px) {
+            .nav-toggle {
+                display: none;
+            }
+        }
+        
+        nav {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background-color: var(--cloud-white);
+            padding: 1rem;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            transform: translateY(-100%);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        nav.active {
+            transform: translateY(0);
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        @media (min-width: 768px) {
+            nav {
+                position: static;
+                width: auto;
+                background-color: transparent;
+                padding: 0;
+                box-shadow: none;
+                transform: none;
+                opacity: 1;
+                visibility: visible;
+                transition: none;
+            }
+        }
+        
+        .nav-list {
+            list-style: none;
+            display: block;
+        }
+        
+        @media (min-width: 768px) {
+            .nav-list {
+                display: flex;
+                align-items: center;
+            }
+        }
+        
+        .nav-item {
+            margin-bottom: 0.5rem;
+        }
+        
+        @media (min-width: 768px) {
+            .nav-item {
+                margin-bottom: 0;
+                margin-left: 1.5rem;
+            }
+        }
+        
+        .nav-link {
+            color: var(--deep-slate);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            color: var(--execute-green);
+        }
+        
+        .nav-cta {
+            margin-top: 1rem;
+        }
+        
+        @media (min-width: 768px) {
+            .nav-cta {
+                margin-top: 0;
+                margin-left: 1.5rem;
+            }
+        }
+        
+        /* Page Header */
+        .page-header {
+            padding: 8rem 0 4rem;
+            background-color: var(--execute-green);
+            color: var(--cloud-white);
+        }
+        
+        .page-header h1, .page-header p {
+            color: var(--cloud-white);
+        }
+        
+        .page-header p {
+            max-width: 800px;
+            margin-bottom: 2rem;
+        }
+
+        /* Resources Layout */
+        .resources-layout {
+            padding: 4rem 0;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+        
+        @media (min-width: 992px) {
+            .resources-layout {
+                grid-template-columns: 3fr 1fr;
+            }
+        }
+        
+        /* Category Navigation */
+        .category-nav {
+            margin-bottom: 2rem;
+        }
+        
+        .category-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            list-style: none;
+        }
+        
+        .category-item {
+            margin-bottom: 0.5rem;
+        }
+        
+        .category-link {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background-color: var(--cloud-white);
+            border: 1px solid var(--execute-green);
+            border-radius: 4px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 0.875rem;
+            color: var(--execute-green);
+            transition: all 0.3s ease;
+        }
+        
+        .category-link:hover, .category-link.active {
+            background-color: var(--execute-green);
+            color: var(--cloud-white);
+        }
+        
+        /* Featured Article */
+        .featured-article {
+            background-color: var(--cloud-white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+            margin-bottom: 3rem;
+        }
+        
+        .featured-image {
+            height: 300px;
+            background-color: #ddd;
+            position: relative;
+        }
+        
+        .featured-tag {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background-color: var(--execute-green);
+            color: var(--cloud-white);
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        
+        .featured-content {
+            padding: 2rem;
+        }
+        
+        .featured-title {
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+            color: var(--deep-slate);
+        }
+        
+        .featured-meta {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            font-size: 0.875rem;
+            color: var(--deep-slate-70);
+        }
+        
+        .author-image {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #eee;
+            margin-right: 1rem;
+        }
+        
+        .featured-excerpt {
+            margin-bottom: 1.5rem;
+        }
+        
+        /* Article Grid */
+        .article-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+        
+        @media (min-width: 768px) {
+            .article-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        /* Article Card */
+        .article-card {
+            background-color: var(--cloud-white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .article-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+        }
+        
+        .article-image {
+            height: 180px;
+            background-color: #ddd;
+            position: relative;
+        }
+        
+        .article-tag {
+            position: absolute;
+            top: 0.75rem;
+            left: 0.75rem;
+            background-color: var(--execute-green);
+            color: var(--cloud-white);
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        
+        .article-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .article-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+            color: var(--deep-slate);
+        }
+        
+        .article-meta {
+            font-size: 0.875rem;
+            color: var(--deep-slate-70);
+            margin-bottom: 1rem;
+        }
+        
+        .article-excerpt {
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+        
+        /* Sidebar */
+        .sidebar {
+            margin-top: 2rem;
+        }
+        
+        @media (min-width: 992px) {
+            .sidebar {
+                margin-top: 0;
+            }
+        }
+        
+        .sidebar-section {
+            background-color: var(--cloud-white);
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+            margin-bottom: 2rem;
+        }
+        
+        .sidebar-title {
+            font-size: 1.25rem;
+            margin-bottom: 1.25rem;
+            color: var(--execute-green);
+            position: relative;
+            padding-bottom: 0.75rem;
+        }
+        
+        .sidebar-title::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--action-green);
+        }
+        
+        .popular-posts {
+            list-style: none;
+        }
+        
+        .popular-post {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.25rem;
+            padding-bottom: 1.25rem;
+            border-bottom: 1px solid rgba(45, 52, 54, 0.1);
+        }
+        
+        .popular-post:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .popular-post-image {
+            width: 70px;
+            height: 70px;
+            border-radius: 4px;
+            background-color: #ddd;
+            margin-right: 1rem;
+            flex-shrink: 0;
+        }
+        
+        .popular-post-title {
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
+            font-weight: 600;
+            color: var(--deep-slate);
+        }
+        
+        .popular-post-meta {
+            font-size: 0.75rem;
+            color: var(--deep-slate-70);
+        }
+        
+        /* Subscribe Form */
+        .subscribe-form {
+            margin-top: 1.5rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--deep-slate);
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid rgba(45, 52, 54, 0.2);
+            border-radius: 4px;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1rem;
+            color: var(--deep-slate);
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--execute-green);
+        }
+        
+        /* Tags */
+        .tags-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            list-style: none;
+        }
+        
+        .tag-link {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background-color: #f0f3f5;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            color: var(--deep-slate);
+            transition: all 0.3s ease;
+        }
+        
+        .tag-link:hover {
+            background-color: var(--execute-green);
+            color: var(--cloud-white);
+        }
+        
+        /* Pagination */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 3rem;
+        }
+        
+        .pagination-list {
+            display: flex;
+            list-style: none;
+        }
+        
+        .pagination-item {
+            margin: 0 0.25rem;
+        }
+        
+        .pagination-link {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 4px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            color: var(--deep-slate);
+            background-color: var(--cloud-white);
+            transition: all 0.3s ease;
+        }
+        
+        .pagination-link:hover, .pagination-link.active {
+            background-color: var(--execute-green);
+            color: var(--cloud-white);
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            padding: 4rem 0;
+            background-color: var(--execute-green);
+            color: var(--cloud-white);
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            color: var(--cloud-white);
+        }
+        
+        .cta-section p {
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--deep-slate);
+            color: var(--cloud-white);
+            padding: 4rem 0 2rem;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        @media (min-width: 768px) {
+            .footer-grid {
+                grid-template-columns: 2fr 1fr 1fr 1fr;
+            }
+        }
+        
+        .footer-logo {
+            color: var(--cloud-white);
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+        
+        .footer-about {
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-heading {
+            color: var(--cloud-white);
+            margin-bottom: 1.5rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 1.125rem;
+            position: relative;
+        }
+        
+        .footer-heading::after {
+            content: "";
+            position: absolute;
+            bottom: -0.5rem;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--action-green);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-link {
+            margin-bottom: 0.75rem;
+        }
+        
+        .footer-link a {
+            color: rgba(255, 255, 255, 0.7);
+            transition: color 0.3s ease;
+        }
+        
+        .footer-link a:hover {
+            color: var(--action-green);
+        }
+        
+        .footer-contact p {
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .footer-contact-icon {
+            margin-right: 0.75rem;
+            color: var(--action-green);
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 1.5rem;
+            text-align: center;
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        /* Accessibility enhancements */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+        
+        /* Focus styles for keyboard navigation */
+        a:focus, button:focus, input:focus {
+            outline: 2px solid var(--action-green);
+            outline-offset: 2px;
+        }
+        
+        /* Skip link for keyboard users */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--execute-green);
+            color: white;
+            padding: 8px;
+            z-index: 100;
+            transition: top 0.3s ease;
+        }
+        
+        .skip-link:focus {
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Skip Link for Accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <!-- Header / Navigation -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <!-- Logo Placeholder -->
+                <a href="index.html" class="logo-placeholder" aria-label="Execute Technologies Home">
+                    <span class="logo-slash">/</span>
+                    <span class="logo-text">EXECUTE</span>
+                </a>
+                
+                <!-- Mobile Menu Toggle Button -->
+                <button class="nav-toggle" aria-label="Toggle navigation menu">
+                    ☰
+                </button>
+                
+                <!-- Navigation -->
+                <nav>
+                    <ul class="nav-list">
+                        <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                        <li class="nav-item"><a href="about-us.html" class="nav-link">About</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">Services</a></li>
+                        <li class="nav-item"><a href="industry-solutions.html" class="nav-link">Solutions</a></li>
+                        <li class="nav-item"><a href="case-study.html" class="nav-link">Case Studies</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link active">Resources</a></li>
+                        <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+                        <li class="nav-cta"><a href="#" class="btn btn-primary">Get Started</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Main Content Start -->
+    <main id="main-content">
+        <!-- Page Header -->
+        <section class="page-header">
+            <div class="container">
+                <h1>Insights</h1>
+                <p>Stay ahead of Africa's evolving technology landscape with expert insights, guides, and perspectives from Execute Technologies specialists.</p>
+            </div>
+        </section>
+        
+        <!-- Resources Content -->
+        <div class="container">
+            <div class="resources-layout">
+                <!-- Main Content -->
+                <div class="main-content">
+                    <!-- Category Navigation -->
+                    <div class="category-nav">
+                        <ul class="category-list">
+                            <li class="category-item"><a href="#" class="category-link active">All</a></li>
+                            <li class="category-item"><a href="#" class="category-link">Cloud Solutions</a></li>
+                            <li class="category-item"><a href="#" class="category-link">Digital Transformation</a></li>
+                            <li class="category-item"><a href="#" class="category-link">Software Development</a></li>
+                            <li class="category-item"><a href="#" class="category-link">Industry Insights</a></li>
+                            <li class="category-item"><a href="#" class="category-link">Technology Trends</a></li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Featured Article -->
+                    <article class="featured-article">
+                        <div class="featured-image" aria-label="Cloud implementation visual">
+                            <span class="featured-tag">Cloud</span>
+                        </div>
+                        <div class="featured-content">
+                            <h2 class="featured-title">Bridging the Cloud Gap: Strategies for Effective Cloud Implementation in African Enterprises</h2>
+                            <div class="featured-meta">
+                                <div class="author-image" aria-label="Author portrait"></div>
+                                <div>
+                                    <div class="author-name">Nomsa Nkosi</div>
+                                    <div class="publish-date">April 18, 2025</div>
+                                </div>
+                            </div>
+                            <div class="featured-excerpt">
+                                <p>African businesses face unique challenges when implementing cloud technologies—from connectivity constraints to skills availability. This comprehensive guide explores practical approaches to cloud adoption that balance global best practices with regional realities.</p>
+                                <p>Topics include multi-cloud strategies for connectivity resilience, skills development approaches addressing local talent ecosystems, compliance frameworks across diverse regulatory environments, and cost optimization strategies for emerging markets.</p>
+                            </div>
+                            <a href="#" class="btn btn-primary">Read More</a>
+                        </div>
+                    </article>
+                    
+                    <!-- Article Grid -->
+                    <div class="article-grid">
+                        <!-- Article 1 -->
+                        <article class="article-card">
+                            <div class="article-image" aria-label="Digital transformation roadmap visual">
+                                <span class="article-tag">Strategy</span>
+                            </div>
+                            <div class="article-content">
+                                <h3 class="article-title">The Digital Transformation Roadmap for African SMEs</h3>
+                                <div class="article-meta">April 12, 2025 | By Daniel Osei</div>
+                                <p class="article-excerpt">Practical steps for small and medium enterprises to leverage technology for growth without overwhelming resources or capabilities, tailored to the African business context.</p>
+                                <a href="#" class="btn btn-secondary">Read Article</a>
+                            </div>
+                        </article>
+                        
+                        <!-- Article 2 -->
+                        <article class="article-card">
+                            <div class="article-image" aria-label="Mobile development visual">
+                                <span class="article-tag">Development</span>
+                            </div>
+                            <div class="article-content">
+                                <h3 class="article-title">Mobile-First Development: Beyond the Buzzword</h3>
+                                <div class="article-meta">April 5, 2025 | By Amara Diallo</div>
+                                <p class="article-excerpt">How truly effective mobile-first strategies differ in African markets and what developers need to consider beyond responsive design to create solutions that work in diverse connectivity environments.</p>
+                                <a href="#" class="btn btn-secondary">Read Article</a>
+                            </div>
+                        </article>
+                        
+                        <!-- Article 3 -->
+                        <article class="article-card">
+                            <div class="article-image" aria-label="Data sovereignty visual">
+                                <span class="article-tag">Compliance</span>
+                            </div>
+                            <div class="article-content">
+                                <h3 class="article-title">Data Sovereignty in African Cloud Implementations</h3>
+                                <div class="article-meta">March 28, 2025 | By Thabo Mokoena</div>
+                                <p class="article-excerpt">Navigating the complex landscape of data regulations while leveraging global cloud capabilities, with specific guidance for financial services, healthcare, and government sectors.</p>
+                                <a href="#" class="btn btn-secondary">Read Article</a>
+                            </div>
+                        </article>
+                        
+                        <!-- Article 4 -->
+                        <article class="article-card">
+                            <div class="article-image" aria-label="DevOps implementation visual">
+                                <span class="article-tag">DevOps</span>
+                            </div>
+                            <div class="article-content">
+                                <h3 class="article-title">Implementing DevOps in Connectivity-Challenged Environments</h3>
+                                <div class="article-meta">March 20, 2025 | By Nomsa Nkosi</div>
+                                <p class="article-excerpt">Practical strategies for establishing effective CI/CD pipelines and DevOps practices in environments with variable connectivity, including offline-first approaches and synchronization techniques.</p>
+                                <a href="#" class="btn btn-secondary">Read Article</a>
+                            </div>
+                        </article>
+                        
+                        <!-- Article 5 -->
+                        <article class="article-card">
+                            <div class="article-image" aria-label="API economy visual">
+                                <span class="article-tag">Integration</span>
+                            </div>
+                            <div class="article-content">
+                                <h3 class="article-title">Building the API Economy in African Markets</h3>
+                                <div class="article-meta">March 15, 2025 | By Daniel Osei</div>
+                                <p class="article-excerpt">How businesses across the continent can leverage API-first approaches to create new business models, enable partnerships, and accelerate innovation despite infrastructure challenges.</p>
+                                <a href="#" class="btn btn-secondary">Read Article</a>
+                            </div>
+                        </article>
+                        
+                        <!-- Article 6 -->
+                        <article class="article-card">
+                            <div class="article-image" aria-label="AI implementation visual">
+                                <span class="article-tag">AI</span>
+                            </div>
+                            <div class="article-content">
+                                <h3 class="article-title">Practical AI Implementation for African Businesses</h3>
+                                <div class="article-meta">March 8, 2025 | By Amara Diallo</div>
+                                <p class="article-excerpt">Realistic approaches to implementing artificial intelligence in African business contexts, focusing on technologies that deliver value without requiring massive computational resources.</p>
+                                <a href="#" class="btn btn-secondary">Read Article</a>
+                            </div>
+                        </article>
+                    </div>
+                    
+                    <!-- Pagination -->
+                    <nav class="pagination" aria-label="Blog pagination">
+                        <ul class="pagination-list">
+                            <li class="pagination-item"><a href="#" class="pagination-link active" aria-current="page">1</a></li>
+                            <li class="pagination-item"><a href="#" class="pagination-link">2</a></li>
+                            <li class="pagination-item"><a href="#" class="pagination-link">3</a></li>
+                            <li class="pagination-item"><a href="#" class="pagination-link">4</a></li>
+                            <li class="pagination-item"><a href="#" class="pagination-link">→</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                
+                <!-- Sidebar -->
+                <aside class="sidebar">
+                    <!-- Search Section -->
+                    <div class="sidebar-section">
+                        <h3 class="sidebar-title">Search</h3>
+                        <form action="#" method="GET" class="search-form">
+                            <div class="form-group">
+                                <label for="search" class="sr-only">Search articles</label>
+                                <input type="text" id="search" name="search" class="form-control" placeholder="Search articles...">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Search</button>
+                        </form>
+                    </div>
+                    
+                    <!-- Popular Posts Section -->
+                    <div class="sidebar-section">
+                        <h3 class="sidebar-title">Popular Posts</h3>
+                        <ul class="popular-posts">
+                            <li class="popular-post">
+                                <div class="popular-post-image" aria-label="Cloud migration thumbnail"></div>
+                                <div>
+                                    <h4 class="popular-post-title">Multi-Cloud Strategies for African Enterprises</h4>
+                                    <div class="popular-post-meta">March 2, 2025</div>
+                                </div>
+                            </li>
+                            <li class="popular-post">
+                                <div class="popular-post-image" aria-label="Cybersecurity thumbnail"></div>
+                                <div>
+                                    <h4 class="popular-post-title">Cybersecurity Essentials for Remote African Workforces</h4>
+                                    <div class="popular-post-meta">February 25, 2025</div>
+                                </div>
+                            </li>
+                            <li class="popular-post">
+                                <div class="popular-post-image" aria-label="Digital payments thumbnail"></div>
+                                <div>
+                                    <h4 class="popular-post-title">Building Robust Digital Payment Systems</h4>
+                                    <div class="popular-post-meta">February 18, 2025</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Newsletter Section -->
+                    <div class="sidebar-section">
+                        <h3 class="sidebar-title">Newsletter</h3>
+                        <p>Subscribe to receive the latest insights and resources directly to your inbox.</p>
+                        <form action="#" method="POST" class="subscribe-form">
+                            <div class="form-group">
+                                <label for="email" class="form-label">Email Address</label>
+                                <input type="email" id="email" name="email" class="form-control" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Subscribe</button>
+                        </form>
+                    </div>
+                    
+                    <!-- Tags Section -->
+                    <div class="sidebar-section">
+                        <h3 class="sidebar-title">Topics</h3>
+                        <ul class="tags-list">
+                            <li><a href="#" class="tag-link">Cloud Migration</a></li>
+                            <li><a href="#" class="tag-link">Digital Transformation</a></li>
+                            <li><a href="#" class="tag-link">Mobile Development</a></li>
+                            <li><a href="#" class="tag-link">API Integration</a></li>
+                            <li><a href="#" class="tag-link">Cybersecurity</a></li>
+                            <li><a href="#" class="tag-link">DevOps</a></li>
+                            <li><a href="#" class="tag-link">Artificial Intelligence</a></li>
+                            <li><a href="#" class="tag-link">Data Analytics</a></li>
+                            <li><a href="#" class="tag-link">ERP Systems</a></li>
+                            <li><a href="#" class="tag-link">Remote Work</a></li>
+                        </ul>
+                    </div>
+                </aside>
+            </div>
+        </div>
+        
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="container">
+                <h2>Need Expert Technology Guidance?</h2>
+                <p>Contact our team to discuss how our extensive African technology experience can help your organization navigate digital challenges and opportunities.</p>
+                <a href="contact.html" class="btn btn-secondary">Schedule a Consultation</a>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Company Info -->
+                <div>
+                    <a href="/" class="footer-logo">
+                        <span class="logo-slash">/</span>
+                        <span class="logo-text">EXECUTE</span>
+                    </a>
+                    <p class="footer-about">Accelerating digital transformation across Africa and beyond by delivering innovative, scalable, and sustainable technology solutions.</p>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li class="footer-link"><a href="about-us.html">About Us</a></li>
+                        <li class="footer-link"><a href="#">Services</a></li>
+                        <li class="footer-link"><a href="case-study.html">Case Studies</a></li>
+                        <li class="footer-link"><a href="#">Resources</a></li>
+                        <li class="footer-link"><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Services Links -->
+                <div>
+                    <h4 class="footer-heading">Our Services</h4>
+                    <ul class="footer-links">
+                        <li class="footer-link"><a href="software-development.html">Custom Software</a></li>
+                        <li class="footer-link"><a href="cloud-solutions.html">Cloud Solutions</a></li>
+                        <li class="footer-link"><a href="digital-transformation.html">Digital Transformation</a></li>
+                        <li class="footer-link"><a href="#">API Development</a></li>
+                        <li class="footer-link"><a href="#">Mobile Solutions</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact Information -->
+                <div>
+                    <h4 class="footer-heading">Contact Us</h4>
+                    <div class="footer-contact">
+                        <p>
+                            <span class="footer-contact-icon">📍</span>
+                            University Road, Turflop Mankweng, Limpopo South Africa
+                        </p>
+                        <p>
+                            <span class="footer-contact-icon">📞</span>
+                            +27 69 739 3750
+                        </p>
+                        <p>
+                            <span class="footer-contact-icon">✉️</span>
+                            execute.co@outlook.com
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Execute Technologies. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Simple JavaScript for Mobile Menu Toggle -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navToggle = document.querySelector('.nav-toggle');
+            const nav = document.querySelector('nav');
+            
+            navToggle.addEventListener('click', function() {
+                nav.classList.toggle('active');
+                navToggle.setAttribute('aria-expanded', 
+                    nav.classList.contains('active') ? 'true' : 'false');
+            });
+        });
+    </script>
+</body>
+</html>

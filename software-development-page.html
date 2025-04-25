@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Software Development | Execute Technologies</title>
+    <meta name="description" content="Execute Technologies delivers custom software solutions tailored to African business challenges, from enterprise applications to mobile solutions and system modernization.">
+    <!-- Preconnect to Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Load our fonts - Montserrat and Open Sans -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Reset and Base Styles */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        /* Color Variables - from Brand Guidelines */
+        :root {
+            --execute-green: #377A4D; /* Primary brand color */
+            --action-green: #38D252; /* Secondary accent color */
+            --deep-slate: #2D3436; /* Primary text color */
+            --cloud-white: #F7F9FA; /* Backgrounds */
+            --innovation-blue: #147EFB; /* Secondary accent */
+            --alert-amber: #FFBF00; /* Notifications */
+            --success-green: #28A745; /* Confirmations */
+            --deep-slate-85: rgba(45, 52, 54, 0.85); /* Body text */
+            --deep-slate-70: rgba(45, 52, 54, 0.7); /* Caption text */
+        }
+        
+        html {
+            font-size: 16px; /* Base font size */
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 400;
+            line-height: 1.5;
+            color: var(--deep-slate-85);
+            background-color: var(--cloud-white);
+            overflow-x: hidden;
+        }
+        
+        /* Typography - from Brand Guidelines */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--execute-green);
+            margin-bottom: 1rem;
+        }
+        
+        h1 { /* Page Titles */
+            font-size: 2rem; /* 32px */
+            line-height: 2.5rem; /* 40px */
+            font-weight: 700; /* Bold */
+        }
+        
+        h2 { /* Section Headers */
+            font-size: 1.5rem; /* 24px */
+            line-height: 2rem; /* 32px */
+            font-weight: 600; /* Semibold */
+        }
+        
+        h3 { /* Subsections */
+            font-size: 1.25rem; /* 20px */
+            line-height: 1.75rem; /* 28px */
+            font-weight: 500; /* Medium */
+            color: var(--deep-slate);
+        }
+        
+        h4 { /* Component Headers */
+            font-size: 1.125rem; /* 18px */
+            line-height: 1.625rem; /* 26px */
+            font-weight: 500; /* Medium */
+            color: var(--deep-slate);
+        }
+        
+        p { /* Body Copy */
+            font-size: 1rem; /* 16px */
+            line-height: 1.5rem; /* 24px */
+            margin-bottom: 1rem;
+        }
+        
+        small { /* Small Copy/Captions */
+            font-size: 0.875rem; /* 14px */
+            line-height: 1.25rem; /* 20px */
+            font-weight: 300; /* Light */
+            color: var(--deep-slate-70);
+        }
+        
+        a {
+            color: var(--execute-green);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        a:hover {
+            color: var(--action-green);
+        }
+        
+        /* Container */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary {
+            background-color: var(--execute-green);
+            color: var(--cloud-white);
+            border: 2px solid var(--execute-green);
+        }
+        
+        .btn-primary:hover {
+            background-color: transparent;
+            color: var(--execute-green);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--execute-green);
+            border: 2px solid var(--execute-green);
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--execute-green);
+            color: var(--cloud-white);
+        }
+        
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: var(--cloud-white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo svg {
+            height: 40px;
+            width: auto;
+        }
+        
+        .logo-placeholder {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-slash {
+            color: var(--action-green);
+            font-weight: bold;
+            font-size: 1.5rem;
+            margin-right: 0.25rem;
+        }
+        
+        .logo-text {
+            color: var(--execute-green);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.25rem;
+            letter-spacing: 1px;
+        }
+        
+        .nav-toggle {
+            display: block;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--execute-green);
+            cursor: pointer;
+        }
+        
+        @media (min-width: 768px) {
+            .nav-toggle {
+                display: none;
+            }
+        }
+        
+        nav {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background-color: var(--cloud-white);
+            padding: 1rem;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            transform: translateY(-100%);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        nav.active {
+            transform: translateY(0);
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        @media (min-width: 768px) {
+            nav {
+                position: static;
+                width: auto;
+                background-color: transparent;
+                padding: 0;
+                box-shadow: none;
+                transform: none;
+                opacity: 1;
+                visibility: visible;
+                transition: none;
+            }
+        }
+        
+        .nav-list {
+            list-style: none;
+            display: block;
+        }
+        
+        @media (min-width: 768px) {
+            .nav-list {
+                display: flex;
+                align-items: center;
+            }
+        }
+        
+        .nav-item {
+            margin-bottom: 0.5rem;
+        }
+        
+        @media (min-width: 768px) {
+            .nav-item {
+                margin-bottom: 0;
+                margin-left: 1.5rem;
+            }
+        }
+        
+        .nav-link {
+            color: var(--deep-slate);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            color: var(--execute-green);
+        }
+        
+        .nav-cta {
+            margin-top: 1rem;
+        }
+        
+        @media (min-width: 768px) {
+            .nav-cta {
+                margin-top: 0;
+                margin-left: 1.5rem;
+            }
+        }
+        
+        /* Page Header */
+        .page-header {
+            padding: 8rem 0 4rem;
+            background-color: var(--execute-green);
+            color: var(--cloud-white);
+        }
+        
+        .page-header h1, .page-header p {
+            color: var(--cloud-white);
+        }
+        
+        .page-header p {
+            max-width: 800px;
+            margin-bottom: 2rem;
+        }
+        
+        /* Service Methodology */
+        .service-methodology {
+            padding: 4rem 0;
+        }
+        
+        /* Services Detail */
+        .service-detail {
+            padding: 4rem 0;
+            background-color: #f5f7f9;
+        }
+        
+        .service-cards {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+        
+        @media (min-width: 768px) {
+            .service-cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        .service-detail-card {
+            background-color: var(--cloud-white);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .service-detail-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-detail-card h3 {
+            color: var(--execute-green);
+        }
+        
+        .service-detail-icon {
+            font-size: 2rem;
+            color: var(--execute-green);
+            margin-bottom: 1rem;
+        }
+        
+        /* Features List */
+        .features-list {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+        
+        .features-list li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .features-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--execute-green);
+            font-weight: bold;
+        }
+        
+        /* Process Section */
+        .process-section {
+            padding: 4rem 0;
+        }
+        
+        .process-steps {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        @media (min-width: 768px) {
+            .process-steps {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+        
+        .process-step {
+            text-align: center;
+            position: relative;
+        }
+        
+        @media (min-width: 768px) {
+            .process-step:not(:last-child)::after {
+                content: "";
+                position: absolute;
+                top: 2.5rem;
+                right: -1rem;
+                width: 2rem;
+                height: 2px;
+                background-color: var(--execute-green);
+            }
+        }
+        
+        .process-step-number {
+            width: 5rem;
+            height: 5rem;
+            border-radius: 50%;
+            background-color: var(--execute-green);
+            color: var(--cloud-white);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 1.5rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+        
+        .process-step h3 {
+            margin-bottom: 1rem;
+        }
+        
+        /* Technologies Section */
+        .technologies-section {
+            padding: 4rem 0;
+            background-color: #f5f7f9;
+        }
+        
+        .tech-logos {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        @media (min-width: 768px) {
+            .tech-logos {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+        
+        .tech-logo {
+            background-color: var(--cloud-white);
+            border-radius: 8px;
+            padding: 1.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            padding: 4rem 0;
+            background-color: var(--execute-green);
+            color: var(--cloud-white);
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            color: var(--cloud-white);
+        }
+        
+        .cta-section p {
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--deep-slate);
+            color: var(--cloud-white);
+            padding: 4rem 0 2rem;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        @media (min-width: 768px) {
+            .footer-grid {
+                grid-template-columns: 2fr 1fr 1fr 1fr;
+            }
+        }
+        
+        .footer-logo {
+            color: var(--cloud-white);
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+        
+        .footer-about {
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-heading {
+            color: var(--cloud-white);
+            margin-bottom: 1.5rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 1.125rem;
+            position: relative;
+        }
+        
+        .footer-heading::after {
+            content: "";
+            position: absolute;
+            bottom: -0.5rem;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--action-green);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-link {
+            margin-bottom: 0.75rem;
+        }
+        
+        .footer-link a {
+            color: rgba(255, 255, 255, 0.7);
+            transition: color 0.3s ease;
+        }
+        
+        .footer-link a:hover {
+            color: var(--action-green);
+        }
+        
+        .footer-contact p {
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .footer-contact-icon {
+            margin-right: 0.75rem;
+            color: var(--action-green);
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 1.5rem;
+            text-align: center;
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        /* Accessibility enhancements */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+        
+        /* Focus styles for keyboard navigation */
+        a:focus, button:focus {
+            outline: 2px solid var(--action-green);
+            outline-offset: 2px;
+        }
+        
+        /* Skip link for keyboard users */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--execute-green);
+            color: white;
+            padding: 8px;
+            z-index: 100;
+            transition: top 0.3s ease;
+        }
+        
+        .skip-link:focus {
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Skip Link for Accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <!-- Header / Navigation -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <!-- Logo Placeholder -->
+                <a href="index.html" class="logo-placeholder" aria-label="Execute Technologies Home">
+                    <span class="logo-slash">/</span>
+                    <span class="logo-text">EXECUTE</span>
+                </a>
+                
+                <!-- Mobile Menu Toggle Button -->
+                <button class="nav-toggle" aria-label="Toggle navigation menu">
+                    ☰
+                </button>
+                
+                <!-- Navigation -->
+                <nav>
+                    <ul class="nav-list">
+                        <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link active">Services</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">Solutions</a></li>
+                        <li class="nav-item"><a href="case-study.html" class="nav-link">Case Studies</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">Resources</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
+                        <li class="nav-cta"><a href="#" class="btn btn-primary">Get Started</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Main Content Start -->
+    <main id="main-content">
+        <!-- Page Header -->
+        <section class="page-header">
+            <div class="container">
+                <h1>Custom Software Development</h1>
+                <p>Transform your business operations with bespoke software solutions designed specifically for your unique challenges and opportunities. Our custom software development services are tailored to the African business context while meeting global quality standards.</p>
+            </div>
+        </section>
+        
+        <!-- Service Methodology Section -->
+        <section class="service-methodology">
+            <div class="container">
+                <h2>Our Approach to Custom Software</h2>
+                <p>At Execute Technologies, we believe that truly effective software must be built with a deep understanding of both technical possibilities and business realities. Our "Local Insight, Global Standards" methodology combines:</p>
+                
+                <ul class="features-list">
+                    <li><strong>Business-First Development</strong> — Solutions driven by tangible business outcomes, not technical trends</li>
+                    <li><strong>Africa-First Development Framework</strong> — Addressing unique regional challenges including connectivity limitations and device diversity</li>
+                    <li><strong>User-Centered Design</strong> — Intuitive interfaces built for actual user workflows and regional contexts</li>
+                    <li><strong>Scalable Architecture</strong> — Future-proofed solutions that grow with your organization</li>
+                    <li><strong>Integration Focus</strong> — Seamless connections with your existing systems and infrastructure</li>
+                </ul>
+                
+                <p>This approach has delivered an average 60% reduction in manual processes for our clients while providing systems that truly reflect their business DNA.</p>
+            </div>
+        </section>
+        
+        <!-- Service Detail Section -->
+        <section class="service-detail">
+            <div class="container">
+                <h2>Custom Software Services</h2>
+                
+                <div class="service-cards">
+                    <!-- Service 1 -->
+                    <div class="service-detail-card">
+                        <div class="service-detail-icon">⚙️</div>
+                        <h3>Enterprise Applications</h3>
+                        <p>Move beyond off-the-shelf constraints with custom enterprise applications that adapt to your workflows—not the other way around.</p>
+                        <ul class="features-list">
+                            <li>Intuitive user interfaces designed for African business contexts</li>
+                            <li>Scalable architecture that grows with your organization</li>
+                            <li>Comprehensive support with local responsiveness</li>
+                            <li>Integration capabilities with existing systems</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Service 2 -->
+                    <div class="service-detail-card">
+                        <div class="service-detail-icon">📱</div>
+                        <h3>Mobile Solutions</h3>
+                        <p>Reach customers and empower employees with cross-platform mobile applications that deliver consistent experiences across all devices.</p>
+                        <ul class="features-list">
+                            <li>Native and hybrid application development</li>
+                            <li>Flutter and React Native implementation</li>
+                            <li>Offline-first design for connectivity-challenged environments</li>
+                            <li>Responsive interfaces optimized for diverse device ecosystems</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Service 3 -->
+                    <div class="service-detail-card">
+                        <div class="service-detail-icon">🔄</div>
+                        <h3>System Modernization</h3>
+                        <p>Revolutionize legacy systems without operational disruption through our methodical modernization approach.</p>
+                        <ul class="features-list">
+                            <li>Comprehensive system assessment and technical debt analysis</li>
+                            <li>Phased implementation strategy minimizing business impact</li>
+                            <li>Progressive enhancement preserving institutional knowledge</li>
+                            <li>Modern architecture implementation with improved security</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Service 4 -->
+                    <div class="service-detail-card">
+                        <div class="service-detail-icon">🔌</div>
+                        <h3>API Development & Integration</h3>
+                        <p>Connect disparate systems into cohesive technology ecosystems that enhance organizational data flow.</p>
+                        <ul class="features-list">
+                            <li>RESTful and GraphQL API design and implementation</li>
+                            <li>Unified data architecture creating single sources of truth</li>
+                            <li>Security-first integration approaches</li>
+                            <li>Performance-optimized connections</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Development Process Section -->
+        <section class="process-section">
+            <div class="container">
+                <h2>Our Development Process</h2>
+                <p>Our structured yet flexible development process ensures we deliver solutions that precisely meet your business requirements while maintaining the highest standards of quality.</p>
+                
+                <div class="process-steps">
+                    <!-- Step 1 -->
+                    <div class="process-step">
+                        <div class="process-step-number">1</div>
+                        <h3>Discovery</h3>
+                        <p>Deep dive into your business goals, user needs, and technical environment to establish project foundations.</p>
+                    </div>
+                    
+                    <!-- Step 2 -->
+                    <div class="process-step">
+                        <div class="process-step-number">2</div>
+                        <h3>Design</h3>
+                        <p>Collaborative design process creating intuitive interfaces and robust system architecture.</p>
+                    </div>
+                    
+                    <!-- Step 3 -->
+                    <div class="process-step">
+                        <div class="process-step-number">3</div>
+                        <h3>Development</h3>
+                        <p>Iterative development with regular reviews using our Hybrid Agile methodology for African contexts.</p>
+                    </div>
+                    
+                    <!-- Step 4 -->
+                    <div class="process-step">
+                        <div class="process-step-number">4</div>
+                        <h3>Deployment</h3>
+                        <p>Careful implementation with thorough testing, training, and ongoing support to ensure adoption.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Technologies Section -->
+        <section class="technologies-section">
+            <div class="container">
+                <h2>Technologies We Leverage</h2>
+                <p>We select the optimal technology stack for each project based on your specific requirements, not trends. Our expertise spans a wide range of technologies, enabling us to build solutions that perfectly balance performance, maintainability, and scalability.</p>
+                
+                <div class="tech-logos">
+                    <div class="tech-logo">
+                        <h4>React & React Native</h4>
+                    </div>
+                    <div class="tech-logo">
+                        <h4>Flutter</h4>
+                    </div>
+                    <div class="tech-logo">
+                        <h4>Node.js</h4>
+                    </div>
+                    <div class="tech-logo">
+                        <h4>Python</h4>
+                    </div>
+                    <div class="tech-logo">
+                        <h4>Java</h4>
+                    </div>
+                    <div class="tech-logo">
+                        <h4>PostgreSQL</h4>
+                    </div>
+                    <div class="tech-logo">
+                        <h4>MongoDB</h4>
+                    </div>
+                    <div class="tech-logo">
+                        <h4>AWS</h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="container">
+                <h2>Ready to Discuss Your Custom Software Needs?</h2>
+                <p>Contact our team to explore how our custom software development services can address your specific challenges and transform your business operations.</p>
+                <a href="#" class="btn btn-secondary">Schedule a Consultation</a>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Company Info -->
+                <div>
+                    <a href="/" class="footer-logo">
+                        <span class="logo-slash">/</span>
+                        <span class="logo-text">EXECUTE</span>
+                    </a>
+                    <p class="footer-about">Accelerating digital transformation across Africa and beyond by delivering innovative, scalable, and sustainable technology solutions.</p>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li class="footer-link"><a href="#">About Us</a></li>
+                        <li class="footer-link"><a href="#">Services</a></li>
+                        <li class="footer-link"><a href="case-study.html">Case Studies</a></li>
+                        <li class="footer-link"><a href="#">Resources</a></li>
+                        <li class="footer-link"><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Services Links -->
+                <div>
+                    <h4 class="footer-heading">Our Services</h4>
+                    <ul class="footer-links">
+                        <li class="footer-link"><a href="software-development.html">Custom Software</a></li>
+                        <li class="footer-link"><a href="cloud-solutions.html">Cloud Solutions</a></li>
+                        <li class="footer-link"><a href="digital-transformation.html">Digital Transformation</a></li>
+                        <li class="footer-link"><a href="#">API Development</a></li>
+                        <li class="footer-link"><a href="#">Mobile Solutions</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact Information -->
+                <div>
+                    <h4 class="footer-heading">Contact Us</h4>
+                    <div class="footer-contact">
+                        <p>
+                            <span class="footer-contact-icon">📍</span>
+                            University Road, Turflop Mankweng, Limpopo South Africa
+                        </p>
+                        <p>
+                            <span class="footer-contact-icon">📞</span>
+                            +27 69 739 3750
+                        </p>
+                        <p>
+                            <span class="footer-contact-icon">✉️</span>
+                            execute.co@outlook.com
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Execute Technologies. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Simple JavaScript for Mobile Menu Toggle -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navToggle = document.querySelector('.nav-toggle');
+            const nav = document.querySelector('nav');
+            
+            navToggle.addEventListener('click', function() {
+                nav.classList.toggle('active');
+                navToggle.setAttribute('aria-expanded', 
+                    nav.classList.contains('active') ? 'true' : 'false');
+            });
+        });
+    </script>
+</body>
+</html>
