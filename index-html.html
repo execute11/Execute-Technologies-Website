@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Execute Technologies | Digital Transformation Solutions for Africa</title>
+    <meta name="description" content="Execute Technologies accelerates digital transformation across Africa by delivering innovative, scalable, and sustainable technology solutions that empower businesses to thrive.">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    
+    <!-- Preconnect to Google Fonts for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Load Montserrat and Open Sans fonts as per brand guidelines -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <!-- Critical CSS inlined for faster rendering -->
+    <style>
+        /* CSS Reset and Base Styles */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        /* Color Variables - from Brand Guidelines */
+        :root {
+            --execute-green: #377A4D; /* Primary brand color */
+            --action-green: #38D252; /* Secondary accent color */
+            --deep-slate: #2D3436; /* Primary text color */
+            --cloud-white: #F7F9FA; /* Backgrounds */
+            --innovation-blue: #147EFB; /* Secondary accent */
+            --alert-amber: #FFBF00; /* Notifications */
+            --success-green: #28A745; /* Confirmations */
+            --deep-slate-85: rgba(45, 52, 54, 0.85); /* Body text */
+            --deep-slate-70: rgba(45, 52, 54, 0.7); /* Caption text */
+        }
+        
+        html {
+            font-size: 16px; /* Base font size */
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 400;
+            line-height: 1.5;
+            color: var(--deep-slate-85);
+            background-color: var(--cloud-white);
+            overflow-x: hidden;
+        }
+        
+        /* Typography - from Brand Guidelines */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--execute-green);
+            margin-bottom: 1rem;
+        }
+        
+        h1 { /* Page Titles */
+            font-size: 2rem; /* 32px */
+            line-height: 2.5rem; /* 40px */
+            font-weight: 700; /* Bold */
+        }
+        
+        h2 { /* Section Headers */
+            font-size: 1.5rem; /* 24px */
+            line-height: 2rem; /* 32px */
+            font-weight: 600; /* Semibold */
+        }
+        
+        h3 { /* Subsections */
+            font-size: 1.25rem; /* 20px */
+            line-height: 1.75rem; /* 28px */
+            font-weight: 500; /* Medium */
+            color: var(--deep-slate);
+        }
+        
+        h4 { /* Component Headers */
+            font-size: 1.125rem; /* 18px */
+            line-height: 1.625rem; /* 26px */
+            font-weight: 500; /* Medium */
+            color: var(--deep-slate);
+        }
+        
+        p { /* Body Copy */
+            font-size: 1rem; /* 16px */
+            line-height: 1.5rem; /* 24px */
+            margin-bottom: 1rem;
+        }
+        
+        small { /* Small Copy/Captions */
+            font-size: 0.875rem; /* 14px */
+            line-height: 1.25rem; /* 20px */
+            font-weight: 300; /* Light */
+            color: var(--deep-slate-70);
+        }
+        
+        a {
+            color: var(--execute-green);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        a:hover {
+            color: var(--action-green);
+        }
+        
+        /* Container */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary {
+            background-color: var(--execute-green);
+            color: var(--cloud-white);
+            border: 2px solid var(--execute-green);
+        }
+        
+        .btn-primary:hover {
+            background-color: transparent;
+            color: var(--execute-green);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--execute-green);
+            border: 2px solid var(--execute-green);
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--execute-green);
+            color: var(--cloud-white);
+        }
+        
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: var(--cloud-white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-placeholder {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-slash {
+            color: var(--action-green);
+            font-weight: bold;
+            font-size: 1.5rem;
+            margin-right: 0.25rem;
+        }
+        
+        .logo-text {
+            color: var(--execute-green);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.25rem;
+            letter-spacing: 1px;
+        }
+        
+        .nav-toggle {
+            display: block;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--execute-green);
+            cursor: pointer;
+        }
+        
+        @media (min-width: 768px) {
+            .nav-toggle {
+                display: none;
+            }
+        }
+        
+        nav {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background-color: var(--cloud-white);
+            padding: 1rem;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            transform: translateY(-100%);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        nav.active {
+            transform: translateY(0);
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        @media (min-width: 768px) {
+            nav {
+                position: static;
+                width: auto;
+                background-color: transparent;
+                padding: 0;
+                box-shadow: none;
+                transform: none;
+                opacity: 1;
+                visibility: visible;
+                transition: none;
+            }
+        }
+        
+        .nav-list {
+            list-style: none;
+            display: block;
+        }
+        
+        @media (min-width: 768px) {
+            .nav-list {
+                display: flex;
+                align-items: center;
+            }
+        }
+        
+        .nav-item {
+            margin-bottom: 0.5rem;
+        }
+        
+        @media (min-width: 768px) {
+            .nav-item {
+                margin-bottom: 0;
+                margin-left: 1.5rem;
+            }
+        }
+        
+        .nav-link {
+            color: var(--deep-slate);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            color: var(--execute-green);
+        }
+        
+        .nav-cta {
+            margin-top: 1rem;
+        }
+        
+        @media (min-width: 768px) {
+            .nav-cta {
+                margin-top: 0;
+                margin-left: 1.5rem;
+            }
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 8rem 0 4rem;
+            background: linear-gradient(rgba(55, 122, 77, 0.85), rgba(55, 122, 77, 0.9)), url('images/hero-bg.jpg') no-repeat center center;
+            background-size: cover;
+            color: var(--cloud-white);
+            text-align: center;
+        }
+        
+        .hero h1, .hero p {
+            color: var(--cloud-white);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+        
+        .hero p {
+            font-size: 1.125rem;
+            margin-bottom: 2rem;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        @media (min-width: 768px) {
+            .hero-buttons {
+                flex-direction: row;
+                justify-content: center;
+            }
+        }
+    </style>
+    
+    <!-- Non-critical CSS loaded asynchronously -->
+    <link rel="stylesheet" href="css/main.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="css/main.css"></noscript>
+</head>
+
+<body>
+    <!-- Skip Link for Accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <!-- Header / Navigation -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <!-- Logo -->
+                <a href="index.html" class="logo-placeholder" aria-label="Execute Technologies Home">
+                    <span class="logo-slash">/</span>
+                    <span class="logo-text">EXECUTE</span>
+                </a>
+                
+                <!-- Mobile Menu Toggle Button -->
+                <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                    ☰
+                </button>
+                
+                <!-- Navigation -->
+                <nav aria-label="Main navigation">
+                    <ul class="nav-list">
+                        <li class="nav-item"><a href="index.html" class="nav-link active">Home</a></li>
+                        <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+                        <li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
+                        <li class="nav-item"><a href="solutions.html" class="nav-link">Solutions</a></li>
+                        <li class="nav-item"><a href="case-studies.html" class="nav-link">Case Studies</a></li>
+                        <li class="nav-item"><a href="resources.html" class="nav-link">Resources</a></li>
+                        <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+                        <li class="nav-cta"><a href="consultation.html" class="btn btn-primary">Get Started</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Main Content Start -->
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1>Accelerating Digital Transformation Across Africa</h1>
+                <p>We deliver innovative, scalable, and sustainable technology solutions that empower businesses to thrive in an increasingly digital economy, combining local insight with global standards.</p>
+                <div class="hero-buttons">
+                    <a href="services.html" class="btn btn-secondary">Explore Our Services</a>
+                    <a href="consultation.html" class="btn btn-primary">Schedule a Consultation</a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- USP Section -->
+        <section class="features">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Our Unique Approach</h2>
+                    <p>What sets Execute Technologies apart is our business-first philosophy combined with deep understanding of African market challenges.</p>
+                </div>
+                
+                <div class="feature-cards">
+                    <!-- Feature 1 -->
+                    <div class="feature-card">
+                        <div class="feature-icon" aria-hidden="true">🌍</div>
+                        <h3>Local Insight, Global Standards</h3>
+                        <p>Africa-focused expertise with international-quality implementation, adapted for local infrastructure realities.</p>
+                    </div>
+                    
+                    <!-- Feature 2 -->
+                    <div class="feature-card">
+                        <div class="feature-icon" aria-hidden="true">💼</div>
+                        <h3>Business-First Technology</h3>
+                        <p>Solutions creating measurable impact with an average 60% reduction in manual processes across our implementations.</p>
+                    </div>
+                    
+                    <!-- Feature 3 -->
+                    <div class="feature-card">
+                        <div class="feature-icon" aria-hidden="true">🤝</div>
+                        <h3>Relationship-Focused</h3>
+                        <p>90% client retention for multiple projects, with emphasis on long-term partnerships over transactions.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Services Section -->
+        <section class="services">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Our Core Services</h2>
+                    <p>We offer a comprehensive suite of technology services tailored to meet the specific needs of African businesses.</p>
+                </div>
+                
+                <div class="service-cards">
+                    <!-- Service 1 -->
+                    <div class="service-card">
+                        <div class="service-image" aria-hidden="true">
+                            <img src="images/placeholder.svg" data-src="images/custom-software.jpg" alt="" class="lazy-load">
+                        </div>
+                        <div class="service-content">
+                            <h3>Custom Software Development</h3>
+                            <p>Enterprise applications, mobile solutions, system modernization, and API development designed for African business contexts.</p>
+                            <a href="custom-software-development.html" class="btn btn-secondary">Learn More</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Service 2 -->
+                    <div class="service-card">
+                        <div class="service-image" aria-hidden="true">
+                            <img src="images/placeholder.svg" data-src="images/cloud-solutions.jpg" alt="" class="lazy-load">
+                        </div>
+                        <div class="service-content">
+                            <h3>Cloud Solutions</h3>
+                            <p>Cloud migration, infrastructure optimization, cloud-native applications, and DevOps implementation for reliable operations.</p>
+                            <a href="cloud-solutions.html" class="btn btn-secondary">Learn More</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Service 3 -->
+                    <div class="service-card">
+                        <div class="service-image" aria-hidden="true">
+                            <img src="images/placeholder.svg" data-src="images/digital-transformation.jpg" alt="" class="lazy-load">
+                        </div>
+                        <div class="service-content">
+                            <h3>Digital Transformation</h3>
+                            <p>Technology roadmap planning, process automation, digital strategy consulting, and change management support.</p>
+                            <a href="digital-transformation.html" class="btn btn-secondary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Africa Map Section -->
+        <section class="africa-map-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Our African Presence</h2>
+                    <p>Execute Technologies serves businesses across Africa, with specialized understanding of regional markets and challenges.</p>
+                </div>
+                
+                <div class="africa-map-container">
+                    <svg class="africa-map" viewBox="0 0 800 800" aria-label="Map of Africa showing Execute Technologies presence">
+                        <!-- SVG map of Africa would go here -->
+                        <rect width="800" height="800" fill="#e0e0e0" rx="8"></rect>
+                        <text x="400" y="400" text-anchor="middle" fill="#666" font-family="Montserrat, sans-serif" font-size="24">Africa Map Visualization</text>
+                    </svg>
+                    
+                    <!-- Map highlights -->
+                    <div class="map-highlight highlight-sa" title="South Africa" aria-label="South Africa presence"></div>
+                    <div class="map-highlight highlight-kenya" title="Kenya" aria-label="Kenya presence"></div>
+                    <div class="map-highlight highlight-nigeria" title="Nigeria" aria-label="Nigeria presence"></div>
+                    <div class="map-highlight highlight-ghana" title="Ghana" aria-label="Ghana presence"></div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Target Audiences Section -->
+        <section class="target-audiences">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Solutions for Every Business</h2>
+                    <p>We understand the unique challenges faced by different types of organizations across Africa.</p>
+                </div>
+                
+                <div class="audience-tabs" role="tablist">
+                    <button class="audience-tab active" data-target="sme" role="tab" aria-selected="true" aria-controls="sme-content" id="sme-tab">Small & Medium Enterprises</button>
+                    <button class="audience-tab" data-target="corporate" role="tab" aria-selected="false" aria-controls="corporate-content" id="corporate-tab">Corporate Enterprises</button>
+                    <button class="audience-tab" data-target="startup" role="tab" aria-selected="false" aria-controls="startup-content" id="startup-tab">Startups</button>
+                    <button class="audience-tab" data-target="public" role="tab" aria-selected="false" aria-controls="public-content" id="public-tab">Public Sector</button>
+                    <button class="audience-tab" data-target="education" role="tab" aria-selected="false" aria-controls="education-content" id="education-tab">Educational Institutions</button>
+                    <button class="audience-tab" data-target="ngo" role="tab" aria-selected="false" aria-controls="ngo-content" id="ngo-tab">NGOs</button>
+                </div>
+                
+                <div class="audience-content active" id="sme-content" role="tabpanel" aria-labelledby="sme-tab">
+                    <div class="audience-content-grid">
+                        <div class="audience-content-text">
+                            <h3>Small & Medium Enterprises</h3>
+                            <p>We help local businesses with limited IT resources to implement cost-effective digital solutions with rapid deployment and clear ROI metrics.</p>
+                            <ul class="features-list">
+                                <li>Affordable transformation options tailored to your budget</li>
+                                <li>Quick implementation with minimal disruption</li>
+                                <li>Solutions that grow with your business</li>
+                                <li>Local support and training for your team</li>
+                            </ul>
+                            <a href="solutions-sme.html" class="btn btn-secondary">SME Solutions</a>
+                        </div>
+                        <div class="audience-content-image">
+                            <img src="images/placeholder.svg" data-src="images/sme-business.jpg" alt="Small business team working with technology" class="lazy-load">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="audience-content" id="corporate-content" role="tabpanel" aria-labelledby="corporate-tab" hidden>
+                    <div class="audience-content-grid">
+                        <div class="audience-content-text">
+                            <h3>Corporate Enterprises</h3>
+                            <p>We help established companies modernize complex legacy systems with seamless integration, minimal disruption, and enterprise-grade security.</p>
+                            <ul class="features-list">
+                                <li>Enterprise-scale solutions with proven methodologies</li>
+                                <li>Integration expertise for siloed departments</li>
+                                <li>Regulatory compliance built into every solution</li>
+                                <li>Change management support for organization-wide adoption</li>
+                            </ul>
+                            <a href="solutions-corporate.html" class="btn btn-secondary">Enterprise Solutions</a>
+                        </div>
+                        <div class="audience-content-image">
+                            <img src="images/placeholder.svg" data-src="images/corporate-enterprise.jpg" alt="Corporate team in modern office" class="lazy-load">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="audience-content" id="startup-content" role="tabpanel" aria-labelledby="startup-tab" hidden>
+                    <div class="audience-content-grid">
+                        <div class="audience-content-text">
+                            <h3>Startups</h3>
+                            <p>We help early-stage companies build technological foundations for growth with scalable infrastructure, flexible pricing, and rapid development timelines.</p>
+                            <ul class="features-list">
+                                <li>Future-proof technology infrastructure</li>
+                                <li>Adaptable solutions that evolve with your business model</li>
+                                <li>Strategic guidance on technology investments</li>
+                                <li>Flexible engagement models aligned with funding stages</li>
+                            </ul>
+                            <a href="solutions-startup.html" class="btn btn-secondary">Startup Solutions</a>
+                        </div>
+                        <div class="audience-content-image">
+                            <img src="images/placeholder.svg" data-src="images/startup-team.jpg" alt="Innovative startup workspace" class="lazy-load">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="audience-content" id="public-content" role="tabpanel" aria-labelledby="public-tab" hidden>
+                    <div class="audience-content-grid">
+                        <div class="audience-content-text">
+                            <h3>Public Sector Organizations</h3>
+                            <p>We help government departments transition from paper-based to digital systems with compliance-focused solutions, citizen-centered interfaces, and secure data handling.</p>
+                            <ul class="features-list">
+                                <li>Compliance with government regulations and standards</li>
+                                <li>Transparent processes that build public trust</li>
+                                <li>Secure systems for sensitive citizen data</li>
+                                <li>Solutions designed for inclusive citizen access</li>
+                            </ul>
+                            <a href="solutions-public.html" class="btn btn-secondary">Public Sector Solutions</a>
+                        </div>
+                        <div class="audience-content-image">
+                            <img src="images/placeholder.svg" data-src="images/public-sector.jpg" alt="Government office using digital services" class="lazy-load">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="audience-content" id="education-content" role="tabpanel" aria-labelledby="education-tab" hidden>
+                    <div class="audience-content-grid">
+                        <div class="audience-content-text">
+                            <h3>Educational Institutions</h3>
+                            <p>We help universities and colleges create digital learning environments with learning management systems, student engagement platforms, and administrative automation.</p>
+                            <ul class="features-list">
+                                <li>Digital tools that enhance the learning experience</li>
+                                <li>Streamlined administrative processes</li>
+                                <li>Solutions for both online and blended learning</li>
+                                <li>Data analytics for educational outcomes</li>
+                            </ul>
+                            <a href="solutions-education.html" class="btn btn-secondary">Education Solutions</a>
+                        </div>
+                        <div class="audience-content-image">
+                            <img src="images/placeholder.svg" data-src="images/education-tech.jpg" alt="Digital classroom with students using technology" class="lazy-load">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="audience-content" id="ngo-content" role="tabpanel" aria-labelledby="ngo-tab" hidden>
+                    <div class="audience-content-grid">
+                        <div class="audience-content-text">
+                            <h3>NGOs and Social Enterprises</h3>
+                            <p>We help mission-driven organizations implement cost-efficient systems, impact measurement tools, and field-appropriate solutions.</p>
+                            <ul class="features-list">
+                                <li>Budget-conscious technology solutions</li>
+                                <li>Impact measurement and reporting tools</li>
+                                <li>Field-ready applications for challenging environments</li>
+                                <li>Systems that scale with funding cycles</li>
+                            </ul>
+                            <a href="solutions-ngo.html" class="btn btn-secondary">NGO Solutions</a>
+                        </div>
+                        <div class="audience-content-image">
+                            <img src="images/placeholder.svg" data-src="images/ngo-impact.jpg" alt="NGO field workers using mobile technology" class="lazy-load">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Client Logos Section -->
+        <section class="clients">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Trusted By Leading Organizations</h2>
+                    <p>We've partnered with businesses and organizations across various sectors to drive digital transformation.</p>
+                </div>
+                
+                <div class="client-logos">
+                    <!-- Client Logo Placeholders -->
+                    <div class="client-logo">
+                        <img src="images/placeholder.svg" data-src="images/client-1.svg" alt="Client 1" class="lazy-load">
+                    </div>
+                    <div class="client-logo">
+                        <img src="images/placeholder.svg" data-src="images/client-2.svg" alt="Client 2" class="lazy-load">
+                    </div>
+                    <div class="client-logo">
+                        <img src="images/placeholder.svg" data-src="images/client-3.svg" alt="Client 3" class="lazy-load">
+                    </div>
+                    <div class="client-logo">
+                        <img src="images/placeholder.svg" data-src="images/client-4.svg" alt="Client 4" class="lazy-load">
+                    </div>
+                    <div class="client-logo">
+                        <img src="images/placeholder.svg" data-src="images/client-5.svg" alt="Client 5" class="lazy-load">
+                    </div>
+                    <div class="client-logo">
+                        <img src="images/placeholder.svg" data-src="images/client-6.svg" alt="Client 6" class="lazy-load">
+                    </div>
+                    <div class="client-logo">
+                        <img src="images/placeholder.svg" data-src="images/client-7.svg" alt="Client 7" class="lazy-load">
+                    </div>
+                    <div class="client-logo">
+                        <img src="images/placeholder.svg" data-src="images/client-8.svg" alt="Client 8" class="lazy-load">
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Testimonial Section -->
+        <section class="testimonials">
+            <div class="container">
+                <div class="section-header">
+                    <h2>What Our Clients Say</h2>
+                    <p>Real results and experiences from businesses we've helped transform.</p>
+                </div>
+                
+                <div class="testimonial-slider" aria-label="Client testimonials">
+                    <div class="testimonial-quote">
+                        "Execute Technologies truly understands the unique challenges we face as an African business. Their custom solution reduced our manual processes by 65% and gave us the digital infrastructure to scale across multiple markets."
+                    </div>
+                    <div class="testimonial-author">Samuel Nkosi</div>
+                    <div class="testimonial-company">CEO, Momentum Logistics</div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- CTA Section -->
+        <section class="cta">
+            <div class="container">
+                <h2>Ready to Transform Your Business?</h2>
+                <p>Schedule a consultation with our team to discuss how we can help your organization thrive in the digital economy.</p>
+                <a href="consultation.html" class="btn btn-secondary">Schedule a Consultation</a>
+            </div>
+        </section>
+        
+        <!-- Blog Preview Section -->
+        <section class="blog-preview">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Latest Insights</h2>
+                    <p>Stay updated with the latest trends and thought leadership in technology and digital transformation.</p>
+                </div>
+                
+                <div class="blog-cards">
+                    <!-- Blog 1 -->
+                    <article class="blog-card">
+                        <div class="blog-image">
+                            <img src="images/placeholder.svg" data-src="images/blog-1.jpg" alt="" class="lazy-load">
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-meta">April 20, 2025</div>
+                            <h3 class="blog-title">Navigating Digital Transformation in African Markets</h3>
+                            <p>Key strategies for overcoming unique challenges and leveraging opportunities in the African business context.</p>
+                            <a href="blog-digital-transformation-africa.html" aria-label="Read more about Navigating Digital Transformation in African Markets">Read More</a>
+                        </div>
+                    </article>
+                    
+                    <!-- Blog 2 -->
+                    <article class="blog-card">
+                        <div class="blog-image">
+                            <img src="images/placeholder.svg" data-src="images/blog-2.jpg" alt="" class="lazy-load">
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-meta">April 15, 2025</div>
+                            <h3 class="blog-title">Cloud Migration Strategies for Limited Connectivity Environments</h3>
+                            <p>Practical approaches to implementing cloud solutions in areas with infrastructure challenges.</p>
+                            <a href="blog-cloud-migration-limited-connectivity.html" aria-label="Read more about Cloud Migration Strategies for Limited Connectivity Environments">Read More</a>
+                        </div>
+                    </article>
+                    
+                    <!-- Blog 3 -->
+                    <article class="blog-card">
+                        <div class="blog-image">
+                            <img src="images/placeholder.svg" data-src="images/blog-3.jpg" alt="" class="lazy-load">
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-meta">April 8, 2025</div>
+                            <h3 class="blog-title">Mobile-First Development: Success Stories from African SMEs</h3>
+                            <p>How small and medium businesses are leveraging mobile technologies to leapfrog traditional development stages.</p>
+                            <a href="blog-mobile-first-african-smes.html" aria-label="Read more about Mobile-First Development: Success Stories from African SMEs">Read More</a>
+                        </div>
+                    </article>
+                </div>
+                
+                <div class="blog-more">
+                    <a href="resources.html" class="btn btn-secondary">View All Insights</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Company Info -->
+                <div>
+                    <a href="index.html" class="footer-logo" aria-label="Execute Technologies Home">
+                        <span class="logo-slash">/</span>
+                        <span class="logo-text">EXECUTE</span>
+                    </a>
+                    <p class="footer-about">Accelerating digital transformation across Africa and beyond by delivering innovative, scalable, and sustainable technology solutions that empower businesses to thrive.</p>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li class="footer-link"><a href="about.html">About Us</a></li>
+                        <li class="footer-link"><a href="services.html">Services</a></li>
+                        <li class="footer-link"><a href="case-studies.html">Case Studies</a></li>
+                        <li class="footer-link"><a href="resources.html">Resources</a></li>
+                        <li class="footer-link"><a href="careers.html">Careers</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Services Links -->
+                <div>
+                    <h4 class="footer-heading">Our Services</h4>
+                    <ul class="footer-links">
+                        <li class="footer-link"><a href="custom-software-development.html">Custom Software</a></li>
+                        <li class="footer-link"><a href="cloud-solutions.html">Cloud Solutions</a></li>
+                        <li class="footer-link"><a href="digital-transformation.html">Digital Transformation</a></li>
+                        <li class="footer-link"><a href="api-development.html">API Development</a></li>
+                        <li class="footer-link"><a href="mobile-solutions.html">Mobile Solutions</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact Information -->
+                <div>
+                    <h4 class="footer-heading">Contact Us</h4>
+                    <div class="footer-contact">
+                        <p>
+                            <span class="footer-contact-icon" aria-hidden="true">📍</span>
+                            University Road, Turflop Mankweng, Limpopo South Africa
+                        </p>
+                        <p>
+                            <span class="footer-contact-icon" aria-hidden="true">📞</span>
+                            <a href="tel:+27697393750">+27 69 739 3750</a>
+                        </p>
+                        <p>
+                            <span class="footer-contact-icon" aria-hidden="true">✉️</span>
+                            <a href="mailto:execute.co@outlook.com">execute.co@outlook.com</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Execute Technologies. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- JavaScript for Interactive Elements -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile Navigation Toggle
+            const navToggle = document.querySelector('.nav-toggle');
+            const nav = document.querySelector('nav');
+            
+            if (navToggle && nav) {
+                navToggle.addEventListener('click', function() {
+                    nav.classList.toggle('active');
+                    this.setAttribute('aria-expanded', 
+                        nav.classList.contains('active') ? 'true' : 'false');
+                });
+            }
+            
+            // Audience Tabs Implementation
+            const audienceTabs = document.querySelectorAll('.audience-tab');
+            const audienceContents = document.querySelectorAll('.audience-content');
+            
+            if (audienceTabs.length > 0) {
+                audienceTabs.forEach(tab => {
+                    tab.addEventListener('click', function() {
+                        // ARIA and class updates for tabs
+                        audienceTabs.forEach(t => {
+                            t.classList.remove('active');
+                            t.setAttribute('aria-selected', 'false');
+                        });
+                        
+                        this.classList.add('active');
+                        this.setAttribute('aria-selected', 'true');
+                        
+                        // Update tab panels
+                        const targetId = this.getAttribute('data-target') + '-content';
+                        
+                        audienceContents.forEach(content => {
+                            content.classList.remove('active');
+                            content.hidden = true; // Use hidden attribute for a11y
+                        });
+                        
+                        const targetContent = document.getElementById(targetId);
+                        if (targetContent) {
+                            targetContent.classList.add('active');
+                            targetContent.hidden = false;
+                        }
+                    });
+                    
+                    // Keyboard navigation for tabs
+                    tab.addEventListener('keydown', function(e) {
+                        let index = Array.from(audienceTabs).indexOf(this);
+                        
+                        if (e.key === 'ArrowRight') {
+                            index = index < audienceTabs.length - 1 ? index + 1 : 0;
+                            audienceTabs[index].focus();
+                            audienceTabs[index].click();
+                            e.preventDefault();
+                        } else if (e.key === 'ArrowLeft') {
+                            index = index > 0 ? index - 1 : audienceTabs.length - 1;
+                            audienceTabs[index].focus();
+                            audienceTabs[index].click();
+                            e.preventDefault();
+                        }
+                    });
+                });
+            }
+            
+            // Lazy Loading Images
+            if ('IntersectionObserver' in window) {
+                const lazyloadImages = document.querySelectorAll('.lazy-load');
+                const imageObserver = new IntersectionObserver((entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const img = entry.target;
+                            img.src = img.dataset.src;
+                            img.classList.remove('lazy-load');
+                            imageObserver.unobserve(img);
+                        }
+                    });
+                });
+                
+                lazyloadImages.forEach(image => {
+                    imageObserver.observe(image);
+                });
+            } else {
+                // Fallback for browsers without Intersection Observer
+                const loadLazyImages = () => {
+                    const lazyloadImages = document.querySelectorAll('.lazy-load');
+                    lazyloadImages.forEach(img => {
+                        if (img.getBoundingClientRect().top <= window.innerHeight && 
+                            img.getBoundingClientRect().bottom >= 0 && 
+                            getComputedStyle(img).display !== 'none') {
+                            img.src = img.dataset.src;
+                            img.classList.remove('lazy-load');
+                        }
+                    });
+                    
+                    if (document.querySelectorAll('.lazy-load').length === 0) { 
+                        document.removeEventListener('scroll', loadLazyImages);
+                        window.removeEventListener('resize', loadLazyImages);
+                        window.removeEventListener('orientationChange', loadLazyImages);
+                    }
+                };
+                
+                document.addEventListener('scroll', loadLazyImages);
+                window.addEventListener('resize', loadLazyImages);
+                window.addEventListener('orientationChange', loadLazyImages);
+            }
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                        
+                        // Set focus for accessibility
+                        targetElement.setAttribute('tabindex', '-1');
+                        targetElement.focus();
+                    }
+                });
+            });
+            
+            // Performance monitoring
+            if ('performance' in window && 'PerformanceObserver' in window) {
+                // Create performance observer
+                const observer = new PerformanceObserver((list) => {
+                    for (const entry of list.getEntries()) {
+                        // Log LCP for monitoring
+                        if (entry.entryType === 'largest-contentful-paint') {
+                            console.log('LCP:', entry.startTime);
+                        }
+                    }
+                });
+                
+                // Start observing
+                observer.observe({ type: 'largest-contentful-paint', buffered: true });
+            }
+        });
+    </script>
+</body>
+</html>
