@@ -1,0 +1,1160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Development & Integration | Execute Technologies</title>
+    <meta name="description" content="Connect disparate systems and create cohesive technology ecosystems with Execute Technologies' API development and integration services tailored for African business contexts.">
+    <!-- Preconnect to Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Load our fonts - Montserrat and Open Sans -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Reset and Base Styles */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        /* Color Variables - from Brand Guidelines */
+        :root {
+            --execute-green: #377A4D; /* Primary brand color */
+            --action-green: #38D252; /* Secondary accent color */
+            --deep-slate: #2D3436; /* Primary text color */
+            --cloud-white: #F7F9FA; /* Backgrounds */
+            --innovation-blue: #147EFB; /* Secondary accent */
+            --alert-amber: #FFBF00; /* Notifications */
+            --success-green: #28A745; /* Confirmations */
+            --deep-slate-85: rgba(45, 52, 54, 0.85); /* Body text */
+            --deep-slate-70: rgba(45, 52, 54, 0.7); /* Caption text */
+        }
+        
+        html {
+            font-size: 16px; /* Base font size */
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 400;
+            line-height: 1.5;
+            color: var(--deep-slate-85);
+            background-color: var(--cloud-white);
+            overflow-x: hidden;
+        }
+        
+        /* Typography - from Brand Guidelines */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--execute-green);
+            margin-bottom: 1rem;
+        }
+        
+        h1 { /* Page Titles */
+            font-size: 2rem; /* 32px */
+            line-height: 2.5rem; /* 40px */
+            font-weight: 700; /* Bold */
+        }
+        
+        h2 { /* Section Headers */
+            font-size: 1.5rem; /* 24px */
+            line-height: 2rem; /* 32px */
+            font-weight: 600; /* Semibold */
+        }
+        
+        h3 { /* Subsections */
+            font-size: 1.25rem; /* 20px */
+            line-height: 1.75rem; /* 28px */
+            font-weight: 500; /* Medium */
+            color: var(--deep-slate);
+        }
+        
+        h4 { /* Component Headers */
+            font-size: 1.125rem; /* 18px */
+            line-height: 1.625rem; /* 26px */
+            font-weight: 500; /* Medium */
+            color: var(--deep-slate);
+        }
+        
+        p { /* Body Copy */
+            font-size: 1rem; /* 16px */
+            line-height: 1.5rem; /* 24px */
+            margin-bottom: 1rem;
+        }
+        
+        small { /* Small Copy/Captions */
+            font-size: 0.875rem; /* 14px */
+            line-height: 1.25rem; /* 20px */
+            font-weight: 300; /* Light */
+            color: var(--deep-slate-70);
+        }
+        
+        a {
+            color: var(--execute-green);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        a:hover {
+            color: var(--action-green);
+        }
+        
+        /* Container */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary {
+            background-color: var(--execute-green);
+            color: var(--cloud-white);
+            border: 2px solid var(--execute-green);
+        }
+        
+        .btn-primary:hover {
+            background-color: transparent;
+            color: var(--execute-green);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--execute-green);
+            border: 2px solid var(--execute-green);
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--execute-green);
+            color: var(--cloud-white);
+        }
+        
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: var(--cloud-white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo svg {
+            height: 40px;
+            width: auto;
+        }
+        
+        .logo-placeholder {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-slash {
+            color: var(--action-green);
+            font-weight: bold;
+            font-size: 1.5rem;
+            margin-right: 0.25rem;
+        }
+        
+        .logo-text {
+            color: var(--execute-green);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.25rem;
+            letter-spacing: 1px;
+        }
+        
+        .nav-toggle {
+            display: block;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--execute-green);
+            cursor: pointer;
+        }
+        
+        @media (min-width: 768px) {
+            .nav-toggle {
+                display: none;
+            }
+        }
+        
+        nav {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background-color: var(--cloud-white);
+            padding: 1rem;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            transform: translateY(-100%);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        nav.active {
+            transform: translateY(0);
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        @media (min-width: 768px) {
+            nav {
+                position: static;
+                width: auto;
+                background-color: transparent;
+                padding: 0;
+                box-shadow: none;
+                transform: none;
+                opacity: 1;
+                visibility: visible;
+                transition: none;
+            }
+        }
+        
+        .nav-list {
+            list-style: none;
+            display: block;
+        }
+        
+        @media (min-width: 768px) {
+            .nav-list {
+                display: flex;
+                align-items: center;
+            }
+        }
+        
+        .nav-item {
+            margin-bottom: 0.5rem;
+        }
+        
+        @media (min-width: 768px) {
+            .nav-item {
+                margin-bottom: 0;
+                margin-left: 1.5rem;
+            }
+        }
+        
+        .nav-link {
+            color: var(--deep-slate);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            color: var(--execute-green);
+        }
+        
+        .nav-cta {
+            margin-top: 1rem;
+        }
+        
+        @media (min-width: 768px) {
+            .nav-cta {
+                margin-top: 0;
+                margin-left: 1.5rem;
+            }
+        }
+        
+        /* Page Header */
+        .page-header {
+            padding: 8rem 0 4rem;
+            background-color: var(--execute-green);
+            color: var(--cloud-white);
+        }
+        
+        .page-header h1, .page-header p {
+            color: var(--cloud-white);
+        }
+        
+        .page-header p {
+            max-width: 800px;
+            margin-bottom: 2rem;
+        }
+        
+        /* Service Methodology */
+        .service-methodology {
+            padding: 4rem 0;
+        }
+        
+        /* Services Detail */
+        .service-detail {
+            padding: 4rem 0;
+            background-color: #f5f7f9;
+        }
+        
+        .service-cards {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+        
+        @media (min-width: 768px) {
+            .service-cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        .service-detail-card {
+            background-color: var(--cloud-white);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .service-detail-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-detail-card h3 {
+            color: var(--execute-green);
+        }
+        
+        .service-detail-icon {
+            font-size: 2rem;
+            color: var(--execute-green);
+            margin-bottom: 1rem;
+        }
+        
+        /* Features List */
+        .features-list {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+        
+        .features-list li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .features-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--execute-green);
+            font-weight: bold;
+        }
+        
+        /* Benefits Section */
+        .benefits-section {
+            padding: 4rem 0;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+        
+        @media (min-width: 768px) {
+            .benefits-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        .benefit-card {
+            text-align: center;
+            padding: 1.5rem;
+        }
+        
+        .benefit-icon {
+            font-size: 2.5rem;
+            color: var(--execute-green);
+            margin-bottom: 1rem;
+        }
+        
+        /* Use Cases */
+        .usecases-section {
+            padding: 4rem 0;
+            background-color: #f5f7f9;
+        }
+        
+        .usecase-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid rgba(45, 52, 54, 0.1);
+        }
+        
+        .usecase-tab {
+            padding: 1rem 1.5rem;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            color: var(--deep-slate-70);
+            background: transparent;
+            border: none;
+            transition: all 0.3s ease;
+        }
+        
+        .usecase-tab.active {
+            color: var(--execute-green);
+            border-bottom: 3px solid var(--execute-green);
+        }
+        
+        .usecase-content {
+            display: none;
+        }
+        
+        .usecase-content.active {
+            display: block;
+        }
+        
+        /* Process Section */
+        .process-section {
+            padding: 4rem 0;
+        }
+        
+        .process-steps {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        @media (min-width: 768px) {
+            .process-steps {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+        
+        .process-step {
+            text-align: center;
+            position: relative;
+        }
+        
+        @media (min-width: 768px) {
+            .process-step:not(:last-child)::after {
+                content: "";
+                position: absolute;
+                top: 2.5rem;
+                right: -1rem;
+                width: 2rem;
+                height: 2px;
+                background-color: var(--execute-green);
+            }
+        }
+        
+        .process-step-number {
+            width: 5rem;
+            height: 5rem;
+            border-radius: 50%;
+            background-color: var(--execute-green);
+            color: var(--cloud-white);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 1.5rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+        
+        .process-step h3 {
+            margin-bottom: 1rem;
+        }
+        
+        /* Technologies Section */
+        .technologies-section {
+            padding: 4rem 0;
+            background-color: #f5f7f9;
+        }
+        
+        .tech-logos {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        @media (min-width: 768px) {
+            .tech-logos {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+        
+        .tech-logo {
+            background-color: var(--cloud-white);
+            border-radius: 8px;
+            padding: 1.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        
+        /* Comparison Table */
+        .comparison-section {
+            padding: 4rem 0;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .comparison-table th {
+            background-color: var(--execute-green);
+            color: var(--cloud-white);
+            padding: 1rem;
+            text-align: left;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .comparison-table tr:nth-child(even) {
+            background-color: #f5f7f9;
+        }
+        
+        .comparison-table td {
+            padding: 1rem;
+            border-bottom: 1px solid rgba(45, 52, 54, 0.1);
+        }
+        
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .check-icon {
+            color: var(--execute-green);
+            font-weight: bold;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            padding: 4rem 0;
+            background-color: var(--execute-green);
+            color: var(--cloud-white);
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            color: var(--cloud-white);
+        }
+        
+        .cta-section p {
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--deep-slate);
+            color: var(--cloud-white);
+            padding: 4rem 0 2rem;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        @media (min-width: 768px) {
+            .footer-grid {
+                grid-template-columns: 2fr 1fr 1fr 1fr;
+            }
+        }
+        
+        .footer-logo {
+            color: var(--cloud-white);
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+        
+        .footer-about {
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-heading {
+            color: var(--cloud-white);
+            margin-bottom: 1.5rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 1.125rem;
+            position: relative;
+        }
+        
+        .footer-heading::after {
+            content: "";
+            position: absolute;
+            bottom: -0.5rem;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--action-green);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-link {
+            margin-bottom: 0.75rem;
+        }
+        
+        .footer-link a {
+            color: rgba(255, 255, 255, 0.7);
+            transition: color 0.3s ease;
+        }
+        
+        .footer-link a:hover {
+            color: var(--action-green);
+        }
+        
+        .footer-contact p {
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .footer-contact-icon {
+            margin-right: 0.75rem;
+            color: var(--action-green);
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 1.5rem;
+            text-align: center;
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        /* Accessibility enhancements */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+        
+        /* Focus styles for keyboard navigation */
+        a:focus, button:focus {
+            outline: 2px solid var(--action-green);
+            outline-offset: 2px;
+        }
+        
+        /* Skip link for keyboard users */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--execute-green);
+            color: white;
+            padding: 8px;
+            z-index: 100;
+            transition: top 0.3s ease;
+        }
+        
+        .skip-link:focus {
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Skip Link for Accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <!-- Header / Navigation -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <!-- Logo Placeholder -->
+                <a href="index.html" class="logo-placeholder" aria-label="Execute Technologies Home">
+                    <span class="logo-slash">/</span>
+                    <span class="logo-text">EXECUTE</span>
+                </a>
+                
+                <!-- Mobile Menu Toggle Button -->
+                <button class="nav-toggle" aria-label="Toggle navigation menu">
+                    ☰
+                </button>
+                
+                <!-- Navigation -->
+                <nav>
+                    <ul class="nav-list">
+                        <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                        <li class="nav-item"><a href="about-us.html" class="nav-link">About</a></li>
+                        <li class="nav-item"><a href="services-overview.html" class="nav-link active">Services</a></li>
+                        <li class="nav-item"><a href="industry-solutions.html" class="nav-link">Solutions</a></li>
+                        <li class="nav-item"><a href="case-study.html" class="nav-link">Case Studies</a></li>
+                        <li class="nav-item"><a href="resources-blog.html" class="nav-link">Resources</a></li>
+                        <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+                        <li class="nav-cta"><a href="#" class="btn btn-primary">Get Started</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Main Content Start -->
+    <main id="main-content">
+        <!-- Page Header -->
+        <section class="page-header">
+            <div class="container">
+                <h1>API Development & Integration</h1>
+                <p>Connect disparate systems into cohesive technology ecosystems that enhance organizational data flow, improve efficiency, and unlock new business capabilities. Our API development services bridge silos and create unified digital experiences tailored for African business contexts.</p>
+            </div>
+        </section>
+        
+        <!-- Service Methodology Section -->
+        <section class="service-methodology">
+            <div class="container">
+                <h2>Our Approach to API Development</h2>
+                <p>At Execute Technologies, we approach API development as a strategic business initiative rather than merely a technical exercise. Our methodology emphasizes:</p>
+                
+                <ul class="features-list">
+                    <li><strong>Business-Driven Design</strong> — APIs aligned with specific business objectives and organizational workflows</li>
+                    <li><strong>Future-Proof Architecture</strong> — Scalable solutions that evolve alongside your business needs</li>
+                    <li><strong>African Context Optimization</strong> — Performance considerations for varying connectivity environments</li>
+                    <li><strong>Security-First Implementation</strong> — Robust protection of data and systems at every level</li>
+                    <li><strong>Developer Experience</strong> — Well-documented interfaces that accelerate adoption and integration</li>
+                </ul>
+                
+                <p>This approach has enabled our clients to achieve an average 65% increase in cross-system data accessibility while significantly reducing manual data transfers and integration points.</p>
+            </div>
+        </section>
+        
+        <!-- Service Detail Section -->
+        <section class="service-detail">
+            <div class="container">
+                <h2>API Development Services</h2>
+                
+                <div class="service-cards">
+                    <!-- Service 1 -->
+                    <div class="service-detail-card">
+                        <div class="service-detail-icon">🔌</div>
+                        <h3>RESTful API Development</h3>
+                        <p>Industry-standard, resource-oriented APIs that simplify integration between systems and enhance data accessibility.</p>
+                        <ul class="features-list">
+                            <li>Resource modeling aligned with business domains</li>
+                            <li>Consistent endpoint design and naming conventions</li>
+                            <li>Comprehensive authentication and authorization</li>
+                            <li>Optimized performance for varying connectivity</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Service 2 -->
+                    <div class="service-detail-card">
+                        <div class="service-detail-icon">⚡</div>
+                        <h3>GraphQL Implementation</h3>
+                        <p>Flexible query language and runtime for APIs that provides clients with precisely the data they need, reducing over-fetching and under-fetching.</p>
+                        <ul class="features-list">
+                            <li>Efficient data retrieval with single requests</li>
+                            <li>Strongly-typed schema definitions</li>
+                            <li>Real-time capabilities with subscriptions</li>
+                            <li>Self-documenting interfaces with introspection</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Service 3 -->
+                    <div class="service-detail-card">
+                        <div class="service-detail-icon">🔄</div>
+                        <h3>System Integration</h3>
+                        <p>Seamless connection of disparate systems, legacy applications, and third-party services into unified workflows.</p>
+                        <ul class="features-list">
+                            <li>Legacy system modernization without replacement</li>
+                            <li>Third-party service integration</li>
+                            <li>Data transformation and mapping</li>
+                            <li>Error handling and recovery mechanisms</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Service 4 -->
+                    <div class="service-detail-card">
+                        <div class="service-detail-icon">🛡️</div>
+                        <h3>API Security & Governance</h3>
+                        <p>Comprehensive protection of your data and systems with industry-leading security practices and governance frameworks.</p>
+                        <ul class="features-list">
+                            <li>OAuth 2.0 and OpenID Connect implementation</li>
+                            <li>Rate limiting and throttling strategies</li>
+                            <li>Monitoring and threat detection</li>
+                            <li>Data privacy compliance (including POPIA)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Benefits Section -->
+        <section class="benefits-section">
+            <div class="container">
+                <h2>Strategic Benefits of API-First Development</h2>
+                <p>Beyond technical connectivity, our API solutions deliver tangible business advantages:</p>
+                
+                <div class="benefits-grid">
+                    <!-- Benefit 1 -->
+                    <div class="benefit-card">
+                        <div class="benefit-icon">🚀</div>
+                        <h3>Accelerated Innovation</h3>
+                        <p>Enable rapid development of new capabilities by leveraging existing systems through well-designed interfaces rather than building from scratch.</p>
+                    </div>
+                    
+                    <!-- Benefit 2 -->
+                    <div class="benefit-card">
+                        <div class="benefit-icon">🔗</div>
+                        <h3>Ecosystem Integration</h3>
+                        <p>Connect seamlessly with partners, suppliers, and customers to create unified digital experiences and streamlined value chains.</p>
+                    </div>
+                    
+                    <!-- Benefit 3 -->
+                    <div class="benefit-card">
+                        <div class="benefit-icon">📊</div>
+                        <h3>Data Unification</h3>
+                        <p>Create a single source of truth by connecting disparate data systems, enabling better analytics and decision-making.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Use Cases Section -->
+        <section class="usecases-section">
+            <div class="container">
+                <h2>Industry-Specific API Solutions</h2>
+                <p>Our API expertise spans multiple industries with solutions tailored to specific business challenges:</p>
+                
+                <div class="usecase-tabs">
+                    <button class="usecase-tab active" data-tab="financial">Financial Services</button>
+                    <button class="usecase-tab" data-tab="retail">Retail & E-commerce</button>
+                    <button class="usecase-tab" data-tab="healthcare">Healthcare</button>
+                    <button class="usecase-tab" data-tab="government">Government</button>
+                </div>
+                
+                <!-- Financial Services Content -->
+                <div class="usecase-content active" id="financial">
+                    <h3>Financial Services APIs</h3>
+                    <p>We help financial institutions create secure, compliant API ecosystems that enable:</p>
+                    <ul class="features-list">
+                        <li><strong>Open Banking Compliance</strong> — Secure interfaces for third-party service integration</li>
+                        <li><strong>Payment Processing</strong> — Integration with multiple payment gateways and mobile money platforms</li>
+                        <li><strong>Account Aggregation</strong> — Unified customer financial data views across services</li>
+                        <li><strong>Fraud Detection</strong> — Real-time security monitoring through connected systems</li>
+                    </ul>
+                    <p class="usecase-result"><strong>Case Result:</strong> A regional bank reduced new service launch time by 60% through reusable API components while maintaining compliance with regulatory requirements.</p>
+                </div>
+                
+                <!-- Retail Content -->
+                <div class="usecase-content" id="retail">
+                    <h3>Retail & E-commerce APIs</h3>
+                    <p>Our API solutions help retailers create omnichannel experiences through:</p>
+                    <ul class="features-list">
+                        <li><strong>Inventory Synchronization</strong> — Real-time stock visibility across online and physical locations</li>
+                        <li><strong>Order Management</strong> — Seamless fulfillment processes across channels</li>
+                        <li><strong>Customer Data Platforms</strong> — Unified customer profiles from multiple touchpoints</li>
+                        <li><strong>Marketplace Integration</strong> — Connection with third-party selling platforms</li>
+                    </ul>
+                    <p class="usecase-result"><strong>Case Result:</strong> A multi-channel retailer increased cross-selling by 45% through unified customer data accessible across all customer service points.</p>
+                </div>
+                
+                <!-- Healthcare Content -->
+                <div class="usecase-content" id="healthcare">
+                    <h3>Healthcare APIs</h3>
+                    <p>We develop secure healthcare interfaces that support:</p>
+                    <ul class="features-list">
+                        <li><strong>Electronic Health Records</strong> — Secure patient data exchange between providers</li>
+                        <li><strong>Telemedicine Services</strong> — Integration of remote consultation platforms</li>
+                        <li><strong>Medical Device Connectivity</strong> — Data collection from monitoring equipment</li>
+                        <li><strong>Insurance Verification</strong> — Automated eligibility and coverage checking</li>
+                    </ul>
+                    <p class="usecase-result"><strong>Case Result:</strong> A healthcare provider reduced administrative processing time by 70% through automated system integration, allowing more focus on patient care.</p>
+                </div>
+                
+                <!-- Government Content -->
+                <div class="usecase-content" id="government">
+                    <h3>Government & Public Sector APIs</h3>
+                    <p>We enable digital government initiatives through:</p>
+                    <ul class="features-list">
+                        <li><strong>Citizen Services Integration</strong> — Unified access to government services</li>
+                        <li><strong>Inter-agency Data Sharing</strong> — Secure, authorized information exchange</li>
+                        <li><strong>Public Data Access</strong> — Open data initiatives with appropriate controls</li>
+                        <li><strong>Regulatory Reporting</strong> — Automated compliance submissions</li>
+                    </ul>
+                    <p class="usecase-result"><strong>Case Result:</strong> A municipal government reduced document processing time from weeks to minutes through API-enabled service integration.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- API Comparison Section -->
+        <section class="comparison-section">
+            <div class="container">
+                <h2>Choosing the Right API Approach</h2>
+                <p>Different business needs require different API approaches. Our experts help you select and implement the right strategy:</p>
+                
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Capability</th>
+                            <th>RESTful APIs</th>
+                            <th>GraphQL</th>
+                            <th>Webhooks</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Specific data retrieval</td>
+                            <td>Multiple requests needed</td>
+                            <td><span class="check-icon">✓</span> Single request precision</td>
+                            <td>Not applicable</td>
+                        </tr>
+                        <tr>
+                            <td>Real-time updates</td>
+                            <td>Requires polling</td>
+                            <td><span class="check-icon">✓</span> Via subscriptions</td>
+                            <td><span class="check-icon">✓</span> Event-based</td>
+                        </tr>
+                        <tr>
+                            <td>Implementation complexity</td>
+                            <td><span class="check-icon">✓</span> Lower</td>
+                            <td>Moderate</td>
+                            <td>Moderate</td>
+                        </tr>
+                        <tr>
+                            <td>Caching</td>
+                            <td><span class="check-icon">✓</span> Highly effective</td>
+                            <td>Requires strategy</td>
+                            <td>Not applicable</td>
+                        </tr>
+                        <tr>
+                            <td>Mobile optimization</td>
+                            <td>Good</td>
+                            <td><span class="check-icon">✓</span> Excellent</td>
+                            <td>Limited</td>
+                        </tr>
+                        <tr>
+                            <td>Low-bandwidth environments</td>
+                            <td>Moderate</td>
+                            <td><span class="check-icon">✓</span> Excellent</td>
+                            <td>Good</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        
+        <!-- Development Process Section -->
+        <section class="process-section">
+            <div class="container">
+                <h2>Our API Development Process</h2>
+                <p>Our structured methodology ensures we deliver APIs that meet both technical and business requirements:</p>
+                
+                <div class="process-steps">
+                    <!-- Step 1 -->
+                    <div class="process-step">
+                        <div class="process-step-number">1</div>
+                        <h3>Discovery</h3>
+                        <p>Identifying business goals, system requirements, and integration points with stakeholder workshops.</p>
+                    </div>
+                    
+                    <!-- Step 2 -->
+                    <div class="process-step">
+                        <div class="process-step-number">2</div>
+                        <h3>Design</h3>
+                        <p>Creating API schemas, documentation, and security models aligned with business domains.</p>
+                    </div>
+                    
+                    <!-- Step 3 -->
+                    <div class="process-step">
+                        <div class="process-step-number">3</div>
+                        <h3>Development</h3>
+                        <p>Implementing API endpoints with robust error handling, validation, and testing.</p>
+                    </div>
+                    
+                    <!-- Step 4 -->
+                    <div class="process-step">
+                        <div class="process-step-number">4</div>
+                        <h3>Deployment</h3>
+                        <p>Establishing monitoring, versioning, and governance for sustainable API management.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Technologies Section -->
+        <section class="technologies-section">
+            <div class="container">
+                <h2>API Technologies We Leverage</h2>
+                <p>We select the optimal technology stack for each API project based on your specific requirements. Our expertise spans a wide range of API technologies, enabling us to build solutions that perfectly balance performance, security, and developer experience.</p>
+                
+                <div class="tech-logos">
+                    <div class="tech-logo">
+                        <h4>Node.js</h4>
+                    </div>
+                    <div class="tech-logo">
+                        <h4>Express</h4>
+                    </div>
+                    <div class="tech-logo">
+                        <h4>GraphQL</h4>
+                    </div>
+                    <div class="tech-logo">
+                        <h4>Swagger/OpenAPI</h4>
+                    </div>
+                    <div class="tech-logo">
+                        <h4>OAuth 2.0</h4>
+                    </div>
+                    <div class="tech-logo">
+                        <h4>AWS API Gateway</h4>
+                    </div>
+                    <div class="tech-logo">
+                        <h4>Postman</h4>
+                    </div>
+                    <div class="tech-logo">
+                        <h4>Kong/Apigee</h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="container">
+                <h2>Ready to Connect Your Systems?</h2>
+                <p>Contact our team to explore how our API development and integration services can unify your technology ecosystem and drive business transformation.</p>
+                <a href="#" class="btn btn-secondary">Schedule a Consultation</a>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Company Info -->
+                <div>
+                    <a href="/" class="footer-logo">
+                        <span class="logo-slash">/</span>
+                        <span class="logo-text">EXECUTE</span>
+                    </a>
+                    <p class="footer-about">Accelerating digital transformation across Africa and beyond by delivering innovative, scalable, and sustainable technology solutions.</p>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li class="footer-link"><a href="about-us.html">About Us</a></li>
+                        <li class="footer-link"><a href="services-overview.html">Services</a></li>
+                        <li class="footer-link"><a href="case-study.html">Case Studies</a></li>
+                        <li class="footer-link"><a href="resources-blog.html">Resources</a></li>
+                        <li class="footer-link"><a href="careers.html">Careers</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Services Links -->
+                <div>
+                    <h4 class="footer-heading">Our Services</h4>
+                    <ul class="footer-links">
+                        <li class="footer-link"><a href="custom-software.html">Custom Software</a></li>
+                        <li class="footer-link"><a href="cloud-solutions.html">Cloud Solutions</a></li>
+                        <li class="footer-link"><a href="digital-transformation.html">Digital Transformation</a></li>
+                        <li class="footer-link"><a href="api-development.html">API Development</a></li>
+                        <li class="footer-link"><a href="mobile-solutions.html">Mobile Solutions</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact Information -->
+                <div>
+                    <h4 class="footer-heading">Contact Us</h4>
+                    <div class="footer-contact">
+                        <p>
+                            <span class="footer-contact-icon">📍</span>
+                            University Road, Turflop Mankweng, Limpopo South Africa
+                        </p>
+                        <p>
+                            <span class="footer-contact-icon">📞</span>
+                            +27 69 739 3750
+                        </p>
+                        <p>
+                            <span class="footer-contact-icon">✉️</span>
+                            execute.co@outlook.com
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Execute Technologies. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Simple JavaScript for Interactive Elements -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile Menu Toggle
+            const navToggle = document.querySelector('.nav-toggle');
+            const nav = document.querySelector('nav');
+            
+            navToggle.addEventListener('click', function() {
+                nav.classList.toggle('active');
+                navToggle.setAttribute('aria-expanded', 
+                    nav.classList.contains('active') ? 'true' : 'false');
+            });
+            
+            // Use Case Tabs
+            const usecaseTabs = document.querySelectorAll('.usecase-tab');
+            const usecaseContents = document.querySelectorAll('.usecase-content');
+            
+            usecaseTabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    // Remove active class from all tabs and contents
+                    usecaseTabs.forEach(t => t.classList.remove('active'));
+                    usecaseContents.forEach(c => c.classList.remove('active'));
+                    
+                    // Add active class to clicked tab
+                    tab.classList.add('active');
+                    
+                    // Show corresponding content
+                    const tabId = tab.getAttribute('data-tab');
+                    document.querySelector(`#${tabId}`).classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
