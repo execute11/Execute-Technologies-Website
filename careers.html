@@ -1,1 +1,1307 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Careers | Execute Technologies</title>
+    <meta name="description" content="Join Execute Technologies and help transform African businesses through innovative technology solutions. Explore opportunities to grow your career while making a real impact.">
+    <!-- Preconnect to Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Load our fonts - Montserrat and Open Sans -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Reset and Base Styles */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        /* Color Variables - from Brand Guidelines */
+        :root {
+            --execute-green: #377A4D; /* Primary brand color */
+            --action-green: #38D252; /* Secondary accent color */
+            --deep-slate: #2D3436; /* Primary text color */
+            --cloud-white: #F7F9FA; /* Backgrounds */
+            --innovation-blue: #147EFB; /* Secondary accent */
+            --alert-amber: #FFBF00; /* Notifications */
+            --success-green: #28A745; /* Confirmations */
+            --deep-slate-85: rgba(45, 52, 54, 0.85); /* Body text */
+            --deep-slate-70: rgba(45, 52, 54, 0.7); /* Caption text */
+        }
+        
+        html {
+            font-size: 16px; /* Base font size */
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 400;
+            line-height: 1.5;
+            color: var(--deep-slate-85);
+            background-color: var(--cloud-white);
+            overflow-x: hidden;
+        }
+        
+        /* Typography - from Brand Guidelines */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--execute-green);
+            margin-bottom: 1rem;
+        }
+        
+        h1 { /* Page Titles */
+            font-size: 2rem; /* 32px */
+            line-height: 2.5rem; /* 40px */
+            font-weight: 700; /* Bold */
+        }
+        
+        h2 { /* Section Headers */
+            font-size: 1.5rem; /* 24px */
+            line-height: 2rem; /* 32px */
+            font-weight: 600; /* Semibold */
+        }
+        
+        h3 { /* Subsections */
+            font-size: 1.25rem; /* 20px */
+            line-height: 1.75rem; /* 28px */
+            font-weight: 500; /* Medium */
+            color: var(--deep-slate);
+        }
+        
+        h4 { /* Component Headers */
+            font-size: 1.125rem; /* 18px */
+            line-height: 1.625rem; /* 26px */
+            font-weight: 500; /* Medium */
+            color: var(--deep-slate);
+        }
+        
+        p { /* Body Copy */
+            font-size: 1rem; /* 16px */
+            line-height: 1.5rem; /* 24px */
+            margin-bottom: 1rem;
+        }
+        
+        small { /* Small Copy/Captions */
+            font-size: 0.875rem; /* 14px */
+            line-height: 1.25rem; /* 20px */
+            font-weight: 300; /* Light */
+            color: var(--deep-slate-70);
+        }
+        
+        a {
+            color: var(--execute-green);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        a:hover {
+            color: var(--action-green);
+        }
+        
+        /* Container */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary {
+            background-color: var(--execute-green);
+            color: var(--cloud-white);
+            border: 2px solid var(--execute-green);
+        }
+        
+        .btn-primary:hover {
+            background-color: transparent;
+            color: var(--execute-green);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--execute-green);
+            border: 2px solid var(--execute-green);
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--execute-green);
+            color: var(--cloud-white);
+        }
+        
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: var(--cloud-white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo svg {
+            height: 40px;
+            width: auto;
+        }
+        
+        .logo-placeholder {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-slash {
+            color: var(--action-green);
+            font-weight: bold;
+            font-size: 1.5rem;
+            margin-right: 0.25rem;
+        }
+        
+        .logo-text {
+            color: var(--execute-green);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.25rem;
+            letter-spacing: 1px;
+        }
+        
+        .nav-toggle {
+            display: block;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--execute-green);
+            cursor: pointer;
+        }
+        
+        @media (min-width: 768px) {
+            .nav-toggle {
+                display: none;
+            }
+        }
+        
+        nav {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background-color: var(--cloud-white);
+            padding: 1rem;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            transform: translateY(-100%);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        nav.active {
+            transform: translateY(0);
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        @media (min-width: 768px) {
+            nav {
+                position: static;
+                width: auto;
+                background-color: transparent;
+                padding: 0;
+                box-shadow: none;
+                transform: none;
+                opacity: 1;
+                visibility: visible;
+                transition: none;
+            }
+        }
+        
+        .nav-list {
+            list-style: none;
+            display: block;
+        }
+        
+        @media (min-width: 768px) {
+            .nav-list {
+                display: flex;
+                align-items: center;
+            }
+        }
+        
+        .nav-item {
+            margin-bottom: 0.5rem;
+        }
+        
+        @media (min-width: 768px) {
+            .nav-item {
+                margin-bottom: 0;
+                margin-left: 1.5rem;
+            }
+        }
+        
+        .nav-link {
+            color: var(--deep-slate);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            color: var(--execute-green);
+        }
+        
+        .nav-cta {
+            margin-top: 1rem;
+        }
+        
+        @media (min-width: 768px) {
+            .nav-cta {
+                margin-top: 0;
+                margin-left: 1.5rem;
+            }
+        }
+        
+        /* Page Header */
+        .page-header {
+            padding: 8rem 0 4rem;
+            background-color: var(--execute-green);
+            color: var(--cloud-white);
+        }
+        
+        .page-header h1, .page-header p {
+            color: var(--cloud-white);
+        }
+        
+        .page-header p {
+            max-width: 800px;
+            margin-bottom: 2rem;
+        }
+        
+        /* Culture Section */
+        .culture-section {
+            padding: 4rem 0;
+        }
+        
+        .culture-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        @media (min-width: 768px) {
+            .culture-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        .culture-card {
+            background-color: var(--cloud-white);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .culture-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
+        }
+        
+        .culture-icon {
+            font-size: 2rem;
+            color: var(--execute-green);
+            margin-bottom: 1rem;
+        }
+        
+        /* Benefits Section */
+        .benefits-section {
+            padding: 4rem 0;
+            background-color: #f5f7f9;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        @media (min-width: 768px) {
+            .benefits-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        .benefit-item {
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .benefit-icon {
+            flex-shrink: 0;
+            font-size: 1.25rem;
+            color: var(--execute-green);
+            margin-right: 1rem;
+        }
+        
+        .benefit-content {
+            flex-grow: 1;
+        }
+        
+        .benefit-content h4 {
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Job Listings Section */
+        .jobs-section {
+            padding: 4rem 0;
+        }
+        
+        .job-filter {
+            margin-bottom: 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .filter-btn {
+            background-color: transparent;
+            border: 1px solid var(--execute-green);
+            color: var(--execute-green);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .filter-btn:hover, .filter-btn.active {
+            background-color: var(--execute-green);
+            color: var(--cloud-white);
+        }
+        
+        .job-list {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+        
+        .job-card {
+            background-color: var(--cloud-white);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        .job-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+        }
+        
+        .job-title {
+            color: var(--execute-green);
+            margin-bottom: 0.5rem;
+        }
+        
+        .job-location, .job-type {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+            color: var(--deep-slate-70);
+            font-size: 0.875rem;
+        }
+        
+        .job-icon {
+            margin-right: 0.5rem;
+        }
+        
+        .job-description {
+            margin: 1rem 0;
+        }
+        
+        .job-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .job-tag {
+            background-color: rgba(55, 122, 77, 0.1);
+            color: var(--execute-green);
+            padding: 0.25rem 0.75rem;
+            border-radius: 100px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        
+        /* Process Section */
+        .process-section {
+            padding: 4rem 0;
+            background-color: #f5f7f9;
+        }
+        
+        .process-steps {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        @media (min-width: 768px) {
+            .process-steps {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        .process-step {
+            text-align: center;
+            position: relative;
+        }
+        
+        @media (min-width: 768px) {
+            .process-step:not(:last-child)::after {
+                content: "";
+                position: absolute;
+                top: 2.5rem;
+                right: -1rem;
+                width: 2rem;
+                height: 2px;
+                background-color: var(--execute-green);
+            }
+        }
+        
+        .process-step-number {
+            width: 5rem;
+            height: 5rem;
+            border-radius: 50%;
+            background-color: var(--execute-green);
+            color: var(--cloud-white);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 1.5rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+        
+        .process-step h3 {
+            margin-bottom: 1rem;
+        }
+        
+        /* Testimonial Section */
+        .testimonial-section {
+            padding: 4rem 0;
+        }
+        
+        .testimonial-card {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            background-color: var(--cloud-white);
+            border-radius: 8px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+            position: relative;
+        }
+        
+        .testimonial-card::before {
+            content: """;
+            position: absolute;
+            top: -0.5rem;
+            left: 1rem;
+            font-size: 5rem;
+            color: var(--execute-green);
+            opacity: 0.2;
+            line-height: 1;
+        }
+        
+        .testimonial-content {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--deep-slate);
+        }
+        
+        .testimonial-position {
+            color: var(--deep-slate-70);
+            font-size: 0.875rem;
+        }
+        
+        /* FAQ Section */
+        .faq-section {
+            padding: 4rem 0;
+            background-color: #f5f7f9;
+        }
+        
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            margin-bottom: 1.5rem;
+        }
+        
+        .faq-question {
+            background-color: var(--cloud-white);
+            padding: 1.25rem;
+            border-radius: 8px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            color: var(--deep-slate);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        
+        .faq-question:hover {
+            color: var(--execute-green);
+        }
+        
+        .faq-icon {
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-answer {
+            background-color: var(--cloud-white);
+            padding: 0 1.25rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            opacity: 0;
+            border-radius: 0 0 8px 8px;
+            margin-top: -8px;
+        }
+        
+        .faq-answer-inner {
+            padding: 1.25rem 0;
+        }
+        
+        .faq-item.active .faq-question {
+            color: var(--execute-green);
+            border-radius: 8px 8px 0 0;
+        }
+        
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+        }
+        
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            opacity: 1;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            padding: 4rem 0;
+            background-color: var(--execute-green);
+            color: var(--cloud-white);
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            color: var(--cloud-white);
+        }
+        
+        .cta-section p {
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--deep-slate);
+            color: var(--cloud-white);
+            padding: 4rem 0 2rem;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        @media (min-width: 768px) {
+            .footer-grid {
+                grid-template-columns: 2fr 1fr 1fr 1fr;
+            }
+        }
+        
+        .footer-logo {
+            color: var(--cloud-white);
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+        
+        .footer-about {
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-heading {
+            color: var(--cloud-white);
+            margin-bottom: 1.5rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 1.125rem;
+            position: relative;
+        }
+        
+        .footer-heading::after {
+            content: "";
+            position: absolute;
+            bottom: -0.5rem;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--action-green);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-link {
+            margin-bottom: 0.75rem;
+        }
+        
+        .footer-link a {
+            color: rgba(255, 255, 255, 0.7);
+            transition: color 0.3s ease;
+        }
+        
+        .footer-link a:hover {
+            color: var(--action-green);
+        }
+        
+        .footer-contact p {
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .footer-contact-icon {
+            margin-right: 0.75rem;
+            color: var(--action-green);
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 1.5rem;
+            text-align: center;
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        /* Accessibility enhancements */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+        
+        /* Focus styles for keyboard navigation */
+        a:focus, button:focus {
+            outline: 2px solid var(--action-green);
+            outline-offset: 2px;
+        }
+        
+        /* Skip link for keyboard users */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--execute-green);
+            color: white;
+            padding: 8px;
+            z-index: 100;
+            transition: top 0.3s ease;
+        }
+        
+        .skip-link:focus {
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Skip Link for Accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <!-- Header / Navigation -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <!-- Logo Placeholder -->
+                <a href="index.html" class="logo-placeholder" aria-label="Execute Technologies Home">
+                    <span class="logo-slash">/</span>
+                    <span class="logo-text">EXECUTE</span>
+                </a>
+                
+                <!-- Mobile Menu Toggle Button -->
+                <button class="nav-toggle" aria-label="Toggle navigation menu">
+                    ☰
+                </button>
+                
+                <!-- Navigation -->
+                <nav>
+                    <ul class="nav-list">
+                        <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                        <li class="nav-item"><a href="about-us.html" class="nav-link">About</a></li>
+                        <li class="nav-item"><a href="services-overview.html" class="nav-link">Services</a></li>
+                        <li class="nav-item"><a href="industry-solutions.html" class="nav-link">Solutions</a></li>
+                        <li class="nav-item"><a href="case-study.html" class="nav-link">Case Studies</a></li>
+                        <li class="nav-item"><a href="resources-blog.html" class="nav-link">Resources</a></li>
+                        <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+                        <li class="nav-item"><a href="careers.html" class="nav-link active">Careers</a></li>
+                        <li class="nav-cta"><a href="contact.html" class="btn btn-primary">Get Started</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Main Content Start -->
+    <main id="main-content">
+        <!-- Page Header -->
+        <section class="page-header">
+            <div class="container">
+                <h1>Join Our Team</h1>
+                <p>At Execute Technologies, we're building a team of exceptional talent to drive digital transformation across Africa. Join us in creating innovative technology solutions that address real business challenges while advancing your career in a supportive, growth-focused environment.</p>
+            </div>
+        </section>
+        
+        <!-- Culture Section -->
+        <section class="culture-section">
+            <div class="container">
+                <h2>Our Culture</h2>
+                <p>We believe that great technology solutions come from great teams. Our culture is built on four core values that guide everything we do:</p>
+                
+                <div class="culture-grid">
+                    <!-- Value 1 -->
+                    <div class="culture-card">
+                        <div class="culture-icon">🌟</div>
+                        <h3>Excellence</h3>
+                        <p>We are committed to delivering outstanding quality in everything we do. From code to client interactions, we pursue excellence without compromise.</p>
+                    </div>
+                    
+                    <!-- Value 2 -->
+                    <div class="culture-card">
+                        <div class="culture-icon">💡</div>
+                        <h3>Innovation</h3>
+                        <p>We embrace creative thinking and continuously explore new approaches and technologies that can create meaningful impact for our clients.</p>
+                    </div>
+                    
+                    <!-- Value 3 -->
+                    <div class="culture-card">
+                        <div class="culture-icon">🤝</div>
+                        <h3>Collaboration</h3>
+                        <p>We believe the best solutions emerge when diverse perspectives come together. Teamwork is at the core of our success.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Benefits Section -->
+        <section class="benefits-section">
+            <div class="container">
+                <h2>Benefits & Perks</h2>
+                <p>We invest in our team's wellbeing and growth, offering a comprehensive benefits package that includes:</p>
+                
+                <div class="benefits-grid">
+                    <!-- Benefit 1 -->
+                    <div class="benefit-item">
+                        <div class="benefit-icon">📚</div>
+                        <div class="benefit-content">
+                            <h4>Continuous Learning</h4>
+                            <p>Access to learning platforms, conference attendance, and dedicated time for professional development.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Benefit 2 -->
+                    <div class="benefit-item">
+                        <div class="benefit-icon">🌱</div>
+                        <div class="benefit-content">
+                            <h4>Career Growth</h4>
+                            <p>Clear advancement paths, mentorship programs, and opportunities to lead meaningful projects.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Benefit 3 -->
+                    <div class="benefit-item">
+                        <div class="benefit-icon">⚖️</div>
+                        <div class="benefit-content">
+                            <h4>Work-Life Balance</h4>
+                            <p>Flexible working hours, remote work options, and policies that respect personal time.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Benefit 4 -->
+                    <div class="benefit-item">
+                        <div class="benefit-icon">🏆</div>
+                        <div class="benefit-content">
+                            <h4>Recognition Programs</h4>
+                            <p>Regular acknowledgment of achievements and contributions to our collective success.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Benefit 5 -->
+                    <div class="benefit-item">
+                        <div class="benefit-icon">🌍</div>
+                        <div class="benefit-content">
+                            <h4>Social Impact</h4>
+                            <p>Opportunities to contribute to projects that make a difference in African communities.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Benefit 6 -->
+                    <div class="benefit-item">
+                        <div class="benefit-icon">🎯</div>
+                        <div class="benefit-content">
+                            <h4>Competitive Compensation</h4>
+                            <p>Attractive salary packages with performance-based incentives and benefits.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Job Listings Section -->
+        <section class="jobs-section">
+            <div class="container">
+                <h2>Current Openings</h2>
+                <p>Explore our current opportunities and find where your skills can make an impact:</p>
+                
+                <div class="job-filter">
+                    <button class="filter-btn active" data-filter="all">All Positions</button>
+                    <button class="filter-btn" data-filter="development">Development</button>
+                    <button class="filter-btn" data-filter="design">Design</button>
+                    <button class="filter-btn" data-filter="cloud">Cloud</button>
+                    <button class="filter-btn" data-filter="consulting">Consulting</button>
+                </div>
+                
+                <div class="job-list">
+                    <!-- Job 1 -->
+                    <div class="job-card" data-category="development">
+                        <div>
+                            <h3 class="job-title">Senior Software Developer</h3>
+                            <div class="job-meta">
+                                <div class="job-location">
+                                    <span class="job-icon">📍</span>
+                                    <span>Limpopo, South Africa (Hybrid)</span>
+                                </div>
+                                <div class="job-type">
+                                    <span class="job-icon">⏱️</span>
+                                    <span>Full-time</span>
+                                </div>
+                            </div>
+                            <p class="job-description">We are seeking an experienced software developer to lead development initiatives for our enterprise clients. The ideal candidate will have strong full-stack skills and experience building scalable applications.</p>
+                            <div class="job-tags">
+                                <span class="job-tag">Node.js</span>
+                                <span class="job-tag">React</span>
+                                <span class="job-tag">API Development</span>
+                                <span class="job-tag">Solution Architecture</span>
+                            </div>
+                        </div>
+                        <a href="#" class="btn btn-secondary">Apply Now</a>
+                    </div>
+                    
+                    <!-- Job 2 -->
+                    <div class="job-card" data-category="design">
+                        <div>
+                            <h3 class="job-title">UX/UI Designer</h3>
+                            <div class="job-meta">
+                                <div class="job-location">
+                                    <span class="job-icon">📍</span>
+                                    <span>Remote (Within Africa)</span>
+                                </div>
+                                <div class="job-type">
+                                    <span class="job-icon">⏱️</span>
+                                    <span>Full-time</span>
+                                </div>
+                            </div>
+                            <p class="job-description">Join our design team to create user-centered experiences for digital products. You'll collaborate closely with developers and clients to ensure intuitive, accessible, and contextually appropriate designs.</p>
+                            <div class="job-tags">
+                                <span class="job-tag">User Research</span>
+                                <span class="job-tag">Wireframing</span>
+                                <span class="job-tag">Figma</span>
+                                <span class="job-tag">Usability Testing</span>
+                            </div>
+                        </div>
+                        <a href="#" class="btn btn-secondary">Apply Now</a>
+                    </div>
+                    
+                    <!-- Job 3 -->
+                    <div class="job-card" data-category="cloud">
+                        <div>
+                            <h3 class="job-title">Cloud Infrastructure Engineer</h3>
+                            <div class="job-meta">
+                                <div class="job-location">
+                                    <span class="job-icon">📍</span>
+                                    <span>Limpopo, South Africa (On-site)</span>
+                                </div>
+                                <div class="job-type">
+                                    <span class="job-icon">⏱️</span>
+                                    <span>Full-time</span>
+                                </div>
+                            </div>
+                            <p class="job-description">Help our clients navigate cloud migration and optimization. You'll architect resilient, secure, and cost-effective cloud solutions that account for the unique infrastructure challenges across African markets.</p>
+                            <div class="job-tags">
+                                <span class="job-tag">AWS</span>
+                                <span class="job-tag">Infrastructure as Code</span>
+                                <span class="job-tag">DevOps</span>
+                                <span class="job-tag">Security</span>
+                            </div>
+                        </div>
+                        <a href="#" class="btn btn-secondary">Apply Now</a>
+                    </div>
+                    
+                    <!-- Job 4 -->
+                    <div class="job-card" data-category="consulting">
+                        <div>
+                            <h3 class="job-title">Digital Transformation Consultant</h3>
+                            <div class="job-meta">
+                                <div class="job-location">
+                                    <span class="job-icon">📍</span>
+                                    <span>Various Locations (Travel Required)</span>
+                                </div>
+                                <div class="job-type">
+                                    <span class="job-icon">⏱️</span>
+                                    <span>Full-time</span>
+                                </div>
+                            </div>
+                            <p class="job-description">Guide organizations through their digital transformation journeys. You'll assess current systems, develop strategic roadmaps, and help clients implement change management processes for technology adoption.</p>
+                            <div class="job-tags">
+                                <span class="job-tag">Strategy</span>
+                                <span class="job-tag">Process Analysis</span>
+                                <span class="job-tag">Change Management</span>
+                                <span class="job-tag">Technology Planning</span>
+                            </div>
+                        </div>
+                        <a href="#" class="btn btn-secondary">Apply Now</a>
+                    </div>
+                    
+                    <!-- Job 5 -->
+                    <div class="job-card" data-category="development">
+                        <div>
+                            <h3 class="job-title">Mobile Developer (Flutter)</h3>
+                            <div class="job-meta">
+                                <div class="job-location">
+                                    <span class="job-icon">📍</span>
+                                    <span>Remote (Within Africa)</span>
+                                </div>
+                                <div class="job-type">
+                                    <span class="job-icon">⏱️</span>
+                                    <span>Full-time</span>
+                                </div>
+                            </div>
+                            <p class="job-description">Develop cross-platform mobile applications that perform well in diverse connectivity environments. You'll create applications optimized for a wide range of devices common across African markets.</p>
+                            <div class="job-tags">
+                                <span class="job-tag">Flutter</span>
+                                <span class="job-tag">Dart</span>
+                                <span class="job-tag">Mobile UX</span>
+                                <span class="job-tag">Offline-First Design</span>
+                            </div>
+                        </div>
+                        <a href="#" class="btn btn-secondary">Apply Now</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Application Process Section -->
+        <section class="process-section">
+            <div class="container">
+                <h2>Our Application Process</h2>
+                <p>We've designed a transparent, efficient hiring process that helps us find exceptional talent while giving you insight into our culture and work:</p>
+                
+                <div class="process-steps">
+                    <!-- Step 1 -->
+                    <div class="process-step">
+                        <div class="process-step-number">1</div>
+                        <h3>Application Review</h3>
+                        <p>Submit your application through our careers portal. Our team reviews applications within 5-7 business days.</p>
+                    </div>
+                    
+                    <!-- Step 2 -->
+                    <div class="process-step">
+                        <div class="process-step-number">2</div>
+                        <h3>Interview Process</h3>
+                        <p>Qualified candidates participate in 2-3 interviews, including technical assessments and culture-fit conversations.</p>
+                    </div>
+                    
+                    <!-- Step 3 -->
+                    <div class="process-step">
+                        <div class="process-step-number">3</div>
+                        <h3>Welcome Aboard</h3>
+                        <p>Successful candidates receive offers and begin our comprehensive onboarding program to set you up for success.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Employee Testimonial Section -->
+        <section class="testimonial-section">
+            <div class="container">
+                <h2>What Our Team Says</h2>
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-content">"Joining Execute Technologies was one of the best career decisions I've made. Here, I've found a balance of challenging work, meaningful impact, and genuine support from colleagues. The company's focus on both technical excellence and understanding African business contexts creates unique opportunities to grow professionally while contributing to transformative projects."</p>
+                    <p class="testimonial-author">Thabo Mokoena</p>
+                    <p class="testimonial-position">Senior Developer, with Execute Technologies for 3 years</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <div class="container">
+                <h2>Frequently Asked Questions</h2>
+                
+                <div class="faq-container">
+                    <!-- FAQ 1 -->
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Do you offer internships or graduate programs?</span>
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-inner">
+                                <p>Yes, we run a structured internship program twice a year (January and July intakes) and a graduate development program with an annual intake. Both programs focus on providing hands-on experience and mentorship to build practical skills. Check our careers page for specific application windows.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- FAQ 2 -->
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>What is your remote work policy?</span>
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-inner">
+                                <p>We have a flexible approach to work location. Some positions are fully remote, others are hybrid, and some require on-site presence due to client requirements. Each job posting specifies the location requirements. For hybrid roles, we typically work with 2-3 days in the office per week.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- FAQ 3 -->
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>What technologies do you work with?</span>
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-inner">
+                                <p>Our technology stack varies by project and client needs. We commonly work with React, Node.js, Python, Java, Flutter, and AWS cloud infrastructure. We select technologies based on business requirements rather than trends, so we value adaptability and a willingness to learn over specific tool expertise.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- FAQ 4 -->
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>How do you support professional development?</span>
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-inner">
+                                <p>We invest significantly in our team's growth through several initiatives: a learning stipend for courses and certifications, dedicated time for skill development, internal knowledge-sharing sessions, mentorship programs, and opportunities to attend relevant conferences. Each team member also has a personalized development plan aligned with their career goals.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- FAQ 5 -->
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>I don't see a position that matches my skills. Can I still apply?</span>
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-inner">
+                                <p>Absolutely! We welcome speculative applications from talented individuals. Submit your CV and a cover letter explaining your interests and how you could contribute to Execute Technologies through our general application form. We review these applications regularly and will contact you if a suitable opportunity arises.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="container">
+                <h2>Ready to Join Our Team?</h2>
+                <p>Explore our current openings and take the next step in your career with Execute Technologies.</p>
+                <a href="#" class="btn btn-secondary">View All Positions</a>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Company Info -->
+                <div>
+                    <a href="/" class="footer-logo">
+                        <span class="logo-slash">/</span>
+                        <span class="logo-text">EXECUTE</span>
+                    </a>
+                    <p class="footer-about">Accelerating digital transformation across Africa and beyond by delivering innovative, scalable, and sustainable technology solutions.</p>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li class="footer-link"><a href="about-us.html">About Us</a></li>
+                        <li class="footer-link"><a href="services-overview.html">Services</a></li>
+                        <li class="footer-link"><a href="case-study.html">Case Studies</a></li>
+                        <li class="footer-link"><a href="resources-blog.html">Resources</a></li>
+                        <li class="footer-link"><a href="careers.html">Careers</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Services Links -->
+                <div>
+                    <h4 class="footer-heading">Our Services</h4>
+                    <ul class="footer-links">
+                        <li class="footer-link"><a href="custom-software.html">Custom Software</a></li>
+                        <li class="footer-link"><a href="cloud-solutions.html">Cloud Solutions</a></li>
+                        <li class="footer-link"><a href="digital-transformation.html">Digital Transformation</a></li>
+                        <li class="footer-link"><a href="api-development.html">API Development</a></li>
+                        <li class="footer-link"><a href="mobile-solutions.html">Mobile Solutions</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact Information -->
+                <div>
+                    <h4 class="footer-heading">Contact Us</h4>
+                    <div class="footer-contact">
+                        <p>
+                            <span class="footer-contact-icon">📍</span>
+                            University Road, Turflop Mankweng, Limpopo South Africa
+                        </p>
+                        <p>
+                            <span class="footer-contact-icon">📞</span>
+                            +27 69 739 3750
+                        </p>
+                        <p>
+                            <span class="footer-contact-icon">✉️</span>
+                            execute.co@outlook.com
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Execute Technologies. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- JavaScript for Interactive Elements -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile Menu Toggle
+            const navToggle = document.querySelector('.nav-toggle');
+            const nav = document.querySelector('nav');
+            
+            navToggle.addEventListener('click', function() {
+                nav.classList.toggle('active');
+                navToggle.setAttribute('aria-expanded', 
+                    nav.classList.contains('active') ? 'true' : 'false');
+            });
+            
+            // FAQ Accordion
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                
+                question.addEventListener('click', () => {
+                    // Close all other items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item && otherItem.classList.contains('active')) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    
+                    // Toggle current item
+                    item.classList.toggle('active');
+                });
+            });
+            
+            // Job Filtering
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const jobCards = document.querySelectorAll('.job-card');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    button.classList.add('active');
+                    
+                    // Get filter value
+                    const filter = button.getAttribute('data-filter');
+                    
+                    // Show/hide job cards based on filter
+                    jobCards.forEach(card => {
+                        if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                            card.style.display = 'flex';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
