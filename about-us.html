@@ -504,6 +504,17 @@
             font-weight: 600;
             margin-bottom: 0.75rem;
         }
+
+        @media (max-width: 768px) {
+    .team-photo {
+        width: 200px;    /* Slightly smaller but still substantial */
+        height: 200px;
+    }
+    
+    .team-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+        }
         
         /* CTA Section */
         .cta-section {
