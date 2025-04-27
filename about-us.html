@@ -515,7 +515,17 @@
         grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     }
         }
-        
+
+        @media (max-width: 480px) {
+    .team-photo {
+        width: 180px;
+        height: 180px;
+    }
+    
+    .team-grid {
+        grid-template-columns: 1fr; /* Single column */
+    }
+        }
         /* CTA Section */
         .cta-section {
             padding: 4rem 0;
