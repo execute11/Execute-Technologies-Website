@@ -320,14 +320,20 @@
                 grid-template-columns: 1fr 1fr;
                 align-items: center;
             }
-        }
-        
-        .story-image {
-            height: 300px;
-            background-color: #ddd;
-            border-radius: 8px;
-            overflow: hidden;
-        }
+        }.story-image-container {
+    width: 100%;
+    max-width: 100%;
+    margin: 2rem 0;
+    overflow: hidden;
+}
+
+.story-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+    
         
         /* Mission Vision Section */
         .mission-vision {
