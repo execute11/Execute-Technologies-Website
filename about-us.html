@@ -477,13 +477,14 @@
         }
         
         .team-photo {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            background-color: #ddd;
-            margin: 0 auto 1rem;
-            overflow: hidden;
-        }
+    width: 250px;              /* Fixed width - increase from 180px */
+    height: 250px;             /* Fixed height - matching width for perfect circle */
+    border-radius: 50%;        /* Creates the circular shape */
+    object-fit: cover;         /* This is critical - maintains aspect ratio while filling the container */
+    object-position: center;   /* Centers the image focus area */
+    margin: 0 auto 1.5rem;     /* Centers horizontally with bottom margin */
+    border: 3px solid var(--execute-green); /* Optional border styling */
+                }
         
         .team-name {
             color: var(--deep-slate);
