@@ -1,0 +1,2929 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources Hub | Execute Technologies</title>
+    <meta name="description" content="Access expert insights, guides, whitepapers, webinars and tools on African technology transformation, cloud implementation, and digital strategy from Execute Technologies.">
+    <!-- Preconnect to Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Load our fonts - Montserrat and Open Sans -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- AOS Animation Library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <style>
+        /* CSS Reset and Base Styles */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        /* Color Variables - Enhanced from Brand Guidelines */
+        :root {
+            --execute-green: #377A4D; /* Primary brand color */
+            --execute-green-light: rgba(55, 122, 77, 0.1); /* Light green for backgrounds */
+            --execute-green-dark: #2c6240; /* Darker green for hover states */
+            --action-green: #38D252; /* Secondary accent color */
+            --action-green-light: rgba(56, 210, 82, 0.2); /* Light action green */
+            --deep-slate: #2D3436; /* Primary text color */
+            --cloud-white: #F7F9FA; /* Backgrounds */
+            --innovation-blue: #147EFB; /* Secondary accent */
+            --alert-amber: #FFBF00; /* Notifications */
+            --success-green: #28A745; /* Confirmations */
+            --deep-slate-85: rgba(45, 52, 54, 0.85); /* Body text */
+            --deep-slate-70: rgba(45, 52, 54, 0.7); /* Caption text */
+            --deep-slate-50: rgba(45, 52, 54, 0.5); /* Subtle text */
+            --deep-slate-10: rgba(45, 52, 54, 0.1); /* Dividers */
+            --transition-fast: 0.3s ease;
+            --transition-medium: 0.5s ease;
+            --transition-slow: 0.8s ease;
+            --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.05);
+            --shadow-medium: 0 15px 35px rgba(0, 0, 0, 0.1);
+            --shadow-strong: 0 20px 40px rgba(0, 0, 0, 0.15);
+            --border-radius-sm: 6px;
+            --border-radius-md: 12px;
+            --border-radius-lg: 18px;
+        }
+        
+        html {
+            font-size: 16px; /* Base font size */
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 400;
+            line-height: 1.6;
+            color: var(--deep-slate-85);
+            background-color: var(--cloud-white);
+            overflow-x: hidden;
+        }
+        
+        /* Typography - Enhanced */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--execute-green);
+            margin-bottom: 1.25rem;
+            letter-spacing: -0.02em;
+        }
+        
+        h1 { /* Page Titles */
+            font-size: 2.75rem; /* Increased from 2rem */
+            line-height: 1.2;
+            font-weight: 800; /* Bolder for impact */
+            margin-bottom: 1.5rem;
+        }
+        
+        h2 { /* Section Headers */
+            font-size: 2rem; /* Increased from 1.5rem */
+            line-height: 1.3;
+            font-weight: 700; /* Bold */
+            position: relative;
+            margin-bottom: 2rem;
+        }
+        
+        h2::after {
+            content: "";
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: var(--action-green);
+            margin-top: 0.8rem;
+        }
+        
+        .text-center h2::after {
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        h3 { /* Subsections */
+            font-size: 1.5rem; /* Increased from 1.25rem */
+            line-height: 1.4;
+            font-weight: 600; /* Semibold */
+            color: var(--deep-slate);
+        }
+        
+        h4 { /* Component Headers */
+            font-size: 1.25rem; /* Increased from 1.125rem */
+            line-height: 1.5;
+            font-weight: 600; /* Semibold */
+            color: var(--deep-slate);
+        }
+        
+        p { /* Body Copy */
+            font-size: 1.0625rem; /* Slightly increased from 1rem */
+            line-height: 1.7; /* Increased line height for readability */
+            margin-bottom: 1.25rem;
+            color: var(--deep-slate-85);
+        }
+        
+        .lead {
+            font-size: 1.25rem;
+            font-weight: 400;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+        
+        small { /* Small Copy/Captions */
+            font-size: 0.875rem; /* 14px */
+            line-height: 1.5;
+            font-weight: 300; /* Light */
+            color: var(--deep-slate-70);
+        }
+        
+        a {
+            color: var(--execute-green);
+            text-decoration: none;
+            transition: color var(--transition-fast);
+            position: relative;
+            font-weight: 600;
+        }
+        
+        a:hover {
+            color: var(--action-green);
+        }
+        
+        .text-link {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .text-link::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--action-green);
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform 0.3s ease-out;
+        }
+        
+        .text-link:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+        
+        .section-label {
+            text-transform: uppercase;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 0.875rem;
+            letter-spacing: 0.1em;
+            color: var(--action-green);
+            margin-bottom: 1rem;
+            display: block;
+        }
+        
+        /* Container */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        
+        /* Utility Classes */
+        .text-center {
+            text-align: center;
+        }
+        
+        .mt-0 { margin-top: 0; }
+        .mt-1 { margin-top: 0.5rem; }
+        .mt-2 { margin-top: 1rem; }
+        .mt-3 { margin-top: 1.5rem; }
+        .mt-4 { margin-top: 2rem; }
+        .mt-5 { margin-top: 3rem; }
+        .mt-6 { margin-top: 4rem; }
+        
+        .mb-0 { margin-bottom: 0; }
+        .mb-1 { margin-bottom: 0.5rem; }
+        .mb-2 { margin-bottom: 1rem; }
+        .mb-3 { margin-bottom: 1.5rem; }
+        .mb-4 { margin-bottom: 2rem; }
+        .mb-5 { margin-bottom: 3rem; }
+        .mb-6 { margin-bottom: 4rem; }
+        
+        .py-0 { padding-top: 0; padding-bottom: 0; }
+        .py-1 { padding-top: 0.5rem; padding-bottom: 0.5rem; }
+        .py-2 { padding-top: 1rem; padding-bottom: 1rem; }
+        .py-3 { padding-top: 1.5rem; padding-bottom: 1.5rem; }
+        .py-4 { padding-top: 2rem; padding-bottom: 2rem; }
+        .py-5 { padding-top: 3rem; padding-bottom: 3rem; }
+        .py-6 { padding-top: 4rem; padding-bottom: 4rem; }
+        
+        .px-0 { padding-left: 0; padding-right: 0; }
+        .px-1 { padding-left: 0.5rem; padding-right: 0.5rem; }
+        .px-2 { padding-left: 1rem; padding-right: 1rem; }
+        .px-3 { padding-left: 1.5rem; padding-right: 1.5rem; }
+        .px-4 { padding-left: 2rem; padding-right: 2rem; }
+        .px-5 { padding-left: 3rem; padding-right: 3rem; }
+        .px-6 { padding-left: 4rem; padding-right: 4rem; }
+        
+        /* Buttons - Enhanced */
+        .btn {
+            display: inline-block;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 0.85rem 2rem;
+            border-radius: var(--border-radius-sm);
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.7s ease;
+            z-index: -1;
+        }
+        
+        .btn:hover::before {
+            left: 100%;
+        }
+        
+        .btn-primary {
+            background-color: var(--execute-green);
+            color: var(--cloud-white);
+            border: 2px solid var(--execute-green);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--execute-green-dark);
+            border-color: var(--execute-green-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--execute-green);
+            border: 2px solid var(--execute-green);
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--execute-green);
+            color: var(--cloud-white);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        .btn-white {
+            background-color: var(--cloud-white);
+            color: var(--execute-green);
+            border: 2px solid var(--cloud-white);
+        }
+        
+        .btn-white:hover {
+            background-color: transparent;
+            color: var(--cloud-white);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        .btn-download {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .btn-download i {
+            transition: transform var(--transition-fast);
+        }
+        
+        .btn-download:hover i {
+            transform: translateY(2px);
+        }
+        
+        .btn-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        /* Header & Navigation - Enhanced */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: var(--cloud-white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: all var(--transition-fast);
+        }
+        
+        header.scrolled {
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+            padding: 0.3rem 0;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            transition: padding var(--transition-fast);
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-placeholder {
+            display: flex;
+            align-items: center;
+            transition: transform var(--transition-fast);
+        }
+        
+        .logo-placeholder:hover {
+            transform: scale(1.05);
+        }
+        
+        .logo-slash {
+            color: var(--action-green);
+            font-weight: bold;
+            font-size: 1.8rem;
+            margin-right: 0.25rem;
+            transition: color var(--transition-fast);
+        }
+        
+        .logo-text {
+            color: var(--execute-green);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.4rem;
+            letter-spacing: 1px;
+            transition: color var(--transition-fast);
+        }
+        
+        .logo-placeholder:hover .logo-slash {
+            color: var(--execute-green);
+        }
+        
+        .logo-placeholder:hover .logo-text {
+            color: var(--action-green);
+        }
+        
+        .nav-toggle {
+            display: block;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--execute-green);
+            cursor: pointer;
+            transition: transform var(--transition-fast);
+        }
+        
+        .nav-toggle:hover {
+            transform: scale(1.1);
+        }
+        
+        @media (min-width: 992px) {
+            .nav-toggle {
+                display: none;
+            }
+        }
+        
+        nav {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background-color: var(--cloud-white);
+            padding: 1rem;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            transform: translateY(-100%);
+            opacity: 0;
+            visibility: hidden;
+            transition: all var(--transition-medium);
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+        
+        nav.active {
+            transform: translateY(0);
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        @media (min-width: 992px) {
+            nav {
+                position: static;
+                width: auto;
+                background-color: transparent;
+                padding: 0;
+                box-shadow: none;
+                transform: none;
+                opacity: 1;
+                visibility: visible;
+                transition: none;
+                max-height: none;
+                overflow-y: visible;
+            }
+        }
+        
+        .nav-list {
+            list-style: none;
+            display: block;
+        }
+        
+        @media (min-width: 992px) {
+            .nav-list {
+                display: flex;
+                align-items: center;
+            }
+        }
+        
+        .nav-item {
+            margin-bottom: 0.75rem;
+        }
+        
+        @media (min-width: 992px) {
+            .nav-item {
+                margin-bottom: 0;
+                margin-left: 2rem;
+                position: relative;
+            }
+        }
+        
+        .nav-link {
+            color: var(--deep-slate);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            transition: color var(--transition-fast);
+            display: block;
+            padding: 0.5rem 0;
+        }
+        
+        @media (min-width: 992px) {
+            .nav-link {
+                padding: 0.5rem 0;
+            }
+            
+            .nav-link::after {
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 3px;
+                bottom: -5px;
+                left: 0;
+                background-color: var(--action-green);
+                transform: scaleX(0);
+                transform-origin: bottom right;
+                transition: transform 0.3s ease-out;
+                border-radius: 2px;
+            }
+            
+            .nav-link:hover::after,
+            .nav-link.active::after {
+                transform: scaleX(1);
+                transform-origin: bottom left;
+            }
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            color: var(--execute-green);
+        }
+        
+        .nav-cta {
+            margin-top: 1.5rem;
+        }
+        
+        @media (min-width: 992px) {
+            .nav-cta {
+                margin-top: 0;
+                margin-left: 2rem;
+            }
+        }
+        
+        /* Page Header - Enhanced */
+        .page-header {
+            position: relative;
+            padding: 10rem 0 6rem;
+            background: linear-gradient(135deg, rgba(55, 122, 77, 0.9), rgba(44, 98, 64, 0.95)), url('/api/placeholder/1200/600') center/cover no-repeat;
+            color: var(--cloud-white);
+            overflow: hidden;
+        }
+        
+        .page-header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.08' fill-rule='evenodd'/%3E%3C/svg%3E");
+            opacity: 0.5;
+            z-index: 0;
+        }
+        
+        .page-header-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+        }
+        
+        .page-header h1, .page-header p {
+            color: var(--cloud-white);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s forwards 0.2s;
+        }
+        
+        .page-header p {
+            animation-delay: 0.4s;
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            max-width: 800px;
+        }
+        
+        .page-header .search-container {
+            background-color: rgba(255, 255, 255, 0.15);
+            border-radius: var(--border-radius-md);
+            padding: 0.5rem;
+            backdrop-filter: blur(10px);
+            margin-top: 2rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s forwards 0.6s;
+        }
+        
+        .hero-search {
+            display: flex;
+            align-items: center;
+            background-color: var(--cloud-white);
+            border-radius: var(--border-radius-sm);
+            overflow: hidden;
+        }
+        
+        .hero-search input {
+            flex-grow: 1;
+            padding: 1rem 1.5rem;
+            border: none;
+            font-size: 1rem;
+            color: var(--deep-slate);
+        }
+        
+        .hero-search input:focus {
+            outline: none;
+        }
+        
+        .hero-search button {
+            background-color: var(--execute-green);
+            color: var(--cloud-white);
+            border: none;
+            padding: 1rem 1.5rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color var(--transition-fast);
+        }
+        
+        .hero-search button:hover {
+            background-color: var(--execute-green-dark);
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Resources Hub Styles */
+        .resources-section {
+            padding: 5rem 0;
+            background-color: #f8f9fa;
+            position: relative;
+        }
+        
+        .resources-tabs {
+            display: flex;
+            overflow-x: auto;
+            gap: 0.25rem;
+            background-color: var(--cloud-white);
+            padding: 0.5rem;
+            border-radius: var(--border-radius-md);
+            box-shadow: var(--shadow-soft);
+            margin-bottom: 3rem;
+            position: sticky;
+            top: 5rem;
+            z-index: 10;
+        }
+        
+        .resources-tabs::-webkit-scrollbar {
+            height: 4px;
+        }
+        
+        .resources-tabs::-webkit-scrollbar-track {
+            background: var(--deep-slate-10);
+            border-radius: 2px;
+        }
+        
+        .resources-tabs::-webkit-scrollbar-thumb {
+            background: var(--execute-green-light);
+            border-radius: 2px;
+        }
+        
+        .tab-btn {
+            padding: 1rem 1.5rem;
+            background-color: transparent;
+            border: none;
+            border-radius: var(--border-radius-sm);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            color: var(--deep-slate);
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            white-space: nowrap;
+        }
+        
+        .tab-btn:hover {
+            color: var(--execute-green);
+            background-color: var(--execute-green-light);
+        }
+        
+        .tab-btn.active {
+            background-color: var(--execute-green);
+            color: var(--cloud-white);
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .resource-filters {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .filter-dropdown {
+            position: relative;
+        }
+        
+        .filter-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.25rem;
+            background-color: var(--cloud-white);
+            border: 1px solid var(--deep-slate-10);
+            border-radius: var(--border-radius-sm);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            color: var(--deep-slate);
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+        
+        .filter-btn:hover {
+            border-color: var(--execute-green);
+        }
+        
+        .filter-dropdown-content {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            z-index: 10;
+            width: 240px;
+            background-color: var(--cloud-white);
+            border-radius: var(--border-radius-sm);
+            box-shadow: var(--shadow-medium);
+            padding: 1rem;
+            margin-top: 0.5rem;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all var(--transition-fast);
+        }
+        
+        .filter-dropdown.active .filter-dropdown-content {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .filter-group {
+            margin-bottom: 1rem;
+        }
+        
+        .filter-group-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 0.875rem;
+            margin-bottom: 0.5rem;
+            color: var(--deep-slate);
+        }
+        
+        .filter-check {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .filter-check input {
+            width: 16px;
+            height: 16px;
+            cursor: pointer;
+        }
+        
+        .filter-check label {
+            font-size: 0.9375rem;
+            cursor: pointer;
+        }
+        
+        .filter-actions {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1rem;
+            border-top: 1px solid var(--deep-slate-10);
+            padding-top: 1rem;
+        }
+        
+        .filter-reset {
+            background: none;
+            border: none;
+            color: var(--deep-slate-70);
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: color var(--transition-fast);
+        }
+        
+        .filter-reset:hover {
+            color: var(--execute-green);
+        }
+        
+        .filter-apply {
+            background-color: var(--execute-green);
+            color: var(--cloud-white);
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: var(--border-radius-sm);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: background-color var(--transition-fast);
+        }
+        
+        .filter-apply:hover {
+            background-color: var(--execute-green-dark);
+        }
+        
+        .resources-layout {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+        }
+        
+        @media (min-width: 992px) {
+            .resources-layout {
+                grid-template-columns: 3fr 1fr;
+            }
+        }
+        
+        .resource-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+        
+        @media (min-width: 768px) {
+            .resource-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        /* Resource Cards - Different Types */
+        .resource-card {
+            background-color: var(--cloud-white);
+            border-radius: var(--border-radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+            transition: all var(--transition-medium);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .resource-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-medium);
+        }
+        
+        .resource-card-image {
+            position: relative;
+            height: 0;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            overflow: hidden;
+        }
+        
+        .resource-card-image img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform var(--transition-slow);
+        }
+        
+        .resource-card:hover .resource-card-image img {
+            transform: scale(1.05);
+        }
+        
+        .resource-type-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background-color: var(--execute-green);
+            color: var(--cloud-white);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 0.75rem;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+        
+        .resource-card-content {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        
+        .resource-category {
+            color: var(--action-green);
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .resource-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+            line-height: 1.4;
+        }
+        
+        .resource-excerpt {
+            color: var(--deep-slate-85);
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+        
+        .resource-meta {
+            margin-top: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1rem;
+            border-top: 1px solid var(--deep-slate-10);
+            font-size: 0.875rem;
+            color: var(--deep-slate-70);
+        }
+        
+        .resource-date {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .resource-actions {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .resource-action {
+            color: var(--deep-slate-70);
+            transition: color var(--transition-fast);
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            cursor: pointer;
+        }
+        
+        .resource-action:hover {
+            color: var(--execute-green);
+        }
+        
+        /* Webinar Card */
+        .webinar-card .resource-type-badge {
+            background-color: var(--innovation-blue);
+        }
+        
+        .webinar-details {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            color: var(--deep-slate-85);
+            font-size: 0.9375rem;
+        }
+        
+        /* Whitepaper Card */
+        .whitepaper-card .resource-type-badge {
+            background-color: var(--deep-slate);
+        }
+        
+        /* Video Card */
+        .video-card .resource-card-image::after {
+            content: "\f04b";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            background-color: rgba(56, 210, 82, 0.8);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--cloud-white);
+            font-size: 1.25rem;
+            transition: all var(--transition-fast);
+        }
+        
+        .video-card:hover .resource-card-image::after {
+            transform: translate(-50%, -50%) scale(1.1);
+            background-color: var(--execute-green);
+        }
+        
+        .video-card .resource-type-badge {
+            background-color: var(--alert-amber);
+        }
+        
+        /* Tool Card */
+        .tool-card .resource-type-badge {
+            background-color: var(--success-green);
+        }
+        
+        .tool-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .tool-feature {
+            background-color: var(--execute-green-light);
+            color: var(--execute-green);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        
+        /* Featured Resource Card */
+        .featured-resource {
+            grid-column: 1 / -1;
+            display: grid;
+            grid-template-columns: 1fr;
+            border-radius: var(--border-radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-medium);
+            background-color: var(--cloud-white);
+            transition: all var(--transition-medium);
+        }
+        
+        .featured-resource:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-strong);
+        }
+        
+        @media (min-width: 992px) {
+            .featured-resource {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        .featured-resource-image {
+            position: relative;
+            height: 300px;
+        }
+        
+        @media (min-width: 992px) {
+            .featured-resource-image {
+                height: 100%;
+            }
+        }
+        
+        .featured-resource-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform var(--transition-slow);
+        }
+        
+        .featured-resource:hover .featured-resource-image img {
+            transform: scale(1.05);
+        }
+        
+        .featured-resource-content {
+            padding: 2.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .featured-label {
+            display: inline-block;
+            background-color: var(--action-green-light);
+            color: var(--execute-green);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 0.75rem;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .featured-resource-title {
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+            color: var(--deep-slate);
+        }
+        
+        .featured-resource-excerpt {
+            margin-bottom: 2rem;
+            color: var(--deep-slate-85);
+        }
+        
+        /* Sidebar */
+        .sidebar {
+            position: sticky;
+            top: 8rem;
+            height: max-content;
+        }
+        
+        .sidebar-section {
+            background-color: var(--cloud-white);
+            border-radius: var(--border-radius-md);
+            padding: 2rem;
+            box-shadow: var(--shadow-soft);
+            margin-bottom: 2rem;
+        }
+        
+        .sidebar-title {
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            color: var(--execute-green);
+            position: relative;
+            padding-bottom: 0.75rem;
+        }
+        
+        .sidebar-title::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--action-green);
+        }
+        
+        /* Newsletter Form */
+        .newsletter-form {
+            margin-top: 1.5rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.25rem;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--deep-slate);
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--deep-slate-10);
+            border-radius: var(--border-radius-sm);
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1rem;
+            color: var(--deep-slate);
+            transition: border-color var(--transition-fast);
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--execute-green);
+        }
+        
+        /* Popular Resources */
+        .popular-resources {
+            list-style: none;
+        }
+        
+        .popular-resource {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding-bottom: 1.25rem;
+            margin-bottom: 1.25rem;
+            border-bottom: 1px solid var(--deep-slate-10);
+        }
+        
+        .popular-resource:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .popular-resource-image {
+            width: 80px;
+            height: 80px;
+            border-radius: var(--border-radius-sm);
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+        
+        .popular-resource-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .popular-resource-content {
+            flex-grow: 1;
+        }
+        
+        .popular-resource-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--deep-slate);
+            margin-bottom: 0.25rem;
+            line-height: 1.4;
+        }
+        
+        .popular-resource-title a {
+            color: inherit;
+            transition: color var(--transition-fast);
+        }
+        
+        .popular-resource-title a:hover {
+            color: var(--execute-green);
+        }
+        
+        .popular-resource-meta {
+            font-size: 0.75rem;
+            color: var(--deep-slate-70);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        /* Tags */
+        .topic-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.625rem;
+            list-style: none;
+        }
+        
+        .topic-item a {
+            display: inline-block;
+            padding: 0.4rem 0.875rem;
+            background-color: var(--execute-green-light);
+            border-radius: var(--border-radius-sm);
+            font-size: 0.875rem;
+            color: var(--execute-green);
+            font-weight: 500;
+            transition: all var(--transition-fast);
+        }
+        
+        .topic-item a:hover {
+            background-color: var(--execute-green);
+            color: var(--cloud-white);
+            transform: translateY(-2px);
+        }
+        
+        /* Load More Button */
+        .load-more-container {
+            text-align: center;
+            margin-top: 3rem;
+        }
+        
+        .load-more-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.85rem 2rem;
+            background-color: transparent;
+            border: 2px solid var(--execute-green);
+            color: var(--execute-green);
+            border-radius: var(--border-radius-sm);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+        
+        .load-more-btn:hover {
+            background-color: var(--execute-green);
+            color: var(--cloud-white);
+        }
+        
+        .load-more-btn .spinner {
+            display: none;
+            width: 16px;
+            height: 16px;
+            border: 2px solid currentColor;
+            border-right-color: transparent;
+            border-radius: 50%;
+            animation: spin 0.75s linear infinite;
+        }
+        
+        .load-more-btn.loading .text {
+            display: none;
+        }
+        
+        .load-more-btn.loading .spinner {
+            display: inline-block;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        /* Newsletter CTA */
+        .newsletter-cta {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, var(--execute-green), var(--execute-green-dark));
+            color: var(--cloud-white);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .newsletter-cta::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='52' height='26' viewBox='0 0 52 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M10 10c0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6h2c0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4v2c-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6zm25.464-1.95l8.486 8.486-1.414 1.414-8.486-8.486 1.414-1.414z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        
+        .newsletter-content {
+            max-width: 650px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .newsletter-cta h2 {
+            color: var(--cloud-white);
+            margin-bottom: 1.5rem;
+        }
+        
+        .newsletter-cta h2::after {
+            background-color: var(--cloud-white);
+            margin: 0.8rem auto 0;
+        }
+        
+        .newsletter-cta p {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem;
+        }
+        
+        .newsletter-form-large {
+            position: relative;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .newsletter-form-large input {
+            width: 100%;
+            padding: 1.25rem 2rem;
+            border-radius: 50px;
+            border: none;
+            font-size: 1rem;
+            color: var(--deep-slate);
+        }
+        
+        .newsletter-form-large input:focus {
+            outline: none;
+        }
+        
+        .newsletter-form-large button {
+            position: absolute;
+            right: 5px;
+            top: 5px;
+            bottom: 5px;
+            padding: 0 1.5rem;
+            background-color: var(--execute-green);
+            color: var(--cloud-white);
+            border: none;
+            border-radius: 50px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color var(--transition-fast);
+        }
+        
+        .newsletter-form-large button:hover {
+            background-color: var(--action-green);
+        }
+        
+        /* Footer - Enhanced */
+        footer {
+            background-color: var(--deep-slate);
+            color: var(--cloud-white);
+            padding: 5rem 0 2rem;
+            position: relative;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        
+        @media (min-width: 992px) {
+            .footer-grid {
+                grid-template-columns: 2fr 1fr 1fr 1fr;
+            }
+        }
+        
+        .footer-logo {
+            color: var(--cloud-white);
+            margin-bottom: 1.5rem;
+            display: inline-block;
+            transition: transform var(--transition-fast);
+        }
+        
+        .footer-logo:hover {
+            transform: scale(1.05);
+        }
+        
+        .footer-about {
+            margin-bottom: 1.5rem;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.7;
+        }
+        
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .footer-social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--cloud-white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all var(--transition-fast);
+        }
+        
+        .footer-social-link:hover {
+            background-color: var(--action-green);
+            color: var(--cloud-white);
+            transform: translateY(-3px);
+        }
+        
+        .footer-heading {
+            color: var(--cloud-white);
+            margin-bottom: 2rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 1.25rem;
+            position: relative;
+        }
+        
+        .footer-heading::after {
+            content: "";
+            position: absolute;
+            bottom: -0.75rem;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--action-green);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-link {
+            margin-bottom: 1rem;
+        }
+        
+        .footer-link a {
+            color: rgba(255, 255, 255, 0.7);
+            transition: all var(--transition-fast);
+            position: relative;
+            padding-left: 1.25rem;
+            display: inline-block;
+        }
+        
+        .footer-link a::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--action-green);
+            opacity: 0;
+            transition: all var(--transition-fast);
+        }
+        
+        .footer-link a:hover {
+            color: var(--cloud-white);
+            padding-left: 1.5rem;
+        }
+        
+        .footer-link a:hover::before {
+            opacity: 1;
+        }
+        
+        .footer-contact p {
+            margin-bottom: 1.25rem;
+            display: flex;
+            align-items: flex-start;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .footer-contact-icon {
+            margin-right: 1rem;
+            color: var(--action-green);
+            font-size: 1.25rem;
+            flex-shrink: 0;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        /* Resource Modal */
+        .resource-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(45, 52, 54, 0.9);
+            z-index: 1100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: all var(--transition-medium);
+        }
+        
+        .resource-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .modal-content {
+            background-color: var(--cloud-white);
+            border-radius: var(--border-radius-md);
+            width: 100%;
+            max-width: 800px;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+            transform: translateY(30px);
+            transition: transform var(--transition-medium);
+        }
+        
+        .resource-modal.active .modal-content {
+            transform: translateY(0);
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--deep-slate);
+            cursor: pointer;
+            transition: color var(--transition-fast);
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            z-index: 2;
+        }
+        
+        .modal-close:hover {
+            color: var(--execute-green);
+            background-color: var(--execute-green-light);
+        }
+        
+        .modal-header {
+            padding: 2rem 2rem 1rem;
+            border-bottom: 1px solid var(--deep-slate-10);
+        }
+        
+        .modal-body {
+            padding: 2rem;
+        }
+        
+        .modal-title {
+            font-size: 1.75rem;
+            color: var(--deep-slate);
+            margin-bottom: 1rem;
+        }
+        
+        .modal-subtitle {
+            font-size: 1.125rem;
+            color: var(--deep-slate-70);
+            margin-bottom: 0.5rem;
+        }
+        
+        .modal-meta {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin: 1.5rem 0;
+            padding: 1rem;
+            background-color: var(--deep-slate-10);
+            border-radius: var(--border-radius-sm);
+        }
+        
+        .modal-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            color: var(--deep-slate);
+        }
+        
+        .modal-meta-label {
+            font-weight: 600;
+        }
+        
+        .modal-meta-value {
+            color: var(--deep-slate-70);
+        }
+        
+        .modal-actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--deep-slate-10);
+        }
+        
+        .resource-preview {
+            margin: 1.5rem 0;
+            background-color: var(--deep-slate-10);
+            padding: 1.5rem;
+            border-radius: var(--border-radius-sm);
+            position: relative;
+        }
+        
+        .resource-preview::before {
+            content: "Preview";
+            position: absolute;
+            top: -0.75rem;
+            left: 1rem;
+            background-color: var(--execute-green);
+            color: var(--cloud-white);
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        
+        /* Toast Notification */
+        .toast-container {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 1050;
+        }
+        
+        .toast {
+            background-color: var(--cloud-white);
+            border-radius: var(--border-radius-sm);
+            padding: 1rem 1.5rem;
+            box-shadow: var(--shadow-medium);
+            margin-top: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transform: translateX(150%);
+            transition: transform var(--transition-fast);
+            max-width: 350px;
+        }
+        
+        .toast.active {
+            transform: translateX(0);
+        }
+        
+        .toast-icon {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.875rem;
+            color: var(--cloud-white);
+            flex-shrink: 0;
+        }
+        
+        .toast-success .toast-icon {
+            background-color: var(--success-green);
+        }
+        
+        .toast-content {
+            flex-grow: 1;
+        }
+        
+        .toast-title {
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+            color: var(--deep-slate);
+        }
+        
+        .toast-message {
+            font-size: 0.875rem;
+            color: var(--deep-slate-70);
+        }
+        
+        .toast-close {
+            background: none;
+            border: none;
+            color: var(--deep-slate-50);
+            cursor: pointer;
+            transition: color var(--transition-fast);
+            font-size: 1.125rem;
+            padding: 0;
+            flex-shrink: 0;
+        }
+        
+        .toast-close:hover {
+            color: var(--deep-slate);
+        }
+        
+        /* Scroll to top button */
+        .scroll-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 45px;
+            height: 45px;
+            background-color: var(--execute-green);
+            color: var(--cloud-white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all var(--transition-fast);
+            z-index: 100;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
+        
+        .scroll-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .scroll-top:hover {
+            background-color: var(--action-green);
+            transform: translateY(-5px);
+        }
+        
+        /* Accessibility enhancements */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+        
+        /* Focus styles for keyboard navigation */
+        a:focus, button:focus, input:focus, select:focus, textarea:focus {
+            outline: 3px solid var(--action-green);
+            outline-offset: 3px;
+        }
+        
+        /* Skip link for keyboard users */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--execute-green);
+            color: white;
+            padding: 8px;
+            z-index: 1001;
+            transition: top 0.3s ease;
+        }
+        
+        .skip-link:focus {
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Skip Link for Accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <!-- Scroll to top button -->
+    <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    
+    <!-- Toast Notification Container -->
+    <div class="toast-container" id="toastContainer">
+        <!-- Toasts will be added dynamically -->
+    </div>
+    
+    <!-- Resource Modal -->
+    <div class="resource-modal" id="resourceModal">
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose" aria-label="Close modal">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-header">
+                <h2 class="modal-title">Digital Transformation Roadmap for African SMEs</h2>
+                <div class="modal-subtitle">Comprehensive guide to implementing effective digital strategies</div>
+            </div>
+            <div class="modal-body">
+                <div class="modal-meta">
+                    <div class="modal-meta-item">
+                        <i class="fas fa-calendar"></i>
+                        <span class="modal-meta-label">Published:</span>
+                        <span class="modal-meta-value">April 12, 2025</span>
+                    </div>
+                    <div class="modal-meta-item">
+                        <i class="fas fa-user"></i>
+                        <span class="modal-meta-label">Author:</span>
+                        <span class="modal-meta-value">Daniel Osei</span>
+                    </div>
+                    <div class="modal-meta-item">
+                        <i class="fas fa-file-pdf"></i>
+                        <span class="modal-meta-label">Format:</span>
+                        <span class="modal-meta-value">PDF (2.4 MB)</span>
+                    </div>
+                    <div class="modal-meta-item">
+                        <i class="fas fa-clock"></i>
+                        <span class="modal-meta-label">Reading time:</span>
+                        <span class="modal-meta-value">15 minutes</span>
+                    </div>
+                </div>
+                
+                <p>This comprehensive guide provides practical steps for small and medium enterprises across Africa to leverage technology for business growth without overwhelming their resources or capabilities.</p>
+                
+                <p>Based on our experience with over 50 SME digital transformations, we've developed a framework that addresses the unique challenges of the African business context, including connectivity constraints, skills availability, and regulatory considerations.</p>
+                
+                <div class="resource-preview">
+                    <p>Table of Contents:</p>
+                    <ol>
+                        <li>Understanding Digital Transformation in the African Context</li>
+                        <li>Assessing Your Organization's Digital Readiness</li>
+                        <li>Prioritizing High-Impact Technology Investments</li>
+                        <li>Building Digital Capabilities with Limited Resources</li>
+                        <li>Managing Change and Adoption Across Teams</li>
+                        <li>Measuring Success and ROI</li>
+                    </ol>
+                </div>
+                
+                <div class="modal-actions">
+                    <a href="#" class="btn btn-primary btn-download"><i class="fas fa-download"></i> Download PDF</a>
+                    <button class="btn btn-secondary" id="saveForLater"><i class="fas fa-bookmark"></i> Save for Later</button>
+                    <button class="btn btn-secondary" id="shareResource"><i class="fas fa-share-alt"></i> Share</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Header / Navigation -->
+    <header id="header">
+        <div class="container">
+            <div class="header-content">
+                <!-- Logo Placeholder -->
+                <a href="index.html" class="logo-placeholder" aria-label="Execute Technologies Home">
+                    <span class="logo-slash">/</span>
+                    <span class="logo-text">EXECUTE</span>
+                </a>
+                
+                <!-- Mobile Menu Toggle Button -->
+                <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <!-- Navigation -->
+                <nav id="mainNav">
+                    <ul class="nav-list">
+                        <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                        <li class="nav-item"><a href="about-us.html" class="nav-link">About</a></li>
+                        <li class="nav-item"><a href="services-overview.html" class="nav-link">Services</a></li>
+                        <li class="nav-item"><a href="industry-solutions.html" class="nav-link">Solutions</a></li>
+                        <li class="nav-item"><a href="case-study.html" class="nav-link">Case Studies</a></li>
+                        <li class="nav-item"><a href="resources-blog.html" class="nav-link active">Resources</a></li>
+                        <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+                        <li class="nav-cta"><a href="contact.html" class="btn btn-primary">Get Started</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Main Content Start -->
+    <main id="main-content">
+        <!-- Page Header -->
+        <section class="page-header">
+            <div class="container">
+                <div class="page-header-content">
+                    <h1>Knowledge Resources Hub</h1>
+                    <p>Access expert insights, guides, tools and perspectives to accelerate your organization's digital transformation and technology excellence.</p>
+                    
+                    <div class="search-container">
+                        <form class="hero-search">
+                            <input type="text" placeholder="What technology topic are you interested in?" aria-label="Search resources">
+                            <button type="submit"><i class="fas fa-search"></i> Search</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Resources Section -->
+        <section class="resources-section">
+            <div class="container">
+                <!-- Resource Tabs -->
+                <div class="resources-tabs" data-aos="fade-up">
+                    <button class="tab-btn active" data-tab="all">All Resources</button>
+                    <button class="tab-btn" data-tab="articles">Articles & Insights</button>
+                    <button class="tab-btn" data-tab="whitepapers">Whitepapers</button>
+                    <button class="tab-btn" data-tab="webinars">Webinars & Events</button>
+                    <button class="tab-btn" data-tab="videos">Videos</button>
+                    <button class="tab-btn" data-tab="tools">Tools & Templates</button>
+                    <button class="tab-btn" data-tab="case-studies">Case Studies</button>
+                </div>
+                
+                <!-- All Resources Tab Content -->
+                <div class="tab-content active" id="all">
+                    <div class="resource-filters" data-aos="fade-up">
+                        <div class="filter-dropdown">
+                            <button class="filter-btn" id="topicFilter">
+                                <i class="fas fa-tag"></i> Topics <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="filter-dropdown-content">
+                                <div class="filter-group">
+                                    <div class="filter-group-title">Technology Areas</div>
+                                    <div class="filter-check">
+                                        <input type="checkbox" id="topic1">
+                                        <label for="topic1">Cloud Computing</label>
+                                    </div>
+                                    <div class="filter-check">
+                                        <input type="checkbox" id="topic2">
+                                        <label for="topic2">Mobile Development</label>
+                                    </div>
+                                    <div class="filter-check">
+                                        <input type="checkbox" id="topic3">
+                                        <label for="topic3">API Integration</label>
+                                    </div>
+                                    <div class="filter-check">
+                                        <input type="checkbox" id="topic4">
+                                        <label for="topic4">Cybersecurity</label>
+                                    </div>
+                                    <div class="filter-check">
+                                        <input type="checkbox" id="topic5">
+                                        <label for="topic5">Digital Transformation</label>
+                                    </div>
+                                </div>
+                                <div class="filter-actions">
+                                    <button class="filter-reset">Reset</button>
+                                    <button class="filter-apply">Apply Filters</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="filter-dropdown">
+                            <button class="filter-btn" id="industryFilter">
+                                <i class="fas fa-building"></i> Industry <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="filter-dropdown-content">
+                                <div class="filter-group">
+                                    <div class="filter-check">
+                                        <input type="checkbox" id="industry1">
+                                        <label for="industry1">Financial Services</label>
+                                    </div>
+                                    <div class="filter-check">
+                                        <input type="checkbox" id="industry2">
+                                        <label for="industry2">Healthcare</label>
+                                    </div>
+                                    <div class="filter-check">
+                                        <input type="checkbox" id="industry3">
+                                        <label for="industry3">Retail & E-Commerce</label>
+                                    </div>
+                                    <div class="filter-check">
+                                        <input type="checkbox" id="industry4">
+                                        <label for="industry4">Government</label>
+                                    </div>
+                                    <div class="filter-check">
+                                        <input type="checkbox" id="industry5">
+                                        <label for="industry5">Education</label>
+                                    </div>
+                                    <div class="filter-check">
+                                        <input type="checkbox" id="industry6">
+                                        <label for="industry6">Agriculture</label>
+                                    </div>
+                                </div>
+                                <div class="filter-actions">
+                                    <button class="filter-reset">Reset</button>
+                                    <button class="filter-apply">Apply Filters</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="filter-dropdown">
+                            <button class="filter-btn" id="dateFilter">
+                                <i class="fas fa-calendar-alt"></i> Date <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="filter-dropdown-content">
+                                <div class="filter-group">
+                                    <div class="filter-check">
+                                        <input type="radio" id="date1" name="date">
+                                        <label for="date1">Last 30 days</label>
+                                    </div>
+                                    <div class="filter-check">
+                                        <input type="radio" id="date2" name="date">
+                                        <label for="date2">Last 90 days</label>
+                                    </div>
+                                    <div class="filter-check">
+                                        <input type="radio" id="date3" name="date">
+                                        <label for="date3">Last year</label>
+                                    </div>
+                                    <div class="filter-check">
+                                        <input type="radio" id="date4" name="date">
+                                        <label for="date4">All time</label>
+                                    </div>
+                                </div>
+                                <div class="filter-actions">
+                                    <button class="filter-reset">Reset</button>
+                                    <button class="filter-apply">Apply Filters</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="filter-dropdown">
+                            <button class="filter-btn" id="sortFilter">
+                                <i class="fas fa-sort"></i> Sort by <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="filter-dropdown-content">
+                                <div class="filter-group">
+                                    <div class="filter-check">
+                                        <input type="radio" id="sort1" name="sort" checked>
+                                        <label for="sort1">Most Recent</label>
+                                    </div>
+                                    <div class="filter-check">
+                                        <input type="radio" id="sort2" name="sort">
+                                        <label for="sort2">Most Popular</label>
+                                    </div>
+                                    <div class="filter-check">
+                                        <input type="radio" id="sort3" name="sort">
+                                        <label for="sort3">Title (A-Z)</label>
+                                    </div>
+                                </div>
+                                <div class="filter-actions">
+                                    <button class="filter-apply">Apply</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="resources-layout">
+                        <div class="main-content">
+                            <!-- Featured Resource -->
+                            <article class="featured-resource" data-aos="fade-up">
+                                <div class="featured-resource-image">
+                                    <img src="/api/placeholder/600/400" alt="Cloud Implementation Guide">
+                                    <div class="resource-type-badge">
+                                        <i class="fas fa-file-pdf"></i> Whitepaper
+                                    </div>
+                                </div>
+                                <div class="featured-resource-content">
+                                    <span class="featured-label">Featured Resource</span>
+                                    <h2 class="featured-resource-title">Bridging the Cloud Gap: Strategies for Effective Cloud Implementation in African Enterprises</h2>
+                                    <p class="featured-resource-excerpt">African businesses face unique challenges when implementing cloud technologies—from connectivity constraints to skills availability. This comprehensive guide explores practical approaches to cloud adoption that balance global best practices with regional realities.</p>
+                                    <div class="btn-group">
+                                        <a href="#" class="btn btn-primary" id="openFeaturedResource">Read More</a>
+                                        <a href="#" class="btn btn-secondary btn-download"><i class="fas fa-download"></i> Download PDF</a>
+                                    </div>
+                                </div>
+                            </article>
+                            
+                            <!-- Resource Grid -->
+                            <div class="resource-grid">
+                                <!-- Whitepaper Card -->
+                                <article class="resource-card whitepaper-card" data-aos="fade-up" data-aos-delay="100">
+                                    <div class="resource-card-image">
+                                        <img src="/api/placeholder/400/225" alt="Digital Transformation Roadmap">
+                                        <div class="resource-type-badge">
+                                            <i class="fas fa-file-pdf"></i> Whitepaper
+                                        </div>
+                                    </div>
+                                    <div class="resource-card-content">
+                                        <span class="resource-category">Digital Strategy</span>
+                                        <h3 class="resource-title">The Digital Transformation Roadmap for African SMEs</h3>
+                                        <p class="resource-excerpt">Practical steps for small and medium enterprises to leverage technology for growth without overwhelming resources or capabilities, tailored to the African business context.</p>
+                                        <div class="resource-meta">
+                                            <div class="resource-date">
+                                                <i class="fas fa-calendar-alt"></i> April 12, 2025
+                                            </div>
+                                            <div class="resource-actions">
+                                                <a href="#" class="resource-action js-open-modal"><i class="fas fa-eye"></i></a>
+                                                <a href="#" class="resource-action"><i class="fas fa-download"></i></a>
+                                                <a href="#" class="resource-action js-save-resource"><i class="far fa-bookmark"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </article>
+                                
+                                <!-- Article Card -->
+                                <article class="resource-card" data-aos="fade-up" data-aos-delay="200">
+                                    <div class="resource-card-image">
+                                        <img src="/api/placeholder/400/225" alt="Mobile First Development">
+                                        <div class="resource-type-badge">
+                                            <i class="fas fa-file-alt"></i> Article
+                                        </div>
+                                    </div>
+                                    <div class="resource-card-content">
+                                        <span class="resource-category">Development</span>
+                                        <h3 class="resource-title">Mobile-First Development: Beyond the Buzzword</h3>
+                                        <p class="resource-excerpt">How truly effective mobile-first strategies differ in African markets and what developers need to consider beyond responsive design.</p>
+                                        <div class="resource-meta">
+                                            <div class="resource-date">
+                                                <i class="fas fa-calendar-alt"></i> April 5, 2025
+                                            </div>
+                                            <div class="resource-actions">
+                                                <a href="#" class="resource-action"><i class="fas fa-eye"></i></a>
+                                                <a href="#" class="resource-action js-save-resource"><i class="far fa-bookmark"></i></a>
+                                                <a href="#" class="resource-action"><i class="fas fa-share-alt"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </article>
+                                
+                                <!-- Webinar Card -->
+                                <article class="resource-card webinar-card" data-aos="fade-up" data-aos-delay="300">
+                                    <div class="resource-card-image">
+                                        <img src="/api/placeholder/400/225" alt="Data Privacy Webinar">
+                                        <div class="resource-type-badge">
+                                            <i class="fas fa-video"></i> Webinar
+                                        </div>
+                                    </div>
+                                    <div class="resource-card-content">
+                                        <span class="resource-category">Compliance</span>
+                                        <h3 class="resource-title">Data Sovereignty in African Cloud Implementations</h3>
+                                        <div class="webinar-details">
+                                            <i class="fas fa-calendar"></i> May 15, 2025 | 10:00 AM CAT
+                                        </div>
+                                        <p class="resource-excerpt">Join us for a live discussion on navigating the complex landscape of data regulations while leveraging global cloud capabilities.</p>
+                                        <div class="resource-meta">
+                                            <div class="resource-date">
+                                                <i class="fas fa-user"></i> Thabo Mokoena
+                                            </div>
+                                            <div class="resource-actions">
+                                                <a href="#" class="resource-action"><i class="fas fa-eye"></i></a>
+                                                <a href="#" class="resource-action"><i class="fas fa-calendar-plus"></i></a>
+                                                <a href="#" class="resource-action js-save-resource"><i class="far fa-bookmark"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </article>
+                                
+                                <!-- Video Card -->
+                                <article class="resource-card video-card" data-aos="fade-up" data-aos-delay="100">
+                                    <div class="resource-card-image">
+                                        <img src="/api/placeholder/400/225" alt="DevOps Implementation Video">
+                                        <div class="resource-type-badge">
+                                            <i class="fas fa-film"></i> Video
+                                        </div>
+                                    </div>
+                                    <div class="resource-card-content">
+                                        <span class="resource-category">DevOps</span>
+                                        <h3 class="resource-title">Implementing DevOps in Connectivity-Challenged Environments</h3>
+                                        <p class="resource-excerpt">Watch our technical director explain practical strategies for establishing effective CI/CD pipelines in environments with variable connectivity.</p>
+                                        <div class="resource-meta">
+                                            <div class="resource-date">
+                                                <i class="fas fa-clock"></i> 18 minutes
+                                            </div>
+                                            <div class="resource-actions">
+                                                <a href="#" class="resource-action"><i class="fas fa-play"></i></a>
+                                                <a href="#" class="resource-action js-save-resource"><i class="far fa-bookmark"></i></a>
+                                                <a href="#" class="resource-action"><i class="fas fa-share-alt"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </article>
+                                
+                                <!-- Tool Card -->
+                                <article class="resource-card tool-card" data-aos="fade-up" data-aos-delay="200">
+                                    <div class="resource-card-image">
+                                        <img src="/api/placeholder/400/225" alt="API Economy Tool">
+                                        <div class="resource-type-badge">
+                                            <i class="fas fa-tools"></i> Tool
+                                        </div>
+                                    </div>
+                                    <div class="resource-card-content">
+                                        <span class="resource-category">Integration</span>
+                                        <h3 class="resource-title">API Strategy Assessment Toolkit</h3>
+                                        <div class="tool-features">
+                                            <span class="tool-feature">Interactive</span>
+                                            <span class="tool-feature">Excel Template</span>
+                                        </div>
+                                        <p class="resource-excerpt">A comprehensive assessment tool to evaluate your organization's API readiness and develop a strategic roadmap for API implementation.</p>
+                                        <div class="resource-meta">
+                                            <div class="resource-date">
+                                                <i class="fas fa-download"></i> 843 downloads
+                                            </div>
+                                            <div class="resource-actions">
+                                                <a href="#" class="resource-action"><i class="fas fa-eye"></i></a>
+                                                <a href="#" class="resource-action"><i class="fas fa-download"></i></a>
+                                                <a href="#" class="resource-action js-save-resource"><i class="far fa-bookmark"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </article>
+                                
+                                <!-- Article Card -->
+                                <article class="resource-card" data-aos="fade-up" data-aos-delay="300">
+                                    <div class="resource-card-image">
+                                        <img src="/api/placeholder/400/225" alt="AI Implementation">
+                                        <div class="resource-type-badge">
+                                            <i class="fas fa-file-alt"></i> Article
+                                        </div>
+                                    </div>
+                                    <div class="resource-card-content">
+                                        <span class="resource-category">AI</span>
+                                        <h3 class="resource-title">Practical AI Implementation for African Businesses</h3>
+                                        <p class="resource-excerpt">Realistic approaches to implementing artificial intelligence in African business contexts, focusing on technologies that deliver value without requiring massive computational resources.</p>
+                                        <div class="resource-meta">
+                                            <div class="resource-date">
+                                                <i class="fas fa-calendar-alt"></i> March 8, 2025
+                                            </div>
+                                            <div class="resource-actions">
+                                                <a href="#" class="resource-action"><i class="fas fa-eye"></i></a>
+                                                <a href="#" class="resource-action js-save-resource"><i class="far fa-bookmark"></i></a>
+                                                <a href="#" class="resource-action"><i class="fas fa-share-alt"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </article>
+                                
+                                <!-- Case Study Card -->
+                                <article class="resource-card" data-aos="fade-up" data-aos-delay="100">
+                                    <div class="resource-card-image">
+                                        <img src="/api/placeholder/400/225" alt="Healthcare Case Study">
+                                        <div class="resource-type-badge">
+                                            <i class="fas fa-briefcase"></i> Case Study
+                                        </div>
+                                    </div>
+                                    <div class="resource-card-content">
+                                        <span class="resource-category">Healthcare</span>
+                                        <h3 class="resource-title">Rural Healthcare Connectivity Solution</h3>
+                                        <p class="resource-excerpt">How a major healthcare provider overcame connectivity challenges to implement an offline-first patient management system across 35 rural clinics.</p>
+                                        <div class="resource-meta">
+                                            <div class="resource-date">
+                                                <i class="fas fa-calendar-alt"></i> February 20, 2025
+                                            </div>
+                                            <div class="resource-actions">
+                                                <a href="#" class="resource-action"><i class="fas fa-eye"></i></a>
+                                                <a href="#" class="resource-action"><i class="fas fa-download"></i></a>
+                                                <a href="#" class="resource-action js-save-resource"><i class="far fa-bookmark"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </article>
+                                
+                                <!-- Whitepaper Card -->
+                                <article class="resource-card whitepaper-card" data-aos="fade-up" data-aos-delay="200">
+                                    <div class="resource-card-image">
+                                        <img src="/api/placeholder/400/225" alt="Multi-Cloud Strategies">
+                                        <div class="resource-type-badge">
+                                            <i class="fas fa-file-pdf"></i> Whitepaper
+                                        </div>
+                                    </div>
+                                    <div class="resource-card-content">
+                                        <span class="resource-category">Cloud</span>
+                                        <h3 class="resource-title">Multi-Cloud Strategies for African Enterprises</h3>
+                                        <p class="resource-excerpt">Strategic approaches to leveraging multiple cloud providers to enhance resilience, optimize costs, and navigate regional data sovereignty requirements.</p>
+                                        <div class="resource-meta">
+                                            <div class="resource-date">
+                                                <i class="fas fa-calendar-alt"></i> March 2, 2025
+                                            </div>
+                                            <div class="resource-actions">
+                                                <a href="#" class="resource-action"><i class="fas fa-eye"></i></a>
+                                                <a href="#" class="resource-action"><i class="fas fa-download"></i></a>
+                                                <a href="#" class="resource-action js-save-resource"><i class="far fa-bookmark"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </article>
+                            </div>
+                            
+                            <!-- Load More Button -->
+                            <div class="load-more-container" data-aos="fade-up">
+                                <button class="load-more-btn" id="loadMoreBtn">
+                                    <span class="text">Load More Resources</span>
+                                    <span class="spinner"></span>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Sidebar -->
+                        <aside class="sidebar" data-aos="fade-left">
+                            <!-- Newsletter Section -->
+                            <div class="sidebar-section">
+                                <h3 class="sidebar-title">Stay Updated</h3>
+                                <p>Subscribe to receive the latest insights and resources directly to your inbox.</p>
+                                <form class="newsletter-form">
+                                    <div class="form-group">
+                                        <label for="email" class="form-label">Email Address</label>
+                                        <input type="email" id="email" name="email" class="form-control" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="preferences" class="form-label">Interest Areas</label>
+                                        <select id="preferences" name="preferences" class="form-control">
+                                            <option value="">Select your main interest</option>
+                                            <option value="cloud">Cloud Solutions</option>
+                                            <option value="digital">Digital Transformation</option>
+                                            <option value="mobile">Mobile Development</option>
+                                            <option value="api">API & Integration</option>
+                                            <option value="security">Cybersecurity</option>
+                                        </select>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Subscribe</button>
+                                </form>
+                            </div>
+                            
+                            <!-- Popular Resources Section -->
+                            <div class="sidebar-section">
+                                <h3 class="sidebar-title">Popular Resources</h3>
+                                <ul class="popular-resources">
+                                    <li class="popular-resource">
+                                        <div class="popular-resource-image">
+                                            <img src="/api/placeholder/80/80" alt="Multi-Cloud Strategies">
+                                        </div>
+                                        <div class="popular-resource-content">
+                                            <h4 class="popular-resource-title">
+                                                <a href="#">Multi-Cloud Strategies for African Enterprises</a>
+                                            </h4>
+                                            <div class="popular-resource-meta">
+                                                <i class="fas fa-file-pdf"></i> Whitepaper
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="popular-resource">
+                                        <div class="popular-resource-image">
+                                            <img src="/api/placeholder/80/80" alt="Cybersecurity Essentials">
+                                        </div>
+                                        <div class="popular-resource-content">
+                                            <h4 class="popular-resource-title">
+                                                <a href="#">Cybersecurity Essentials for Remote African Workforces</a>
+                                            </h4>
+                                            <div class="popular-resource-meta">
+                                                <i class="fas fa-video"></i> Webinar Recording
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="popular-resource">
+                                        <div class="popular-resource-image">
+                                            <img src="/api/placeholder/80/80" alt="Digital Payment Systems">
+                                        </div>
+                                        <div class="popular-resource-content">
+                                            <h4 class="popular-resource-title">
+                                                <a href="#">Building Robust Digital Payment Systems</a>
+                                            </h4>
+                                            <div class="popular-resource-meta">
+                                                <i class="fas fa-file-alt"></i> Guide
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <!-- Saved Resources Section (Initially Hidden) -->
+                            <div class="sidebar-section" id="savedResourcesSection" style="display: none;">
+                                <h3 class="sidebar-title">Saved For Later</h3>
+                                <ul class="popular-resources" id="savedResourcesList">
+                                    <!-- Saved resources will be added here dynamically -->
+                                </ul>
+                                <div class="text-center mt-3">
+                                    <button class="btn btn-secondary" id="clearSavedBtn">Clear All</button>
+                                </div>
+                            </div>
+                            
+                            <!-- Topics Section -->
+                            <div class="sidebar-section">
+                                <h3 class="sidebar-title">Explore Topics</h3>
+                                <ul class="topic-list">
+                                    <li class="topic-item"><a href="#">Cloud Migration</a></li>
+                                    <li class="topic-item"><a href="#">Digital Transformation</a></li>
+                                    <li class="topic-item"><a href="#">Mobile Development</a></li>
+                                    <li class="topic-item"><a href="#">API Integration</a></li>
+                                    <li class="topic-item"><a href="#">Cybersecurity</a></li>
+                                    <li class="topic-item"><a href="#">DevOps</a></li>
+                                    <li class="topic-item"><a href="#">Artificial Intelligence</a></li>
+                                    <li class="topic-item"><a href="#">Data Analytics</a></li>
+                                    <li class="topic-item"><a href="#">ERP Systems</a></li>
+                                    <li class="topic-item"><a href="#">Remote Work</a></li>
+                                    <li class="topic-item"><a href="#">FinTech</a></li>
+                                    <li class="topic-item"><a href="#">EdTech</a></li>
+                                </ul>
+                            </div>
+                            
+                            <!-- Resource Request Section -->
+                            <div class="sidebar-section">
+                                <h3 class="sidebar-title">Request a Resource</h3>
+                                <p>Can't find what you're looking for? Let us know what topics you'd like us to cover next.</p>
+                                <a href="#" class="btn btn-primary mt-2">Suggest a Topic</a>
+                            </div>
+                        </aside>
+                    </div>
+                </div>
+                
+                <!-- Articles Tab Content -->
+                <div class="tab-content" id="articles">
+                    <!-- Content will be loaded or filtered when tab is clicked -->
+                    <div class="text-center py-5">
+                        <i class="fas fa-spinner fa-spin fa-2x mb-3" style="color: var(--execute-green);"></i>
+                        <p>Loading articles and insights...</p>
+                    </div>
+                </div>
+                
+                <!-- Whitepapers Tab Content -->
+                <div class="tab-content" id="whitepapers">
+                    <!-- Content will be loaded or filtered when tab is clicked -->
+                    <div class="text-center py-5">
+                        <i class="fas fa-spinner fa-spin fa-2x mb-3" style="color: var(--execute-green);"></i>
+                        <p>Loading whitepapers...</p>
+                    </div>
+                </div>
+                
+                <!-- Other tab contents would be similar -->
+                <!-- For brevity, I'm not including all of them as they would follow the same pattern -->
+            </div>
+        </section>
+        
+        <!-- Newsletter CTA Section -->
+        <section class="newsletter-cta">
+            <div class="container">
+                <div class="newsletter-content" data-aos="fade-up">
+                    <h2>Join Our Technology Insights Network</h2>
+                    <p>Stay ahead of Africa's evolving technology landscape with curated insights, exclusive resources, and early access to our events and webinars.</p>
+                    <form class="newsletter-form-large">
+                        <input type="email" placeholder="Your email address" aria-label="Email for newsletter" required>
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Company Info -->
+                <div>
+                    <a href="index.html" class="footer-logo">
+                        <span class="logo-slash">/</span>
+                        <span class="logo-text">EXECUTE</span>
+                    </a>
+                    <p class="footer-about">Accelerating digital transformation across Africa and beyond by delivering innovative, scalable, and sustainable technology solutions that empower businesses to thrive in a digital economy.</p>
+                    
+                    <div class="footer-social">
+                        <a href="#" class="footer-social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="footer-social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="footer-social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="footer-social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li class="footer-link"><a href="about-us.html">About Us</a></li>
+                        <li class="footer-link"><a href="services-overview.html">Services</a></li>
+                        <li class="footer-link"><a href="case-study.html">Case Studies</a></li>
+                        <li class="footer-link"><a href="resources-blog.html">Resources</a></li>
+                        <li class="footer-link"><a href="careers.html">Careers</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Services Links -->
+                <div>
+                    <h4 class="footer-heading">Our Services</h4>
+                    <ul class="footer-links">
+                        <li class="footer-link"><a href="custom-software.html">Custom Software</a></li>
+                        <li class="footer-link"><a href="cloud-solutions.html">Cloud Solutions</a></li>
+                        <li class="footer-link"><a href="digital-transformation.html">Digital Transformation</a></li>
+                        <li class="footer-link"><a href="api-development.html">API Development</a></li>
+                        <li class="footer-link"><a href="mobile-solutions.html">Mobile Solutions</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact Information -->
+                <div>
+                    <h4 class="footer-heading">Contact Us</h4>
+                    <div class="footer-contact">
+                        <p>
+                            <span class="footer-contact-icon"><i class="fas fa-map-marker-alt"></i></span>
+                            University Road, Turflop Mankweng, Limpopo South Africa
+                        </p>
+                        <p>
+                            <span class="footer-contact-icon"><i class="fas fa-phone-alt"></i></span>
+                            +27 69 739 3750
+                        </p>
+                        <p>
+                            <span class="footer-contact-icon"><i class="fas fa-envelope"></i></span>
+                            <a href="mailto:execute.co@outlook.com">execute.co@outlook.com</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Execute Technologies. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- AOS Animation Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    
+    <!-- Main JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize AOS Animation
+            AOS.init({
+                duration: 800,
+                easing: 'ease-out',
+                once: true
+            });
+            
+            // Mobile Menu Toggle
+            const navToggle = document.getElementById('navToggle');
+            const mainNav = document.getElementById('mainNav');
+            
+            navToggle.addEventListener('click', function() {
+                mainNav.classList.toggle('active');
+                navToggle.setAttribute('aria-expanded', 
+                    mainNav.classList.contains('active') ? 'true' : 'false');
+                navToggle.innerHTML = mainNav.classList.contains('active') ? 
+                    '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+            });
+            
+            // Header Scroll Effect
+            const header = document.getElementById('header');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+            
+            // Scroll to Top Button
+            const scrollTopBtn = document.getElementById('scrollTop');
+            
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 300) {
+                    scrollTopBtn.classList.add('visible');
+                } else {
+                    scrollTopBtn.classList.remove('visible');
+                }
+            });
+            
+            scrollTopBtn.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // Resource Tabs
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const tabId = this.getAttribute('data-tab');
+                    
+                    // Remove active class from all buttons and contents
+                    tabBtns.forEach(b => b.classList.remove('active'));
+                    tabContents.forEach(c => c.classList.remove('active'));
+                    
+                    // Add active class to clicked button and corresponding content
+                    this.classList.add('active');
+                    document.getElementById(tabId).classList.add('active');
+                    
+                    // Simulate loading content for tabs other than "all"
+                    if (tabId !== 'all') {
+                        // In a real application, you would fetch the filtered content here
+                        setTimeout(function() {
+                            document.getElementById(tabId).innerHTML = document.getElementById('all').innerHTML;
+                        }, 1000);
+                    }
+                });
+            });
+            
+            // Filter Dropdowns
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const filterDropdowns = document.querySelectorAll('.filter-dropdown');
+            
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    const dropdown = this.parentElement;
+                    
+                    // Close all other dropdowns
+                    filterDropdowns.forEach(d => {
+                        if (d !== dropdown) d.classList.remove('active');
+                    });
+                    
+                    // Toggle current dropdown
+                    dropdown.classList.toggle('active');
+                });
+            });
+            
+            // Close dropdowns when clicking outside
+            document.addEventListener('click', function() {
+                filterDropdowns.forEach(d => d.classList.remove('active'));
+            });
+            
+            // Prevent dropdown from closing when clicking inside
+            document.querySelectorAll('.filter-dropdown-content').forEach(content => {
+                content.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                });
+            });
+            
+            // Resource Modal
+            const modal = document.getElementById('resourceModal');
+            const modalClose = document.getElementById('modalClose');
+            const modalTriggers = document.querySelectorAll('.js-open-modal');
+            const featuredTrigger = document.getElementById('openFeaturedResource');
+            
+            // Open modal when clicking on resource cards
+            modalTriggers.forEach(trigger => {
+                trigger.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    modal.classList.add('active');
+                    document.body.style.overflow = 'hidden'; // Prevent scrolling
+                });
+            });
+            
+            // Open modal for featured resource
+            if (featuredTrigger) {
+                featuredTrigger.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    modal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                });
+            }
+            
+            // Close modal
+            modalClose.addEventListener('click', function() {
+                modal.classList.remove('active');
+                document.body.style.overflow = ''; // Restore scrolling
+            });
+            
+            // Close modal when clicking outside content
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    modal.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+            
+            // Save for Later functionality
+            const saveButtons = document.querySelectorAll('.js-save-resource');
+            const saveForLaterBtn = document.getElementById('saveForLater');
+            const savedResourcesSection = document.getElementById('savedResourcesSection');
+            const savedResourcesList = document.getElementById('savedResourcesList');
+            const clearSavedBtn = document.getElementById('clearSavedBtn');
+            
+            // Array to store saved resources
+            let savedResources = JSON.parse(localStorage.getItem('savedResources')) || [];
+            
+            // Update saved resources display
+            function updateSavedResources() {
+                if (savedResources.length > 0) {
+                    savedResourcesSection.style.display = 'block';
+                    savedResourcesList.innerHTML = savedResources.map(resource => `
+                        <li class="popular-resource">
+                            <div class="popular-resource-image">
+                                <img src="/api/placeholder/80/80" alt="${resource.title}">
+                            </div>
+                            <div class="popular-resource-content">
+                                <h4 class="popular-resource-title">
+                                    <a href="#">${resource.title}</a>
+                                </h4>
+                                <div class="popular-resource-meta">
+                                    <i class="${resource.icon}"></i> ${resource.type}
+                                </div>
+                            </div>
+                        </li>
+                    `).join('');
+                } else {
+                    savedResourcesSection.style.display = 'none';
+                }
+            }
+            
+            // Check if there are saved resources on page load
+            updateSavedResources();
+            
+            // Save resource from resource cards
+            saveButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const card = this.closest('.resource-card');
+                    const title = card.querySelector('.resource-title').textContent;
+                    const type = card.querySelector('.resource-type-badge').textContent.trim();
+                    const icon = card.querySelector('.resource-type-badge i').className;
+                    
+                    // Check if resource is already saved
+                    const alreadySaved = savedResources.some(resource => resource.title === title);
+                    
+                    if (!alreadySaved) {
+                        savedResources.push({ title, type, icon });
+                        localStorage.setItem('savedResources', JSON.stringify(savedResources));
+                        updateSavedResources();
+                        showToast('Resource Saved', 'Item added to your saved resources.', 'success');
+                        
+                        // Update bookmark icon
+                        this.innerHTML = '<i class="fas fa-bookmark"></i>';
+                    } else {
+                        // Remove from saved
+                        savedResources = savedResources.filter(resource => resource.title !== title);
+                        localStorage.setItem('savedResources', JSON.stringify(savedResources));
+                        updateSavedResources();
+                        showToast('Resource Removed', 'Item removed from your saved resources.', 'success');
+                        
+                        // Update bookmark icon
+                        this.innerHTML = '<i class="far fa-bookmark"></i>';
+                    }
+                });
+            });
+            
+            // Save resource from modal
+            if (saveForLaterBtn) {
+                saveForLaterBtn.addEventListener('click', function() {
+                    const title = document.querySelector('.modal-title').textContent;
+                    const type = 'Whitepaper';
+                    const icon = 'fas fa-file-pdf';
+                    
+                    // Check if resource is already saved
+                    const alreadySaved = savedResources.some(resource => resource.title === title);
+                    
+                    if (!alreadySaved) {
+                        savedResources.push({ title, type, icon });
+                        localStorage.setItem('savedResources', JSON.stringify(savedResources));
+                        updateSavedResources();
+                        showToast('Resource Saved', 'Item added to your saved resources.', 'success');
+                        
+                        // Update button text
+                        this.innerHTML = '<i class="fas fa-bookmark"></i> Saved';
+                    } else {
+                        // Remove from saved
+                        savedResources = savedResources.filter(resource => resource.title !== title);
+                        localStorage.setItem('savedResources', JSON.stringify(savedResources));
+                        updateSavedResources();
+                        showToast('Resource Removed', 'Item removed from your saved resources.', 'success');
+                        
+                        // Update button text
+                        this.innerHTML = '<i class="far fa-bookmark"></i> Save for Later';
+                    }
+                });
+            }
+            
+            // Clear all saved resources
+            if (clearSavedBtn) {
+                clearSavedBtn.addEventListener('click', function() {
+                    savedResources = [];
+                    localStorage.removeItem('savedResources');
+                    updateSavedResources();
+                    showToast('All Cleared', 'All saved resources have been removed.', 'success');
+                    
+                    // Reset bookmark icons
+                    saveButtons.forEach(button => {
+                        button.innerHTML = '<i class="far fa-bookmark"></i>';
+                    });
+                });
+            }
+            
+            // Load More Functionality
+            const loadMoreBtn = document.getElementById('loadMoreBtn');
+            
+            if (loadMoreBtn) {
+                loadMoreBtn.addEventListener('click', function() {
+                    this.classList.add('loading');
+                    
+                    // Simulate loading more resources
+                    setTimeout(() => {
+                        // In a real application, you would fetch more resources here
+                        // For this demo, we'll clone existing resources
+                        const resourceGrid = document.querySelector('.resource-grid');
+                        const existingCards = document.querySelectorAll('.resource-grid .resource-card');
+                        
+                        // Clone first 4 cards as new content
+                        for (let i = 0; i < 4 && i < existingCards.length; i++) {
+                            const clone = existingCards[i].cloneNode(true);
+                            resourceGrid.appendChild(clone);
+                            
+                            // Add click event to new cards
+                            clone.querySelectorAll('.js-open-modal').forEach(trigger => {
+                                trigger.addEventListener('click', function(e) {
+                                    e.preventDefault();
+                                    modal.classList.add('active');
+                                    document.body.style.overflow = 'hidden';
+                                });
+                            });
+                            
+                            clone.querySelectorAll('.js-save-resource').forEach(saveBtn => {
+                                saveBtn.addEventListener('click', function(e) {
+                                    e.preventDefault();
+                                    const card = this.closest('.resource-card');
+                                    const title = card.querySelector('.resource-title').textContent;
+                                    const type = card.querySelector('.resource-type-badge').textContent.trim();
+                                    const icon = card.querySelector('.resource-type-badge i').className;
+                                    
+                                    const alreadySaved = savedResources.some(resource => resource.title === title);
+                                    
+                                    if (!alreadySaved) {
+                                        savedResources.push({ title, type, icon });
+                                        localStorage.setItem('savedResources', JSON.stringify(savedResources));
+                                        updateSavedResources();
+                                        showToast('Resource Saved', 'Item added to your saved resources.', 'success');
+                                        this.innerHTML = '<i class="fas fa-bookmark"></i>';
+                                    } else {
+                                        savedResources = savedResources.filter(resource => resource.title !== title);
+                                        localStorage.setItem('savedResources', JSON.stringify(savedResources));
+                                        updateSavedResources();
+                                        showToast('Resource Removed', 'Item removed from your saved resources.', 'success');
+                                        this.innerHTML = '<i class="far fa-bookmark"></i>';
+                                    }
+                                });
+                            });
+                        }
+                        
+                        this.classList.remove('loading');
+                        
+                        // Hide load more button after loading second batch
+                        if (document.querySelectorAll('.resource-grid .resource-card').length > 12) {
+                            this.style.display = 'none';
+                        }
+                    }, 1500);
+                });
+            }
+            
+            // Toast Notification System
+            function showToast(title, message, type = 'success') {
+                const toastContainer = document.getElementById('toastContainer');
+                
+                const toast = document.createElement('div');
+                toast.className = `toast toast-${type}`;
+                
+                toast.innerHTML = `
+                    <div class="toast-icon">
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <div class="toast-content">
+                        <div class="toast-title">${title}</div>
+                        <div class="toast-message">${message}</div>
+                    </div>
+                    <button class="toast-close" aria-label="Close notification">
+                        <i class="fas fa-times"></i>
+                    </button>
+                `;
+                
+                toastContainer.appendChild(toast);
+                
+                // Trigger animation after a small delay
+                setTimeout(() => {
+                    toast.classList.add('active');
+                }, 10);
+                
+                // Add close functionality
+                toast.querySelector('.toast-close').addEventListener('click', function() {
+                    toast.classList.remove('active');
+                    setTimeout(() => {
+                        toast.remove();
+                    }, 300);
+                });
+                
+                // Auto-remove after 5 seconds
+                setTimeout(() => {
+                    if (toast.parentNode) {
+                        toast.classList.remove('active');
+                        setTimeout(() => {
+                            if (toast.parentNode) toast.remove();
+                        }, 300);
+                    }
+                }, 5000);
+            }
+            
+            // Share functionality
+            document.getElementById('shareResource').addEventListener('click', function() {
+                // In a real application, you would implement sharing functionality
+                showToast('Share Options', 'Sharing options would appear here in a production environment.', 'success');
+            });
+            
+            // Form submissions
+            document.querySelectorAll('form').forEach(form => {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const email = this.querySelector('input[type="email"]').value;
+                    
+                    if (email) {
+                        showToast('Subscription Successful', 'Thank you for subscribing to our newsletter!', 'success');
+                        this.reset();
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
